@@ -1,293 +1,182 @@
 export const syllabus = [
     {
         unit: "I",
-        title: "Introduction",
-        notes: "<h3>Unit I Overview</h3><p>This unit covers the basics of Mobile Computing, including paradigms, devices, and the GSM architecture.</p>",
+        title: "Introduction to Mobile Computing",
+        notes: "<h3>Unit I Overview</h3><p>This unit provides a foundational understanding of Mobile Computing, distinguishing it from wireless networking, and diving deep into the GSM architecture, a cornerstone of mobile communications.</p>",
         topics: [
             {
-                title: "Mobile Communications",
+                title: "Introduction to Mobile Computing",
                 content: `
           <div class="study-guide-box">
-            <h4>1. Introduction to Mobile Communication</h4>
+            <h4>1. Definition & Core Concepts</h4>
             <div class="definition-box">
-              <strong>Definition:</strong> Mobile Communication refers to the technology that allows the transmission of data, voice, and video via a computer or any other wireless-enabled device without having to be connected to a fixed physical link.
+              <strong>Mobile Computing:</strong> A technology that allows transmission of data, voice, and video via a computer or any other wireless-enabled device without having to be connected to a fixed physical link. It involves mobile communication, mobile hardware, and mobile software.
             </div>
             
-            <p>It enables users to communicate from any location without being tethered to a specific physical location. This flexibility has revolutionized how we work, socialize, and access information.</p>
-
-            <div class="concept-grid">
-              <div class="concept-card">
-                <strong>Mobility</strong>
-                The ability to move freely while maintaining communication.
-              </div>
-              <div class="concept-card">
-                <strong>Portability</strong>
-                The ability to easily carry devices (handhelds, wearables).
-              </div>
-              <div class="concept-card">
-                <strong>Connectivity</strong>
-                Seamless access to networks (Wi-Fi, Cellular).
-              </div>
-            </div>
-          </div>
-
-          <div class="study-guide-box">
-            <h4>2. Evolution of Mobile Radio Communication</h4>
-            <p>The journey from analog voice to ultra-fast 5G data has been marked by distinct generations.</p>
-            
-            <table class="comparison-table">
-              <thead>
-                <tr>
-                  <th>Generation</th>
-                  <th>Primary Service</th>
-                  <th>Key Technology</th>
-                  <th>Data Rate</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><strong>1G (1980s)</strong></td>
-                  <td>Analog Voice</td>
-                  <td>AMPS, FDMA</td>
-                  <td>2.4 kbps</td>
-                </tr>
-                <tr>
-                  <td><strong>2G (1990s)</strong></td>
-                  <td>Digital Voice + SMS</td>
-                  <td>GSM, CDMA, TDMA</td>
-                  <td>64 kbps</td>
-                </tr>
-                <tr>
-                  <td><strong>3G (2000s)</strong></td>
-                  <td>Mobile Internet</td>
-                  <td>WCDMA, UMTS</td>
-                  <td>2 Mbps</td>
-                </tr>
-                <tr>
-                  <td><strong>4G (2010s)</strong></td>
-                  <td>High-Speed IP Data</td>
-                  <td>LTE, WiMAX, OFDM</td>
-                  <td>100 Mbps - 1 Gbps</td>
-                </tr>
-                <tr>
-                  <td><strong>5G (2020s)</strong></td>
-                  <td>IoT, Ultra-Low Latency</td>
-                  <td>NR (New Radio), mmWave</td>
-                  <td>10 Gbps+</td>
-                </tr>
-              </tbody>
-            </table>
-
-            <div class="deep-dive-box">
-              <h5>🚀 Deep Dive: Why 5G is a Game Changer</h5>
-              <p>5G isn't just faster 4G. It introduces <strong>Network Slicing</strong>, allowing operators to create virtual networks for specific use cases (e.g., a low-latency slice for autonomous cars and a high-bandwidth slice for 4K streaming) on the same physical infrastructure.</p>
-            </div>
-          </div>
-
-          <div class="study-guide-box">
-            <h4>3. Wireless Transmission Basics</h4>
-            <p>Understanding how signals travel is crucial.</p>
-            
-            <div class="diagram-container">
-              <div class="diagram-row">
-                <div class="diagram-box">Transmitter</div>
-                <div class="diagram-arrow">Signal (EM Waves)</div>
-                <div class="diagram-box">Receiver</div>
-              </div>
-            </div>
-
+            <h5>Three Dimensions of Mobile Computing:</h5>
             <ul>
-              <li><strong>Frequencies:</strong> Mobile networks operate in the Radio Frequency (RF) spectrum (e.g., 900 MHz, 1800 MHz, 2.4 GHz).</li>
-              <li><strong>Signals:</strong> Physical representation of data. Can be Analog (continuous) or Digital (discrete).</li>
-              <li><strong>Antennas:</strong> Convert electrical signals into electromagnetic waves and vice-versa.</li>
+              <li><strong>Ubiquity:</strong> Ability to access information from anywhere.</li>
+              <li><strong>Convenience:</strong> Devices are portable and easy to use.</li>
+              <li><strong>Connectivity:</strong> Continuous access to the network.</li>
             </ul>
 
-            <div class="example-box">
-              <strong>Real World Example:</strong> When you talk on your phone, your voice (analog) is converted to digital data, modulated onto a radio wave by the antenna, and transmitted to the nearest cell tower.
-            </div>
-          </div>
-        `
-            },
-            {
-                title: "Mobile Computing - Paradigm & Architecture",
-                content: `
-          <div class="study-guide-box">
-            <h4>1. The Mobile Computing Paradigm</h4>
-            <p>Mobile Computing is a generic term describing your ability to use technology while moving, as opposed to portable computers, which are only practical for use while deployed in a stationary configuration.</p>
-
-            <div class="definition-box">
-              <strong>Core Concept:</strong> "Anytime, Anywhere" computing. It brings the power of a desktop computer to a handheld device, untethered by wires.
-            </div>
-
-            <h5>Key Characteristics:</h5>
-            <ul>
-              <li><strong>Ubiquity:</strong> Available everywhere.</li>
-              <li><strong>Location Awareness:</strong> Devices know where they are (GPS).</li>
-              <li><strong>Adaptation:</strong> Systems adapt to changing bandwidth and resources.</li>
-            </ul>
-          </div>
-
-          <div class="study-guide-box">
-            <h4>2. 3-Tier Architecture</h4>
-            <p>Mobile applications typically follow a 3-tier structure to manage resources efficiently.</p>
-
-            <div class="diagram-container">
-              <div class="diagram-box" style="background:#e0f2fe">Tier 1: Presentation (Client)</div>
-              <div class="diagram-arrow">⬇⬆ User Interface / Input</div>
-              <div class="diagram-box" style="background:#f0fdf4">Tier 2: Application (Middle)</div>
-              <div class="diagram-arrow">⬇⬆ Business Logic / Processing</div>
-              <div class="diagram-box" style="background:#fff7ed">Tier 3: Data (Database)</div>
-            </div>
-
-            <div class="concept-grid">
-              <div class="concept-card">
-                <strong>Tier 1: Client</strong>
-                Runs on the mobile device. Handles UI and user input. Lightweight to save battery.
-              </div>
-              <div class="concept-card">
-                <strong>Tier 2: Application</strong>
-                Runs on a server (e.g., Web Server). Processes data, handles logic, and formats content for the mobile.
-              </div>
-              <div class="concept-card">
-                <strong>Tier 3: Data</strong>
-                The backend database. Stores user profiles, content, and logs. Secure and scalable.
-              </div>
-            </div>
-          </div>
-
-          <div class="study-guide-box">
-            <h4>3. Novel Applications</h4>
-            <p>Mobile computing enables applications that were previously impossible.</p>
-            <ul>
-              <li><strong>LBS (Location Based Services):</strong> Uber, Google Maps, "Find my Friends".</li>
-              <li><strong>M-Commerce:</strong> Mobile banking, NFC payments (Apple Pay).</li>
-              <li><strong>Tele-medicine:</strong> Remote patient monitoring via wearable sensors.</li>
-              <li><strong>Smart Cities:</strong> Traffic management, pollution monitoring sensors.</li>
-            </ul>
-          </div>
-        `
-            },
-            {
-                title: "Mobile and Handheld Devices",
-                content: `
-          <div class="study-guide-box">
-            <h4>Types of Mobile Devices</h4>
-            <p>The ecosystem of mobile hardware is vast.</p>
-
-            <div class="concept-grid">
-              <div class="concept-card">
-                <strong>Smartphones</strong>
-                General-purpose computers with cellular connectivity. (iPhone, Pixel).
-              </div>
-              <div class="concept-card">
-                <strong>Tablets</strong>
-                Larger screens, bridging the gap between phones and laptops. (iPad).
-              </div>
-              <div class="concept-card">
-                <strong>Wearables</strong>
-                Body-borne computers. (Smartwatches, AR Glasses).
-              </div>
-              <div class="concept-card">
-                <strong>Sensors (IoT)</strong>
-                Low-power devices that gather environmental data. (Temp sensors, GPS trackers).
-              </div>
-            </div>
-          </div>
-
-          <div class="study-guide-box">
-            <h4>Limitations of Mobile Devices</h4>
-            <p>Designing for mobile is challenging due to inherent hardware constraints.</p>
-
-            <div class="deep-dive-box">
-              <h5>1. Battery Power 🔋</h5>
-              <p>The biggest bottleneck. Processors and screens are power-hungry. Battery technology (Li-Ion) improves slowly compared to CPU speed (Moore's Law).</p>
-              <p><strong>Implication:</strong> Apps must be energy-efficient. Avoid polling; use push notifications.</p>
-            </div>
-
-            <div class="deep-dive-box">
-              <h5>2. Bandwidth & Connectivity 📶</h5>
-              <p>Wireless connections are unstable, slower than wired, and have high latency.</p>
-              <p><strong>Implication:</strong> Apps must handle "Offline Mode" gracefully and sync data when connection returns.</p>
-            </div>
-
-            <div class="deep-dive-box">
-              <h5>3. Screen Size & UI 📱</h5>
-              <p>Small screens limit the amount of information displayed.</p>
-              <p><strong>Implication:</strong> UI must be simple, uncluttered, and touch-friendly.</p>
-            </div>
-          </div>
-        `
-            },
-            {
-                title: "GSM Architecture & Services",
-                content: `
-          <div class="study-guide-box">
-            <h4>1. GSM Overview</h4>
-            <div class="definition-box">
-              <strong>GSM (Global System for Mobile Communications)</strong> is the world's most popular standard for mobile telephony systems. It is a 2G digital technology.
-            </div>
-          </div>
-
-          <div class="study-guide-box">
-            <h4>2. GSM System Architecture</h4>
-            <p>The network is divided into three major subsystems.</p>
-
-            <div class="diagram-container">
-              <div class="diagram-row">
-                <div class="diagram-box" style="border-color: #2563eb">Mobile Station (MS)</div>
-                <div class="diagram-arrow">Air Interface (Um)</div>
-                <div class="diagram-box" style="border-color: #16a34a">Base Station Subsystem (BSS)</div>
-                <div class="diagram-arrow">A Interface</div>
-                <div class="diagram-box" style="border-color: #dc2626">Network Subsystem (NSS)</div>
-              </div>
-            </div>
-
-            <h5>A. Mobile Station (MS)</h5>
-            <ul>
-              <li><strong>Mobile Equipment (ME):</strong> The physical phone. Identified by IMEI.</li>
-              <li><strong>Subscriber Identity Module (SIM):</strong> A smart card containing the user's identity (IMSI) and secret keys (Ki) for authentication.</li>
-            </ul>
-
-            <h5>B. Base Station Subsystem (BSS)</h5>
-            <ul>
-              <li><strong>BTS (Base Transceiver Station):</strong> The radio equipment (antennas). Handles signal transmission/reception.</li>
-              <li><strong>BSC (Base Station Controller):</strong> The "brain" of the BSS. Manages radio resources, frequency hopping, and handovers between BTSs.</li>
-            </ul>
-
-            <h5>C. Network and Switching Subsystem (NSS)</h5>
-            <ul>
-              <li><strong>MSC (Mobile Switching Center):</strong> The core switch. Routes calls to other MSCs or the PSTN (landline network).</li>
-              <li><strong>HLR (Home Location Register):</strong> Database of all permanent subscriber data and their current location (VLR address).</li>
-              <li><strong>VLR (Visitor Location Register):</strong> Temporary database of users currently roaming in the MSC's area.</li>
-              <li><strong>AuC (Authentication Center):</strong> Stores secret keys for security.</li>
-              <li><strong>EIR (Equipment Identity Register):</strong> Database of valid/stolen IMEIs.</li>
-            </ul>
-          </div>
-
-          <div class="study-guide-box">
-            <h4>3. GSM Services</h4>
+            <h4>2. Mobile Computing vs Wireless Networking</h4>
             <table class="comparison-table">
               <tr>
-                <th>Service Type</th>
-                <th>Description</th>
-                <th>Examples</th>
+                <th>Feature</th>
+                <th>Mobile Computing</th>
+                <th>Wireless Networking</th>
               </tr>
               <tr>
-                <td><strong>Teleservices</strong></td>
-                <td>End-to-end communication services.</td>
-                <td>Voice Calls, SMS, MMS, Fax.</td>
+                <td><strong>Focus</strong></td>
+                <td>User's ability to compute while moving.</td>
+                <td>Method of communication without wires.</td>
               </tr>
               <tr>
-                <td><strong>Bearer Services</strong></td>
-                <td>Data transmission services (lower layers).</td>
-                <td>Circuit-switched data (9.6 kbps), Packet data (GPRS).</td>
+                <td><strong>Dependency</strong></td>
+                <td>Relies on wireless networking.</td>
+                <td>Can exist without mobile computing (e.g., fixed wireless).</td>
               </tr>
               <tr>
-                <td><strong>Supplementary Services</strong></td>
-                <td>Add-on features.</td>
-                <td>Call Forwarding, Call Waiting, Caller ID, Conference Calling.</td>
+                <td><strong>Example</strong></td>
+                <td>Working on a laptop in a train.</td>
+                <td>Connecting a printer via Wi-Fi.</td>
               </tr>
             </table>
+          </div>
+        `
+            },
+            {
+                title: "Architecture of Mobile Computing",
+                content: `
+          <div class="study-guide-box">
+            <h4>3-Tier Architecture</h4>
+            <p>Mobile computing applications typically follow a 3-tier architecture to separate concerns and ensure scalability.</p>
+            
+            <div class="concept-grid">
+              <div class="concept-card">
+                <h5>1. Presentation Tier (Client)</h5>
+                <p><strong>Role:</strong> User Interface (UI) and user interaction.</p>
+                <p><strong>Components:</strong> Mobile devices (Smartphones, Tablets), Browsers, Native Apps.</p>
+                <p><strong>Key Task:</strong> Rendering data and capturing user input.</p>
+              </div>
+              <div class="concept-card">
+                <h5>2. Application Tier (Middle)</h5>
+                <p><strong>Role:</strong> Business logic and processing.</p>
+                <p><strong>Components:</strong> Web Servers (Apache, IIS), App Servers (Tomcat, Node.js).</p>
+                <p><strong>Key Task:</strong> Processing requests, decision making, formatting data for client.</p>
+              </div>
+              <div class="concept-card">
+                <h5>3. Data Tier (Server)</h5>
+                <p><strong>Role:</strong> Data storage and management.</p>
+                <p><strong>Components:</strong> Databases (SQL, NoSQL), Legacy Systems.</p>
+                <p><strong>Key Task:</strong> Storing, retrieving, and maintaining data integrity.</p>
+              </div>
+            </div>
+          </div>
+        `
+            },
+            {
+                title: "GSM Architecture",
+                content: `
+          <div class="study-guide-box">
+            <h4>Global System for Mobile Communications (GSM)</h4>
+            <p>GSM is a digital mobile network that is widely used by mobile phone users. It uses a variation of Time Division Multiple Access (TDMA).</p>
+            
+            <div class="deep-dive-box">
+              <h5>Key Subsystems</h5>
+              <ul>
+                <li><strong>Mobile Station (MS):</strong> The user's device (Phone + SIM).
+                  <ul>
+                    <li><strong>ME (Mobile Equipment):</strong> The hardware (IMEI).</li>
+                    <li><strong>SIM (Subscriber Identity Module):</strong> Stores user data (IMSI, Ki).</li>
+                  </ul>
+                </li>
+                <li><strong>Base Station Subsystem (BSS):</strong> Controls the radio link.
+                  <ul>
+                    <li><strong>BTS (Base Transceiver Station):</strong> The radio tower. Handles radio signals.</li>
+                    <li><strong>BSC (Base Station Controller):</strong> Manages multiple BTSs, handovers, and frequency hopping.</li>
+                  </ul>
+                </li>
+                <li><strong>Network Switching Subsystem (NSS):</strong> The core network.
+                  <ul>
+                    <li><strong>MSC (Mobile Switching Center):</strong> The brain. Handles call routing and switching.</li>
+                    <li><strong>HLR (Home Location Register):</strong> Database of permanent subscriber info.</li>
+                    <li><strong>VLR (Visitor Location Register):</strong> Database of currently roaming users.</li>
+                    <li><strong>AuC (Authentication Center):</strong> Handles security and encryption keys.</li>
+                    <li><strong>EIR (Equipment Identity Register):</strong> Tracks stolen devices (White/Grey/Black lists).</li>
+                  </ul>
+                </li>
+                <li><strong>Operation Support Subsystem (OSS):</strong> Network management and maintenance.</li>
+              </ul>
+            </div>
+            
+            <h5>GSM Interfaces:</h5>
+            <ul>
+              <li><strong>Um Interface:</strong> Air interface between MS and BTS.</li>
+              <li><strong>Abis Interface:</strong> Between BTS and BSC.</li>
+              <li><strong>A Interface:</strong> Between BSC and MSC.</li>
+            </ul>
+          </div>
+        `
+            },
+            {
+                title: "GSM Call Routing",
+                content: `
+          <div class="study-guide-box">
+            <h4>Call Routing Scenarios</h4>
+            
+            <div class="concept-grid">
+              <div class="concept-card">
+                <h5>Mobile Originating (MO) Call</h5>
+                <ol>
+                  <li><strong>Request:</strong> MS sends request to BSS (BTS -> BSC).</li>
+                  <li><strong>Forward:</strong> BSS forwards to MSC.</li>
+                  <li><strong>Auth:</strong> MSC/VLR authenticates user with HLR/AuC.</li>
+                  <li><strong>Setup:</strong> MSC routes call to GMSC or PSTN.</li>
+                  <li><strong>Connect:</strong> Connection established.</li>
+                </ol>
+              </div>
+              <div class="concept-card">
+                <h5>Mobile Terminating (MT) Call</h5>
+                <ol>
+                  <li><strong>Entry:</strong> Call enters GMSC from PSTN.</li>
+                  <li><strong>Query:</strong> GMSC queries HLR for user location (MSRN).</li>
+                  <li><strong>Route:</strong> HLR asks VLR for MSRN. VLR returns MSRN to HLR -> GMSC.</li>
+                  <li><strong>Forward:</strong> GMSC routes call to current MSC.</li>
+                  <li><strong>Page:</strong> MSC pages the MS via BSS.</li>
+                  <li><strong>Connect:</strong> MS answers.</li>
+                </ol>
+              </div>
+            </div>
+            
+            <div class="key-takeaway">
+              <strong>MSRN (Mobile Station Roaming Number):</strong> A temporary number assigned by the VLR to route a call to a roaming subscriber. It is released after the call is set up.
+            </div>
+          </div>
+        `
+            },
+            {
+                title: "Applications & Limitations",
+                content: `
+          <div class="study-guide-box">
+            <h4>Applications of Mobile Computing</h4>
+            <ul>
+              <li><strong>Vehicles:</strong> GPS, music, news, vehicle diagnosis.</li>
+              <li><strong>Emergencies:</strong> Ambulances, police, fire squads (ad-hoc networks).</li>
+              <li><strong>Business:</strong> Mobile sales, inventory management, instant access to corporate data.</li>
+              <li><strong>Infotainment:</strong> Travel guides, location-based services, streaming.</li>
+            </ul>
+            
+            <h4>Limitations</h4>
+            <div class="deep-dive-box">
+              <ul>
+                <li><strong>Resource Constraints:</strong> Limited battery, processing power, and memory compared to desktops.</li>
+                <li><strong>Bandwidth:</strong> Wireless networks have lower bandwidth and higher latency than wired networks.</li>
+                <li><strong>Security:</strong> Wireless signals are easier to intercept; devices are prone to theft.</li>
+                <li><strong>Interference:</strong> Signal quality affected by weather, obstacles, and distance.</li>
+              </ul>
+            </div>
           </div>
         `
             }
@@ -295,160 +184,84 @@ export const syllabus = [
     },
     {
         unit: "II",
-        title: "(Wireless) Medium Access Control (MAC)",
-        notes: "<h3>Unit II Overview</h3><p>Focuses on how multiple users share the wireless medium (MAC) and how IP works in mobile environments (Mobile IP).</p>",
+        title: "Wireless Medium Access Control and Mobile Network Layer",
+        notes: "<h3>Unit II Overview</h3><p>This unit delves into how multiple users share the wireless medium (MAC) and how mobile devices maintain connectivity while moving across networks (Mobile IP).</p>",
         topics: [
             {
-                title: "Motivation for Specialized MAC",
+                title: "Medium Access Control (MAC)",
                 content: `
           <div class="study-guide-box">
-            <h4>Why Standard Ethernet (CSMA/CD) Fails in Wireless</h4>
-            <p>In wired networks, we use CSMA/CD (Carrier Sense Multiple Access with Collision Detection). If a collision occurs, the voltage spikes, and everyone stops. In wireless, this is impossible because:</p>
+            <h4>Why Special MAC?</h4>
+            <p>Wireless medium is shared and prone to collisions. Standard Ethernet (CSMA/CD) doesn't work well due to:</p>
             <ul>
-              <li><strong>Signal Attenuation:</strong> The transmitted signal is millions of times stronger than the received signal. A node cannot "hear" a collision while it is transmitting (it deafens itself).</li>
-              <li><strong>Hidden Terminal Problem:</strong> Nodes may not hear each other.</li>
+              <li><strong>Hidden Terminal Problem:</strong> A and C want to send to B. A can't hear C, so they collide at B.</li>
+              <li><strong>Exposed Terminal Problem:</strong> B sending to A. C wants to send to D. C hears B and waits unnecessarily.</li>
             </ul>
-          </div>
-
-          <div class="study-guide-box">
-            <h4>The Hidden Terminal Problem</h4>
-            <div class="diagram-container">
-              <div class="diagram-row">
-                <div class="diagram-box">A</div>
-                <div class="diagram-arrow">➡</div>
-                <div class="diagram-box">B</div>
-                <div class="diagram-arrow">⬅</div>
-                <div class="diagram-box">C</div>
-              </div>
-            </div>
-            <p><strong>Scenario:</strong> A is in range of B. C is in range of B. But A and C are <em>not</em> in range of each other.</p>
-            <p><strong>Problem:</strong> A transmits to B. C checks the medium, hears nothing (since A is out of range), and transmits to B. <strong>Collision at B!</strong></p>
-          </div>
-
-          <div class="study-guide-box">
-            <h4>The Exposed Terminal Problem</h4>
-            <div class="diagram-container">
-              <div class="diagram-row">
-                <div class="diagram-box">A</div>
-                <div class="diagram-arrow">⬅</div>
-                <div class="diagram-box">B</div>
-                <div class="diagram-box">C</div>
-                <div class="diagram-arrow">➡</div>
-                <div class="diagram-box">D</div>
-              </div>
-            </div>
-            <p><strong>Scenario:</strong> B sends to A. C wants to send to D.</p>
-            <p><strong>Problem:</strong> C hears B transmitting and waits. But C's transmission to D would <em>not</em> interfere with B's transmission to A (since A is out of C's range). <strong>Result:</strong> Unnecessary waiting (wasted bandwidth). </p>
-          </div>
-
-          <div class="key-takeaway">
-            <strong>Solution:</strong> Wireless networks use <strong>CSMA/CA (Collision Avoidance)</strong> with RTS/CTS (Request to Send / Clear to Send) packets to reserve the medium.
-          </div>
-        `
-            },
-            {
-                title: "SDMA, FDMA, TDMA, CDMA",
-                content: `
-          <div class="study-guide-box">
-            <h4>Multiple Access Techniques</h4>
-            <p>How do we allow multiple users to talk at the same time?</p>
-
+            
+            <h4>Multiplexing Techniques</h4>
             <div class="concept-grid">
               <div class="concept-card">
-                <strong>SDMA (Space)</strong>
-                Control radiated energy into specific sectors.
-                <em>Analogy:</em> Two people talking in different rooms.
+                <h5>SDMA (Space)</h5>
+                <p>Segment space into sectors (e.g., directional antennas). Reuse frequencies in different spaces.</p>
               </div>
               <div class="concept-card">
-                <strong>FDMA (Frequency)</strong>
-                Assign distinct frequencies.
-                <em>Analogy:</em> Two people talking at different pitches (bass vs soprano).
+                <h5>FDMA (Frequency)</h5>
+                <p>Split spectrum into frequency bands. Each user gets a band. (e.g., Radio stations).</p>
               </div>
               <div class="concept-card">
-                <strong>TDMA (Time)</strong>
-                Assign distinct time slots.
-                <em>Analogy:</em> Two people taking turns talking.
+                <h5>TDMA (Time)</h5>
+                <p>Split time into slots. Users take turns. (e.g., GSM).</p>
               </div>
               <div class="concept-card">
-                <strong>CDMA (Code)</strong>
-                Assign unique mathematical codes.
-                <em>Analogy:</em> Two people speaking different languages in the same room.
+                <h5>CDMA (Code)</h5>
+                <p>Spread spectrum. Users use unique codes. Can transmit at same time/freq. (e.g., 3G).</p>
               </div>
-            </div>
-
-            <div class="deep-dive-box">
-              <h5>🚀 Deep Dive: CDMA (Code Division Multiple Access)</h5>
-              <p>CDMA uses <strong>Spread Spectrum</strong> technology. Each user is assigned a unique <strong>Orthogonal Code</strong> (Chipping Sequence).</p>
-              <ul>
-                <li>Sender multiplies data bits by the code.</li>
-                <li>Receiver multiplies the incoming signal by the same code.</li>
-                <li>Other users' signals appear as random noise (interference) and are filtered out.</li>
-              </ul>
-              <p><strong>Advantage:</strong> Secure, resistant to jamming, and allows soft handovers.</p>
             </div>
           </div>
         `
             },
             {
-                title: "Mobile Network Layer (Mobile IP)",
+                title: "Mobile IP",
                 content: `
           <div class="study-guide-box">
-            <h4>The Problem with Standard IP</h4>
-            <p>In standard IP, your IP address identifies <strong>who you are</strong> AND <strong>where you are</strong> (network prefix). If you move to a new network, your IP must change. If your IP changes, all active TCP connections break.</p>
+            <h4>The Problem</h4>
+            <p>Standard IP assumes a device's IP address is fixed to a physical network location. If you move, your IP changes, breaking connections.</p>
+            
+            <h4>Mobile IP Solution</h4>
+            <p>Allows a Mobile Node (MN) to keep its Home Address (HoA) while moving.</p>
+            
             <div class="definition-box">
-              <strong>Mobile IP</strong> is a standard (RFC 3344) that allows a Mobile Node to keep the same IP address (Home Address) while moving across networks.
+              <h5>Key Entities</h5>
+              <ul>
+                <li><strong>Mobile Node (MN):</strong> The device moving.</li>
+                <li><strong>Home Agent (HA):</strong> Router on home network. Forwards packets to MN.</li>
+                <li><strong>Foreign Agent (FA):</strong> Router on visited network. Provides Care-of-Address (CoA).</li>
+                <li><strong>Care-of-Address (CoA):</strong> Temporary address on the foreign network.</li>
+              </ul>
             </div>
-          </div>
-
-          <div class="study-guide-box">
-            <h4>Mobile IP Entities</h4>
-            <ul>
-              <li><strong>Mobile Node (MN):</strong> The device (e.g., laptop) moving around.</li>
-              <li><strong>Home Agent (HA):</strong> A router in the MN's home network. It intercepts packets destined for the MN and tunnels them.</li>
-              <li><strong>Foreign Agent (FA):</strong> A router in the visited network. It receives tunneled packets and delivers them to the MN.</li>
-              <li><strong>Care-of Address (CoA):</strong> A temporary IP address that identifies the MN's current location in the foreign network.</li>
-            </ul>
-          </div>
-
-          <div class="study-guide-box">
-            <h4>How It Works (The Process)</h4>
+            
+            <h5>Process:</h5>
             <ol>
-              <li><strong>Agent Discovery:</strong> HA and FA broadcast advertisements. MN listens to determine if it's at home or away.</li>
-              <li><strong>Registration:</strong>
-                <ul>
-                  <li>MN gets a CoA from the FA.</li>
-                  <li>MN sends a Registration Request to HA (via FA) saying "I am now at this CoA".</li>
-                  <li>HA updates its routing table.</li>
-                </ul>
-              </li>
-              <li><strong>Tunneling (Data Transfer):</strong>
-                <ul>
-                  <li>Correspondent Node (CN) sends packet to MN's Home Address.</li>
-                  <li>HA intercepts the packet.</li>
-                  <li>HA <strong>encapsulates</strong> the packet (IP-in-IP) and sends it to the CoA.</li>
-                  <li>FA receives, <strong>decapsulates</strong>, and delivers the original packet to MN.</li>
-                </ul>
-              </li>
+              <li><strong>Agent Discovery:</strong> MN finds FA.</li>
+              <li><strong>Registration:</strong> MN registers CoA with HA.</li>
+              <li><strong>Tunneling:</strong> HA intercepts packets for MN, encapsulates them, and tunnels to CoA.</li>
+              <li><strong>Delivery:</strong> FA decapsulates and delivers to MN.</li>
             </ol>
           </div>
         `
             },
             {
-                title: "DHCP",
+                title: "Mobile IP Optimizations",
                 content: `
           <div class="study-guide-box">
-            <h4>DHCP (Dynamic Host Configuration Protocol)</h4>
-            <p>A protocol used to automatically assign IP addresses and other network configuration parameters (Subnet mask, Gateway, DNS) to devices.</p>
+            <h4>Inefficiency: Triangular Routing</h4>
+            <p>Packets from Correspondent Node (CN) go to HA -> FA -> MN. But MN sends directly to CN. This "triangle" adds latency.</p>
             
-            <div class="example-box">
-              <strong>The DORA Process:</strong>
-              <ul>
-                <li><strong>D</strong>iscover: Client broadcasts "Is there a DHCP server?"</li>
-                <li><strong>O</strong>ffer: Server says "Yes, here is an IP (192.168.1.5)."</li>
-                <li><strong>R</strong>equest: Client says "I'll take it."</li>
-                <li><strong>A</strong>cknowledge: Server says "Confirmed. It's yours for 24 hours."</li>
-              </ul>
-            </div>
+            <h4>Optimization: Route Optimization</h4>
+            <p>CN learns the current CoA of the MN and sends packets directly (bypassing HA).</p>
+            
+            <h4>DHCP (Dynamic Host Configuration Protocol)</h4>
+            <p>Used to automatically assign IP addresses (and CoAs) to devices joining a network.</p>
           </div>
         `
             }
@@ -457,101 +270,57 @@ export const syllabus = [
     {
         unit: "III",
         title: "Mobile Transport Layer",
-        notes: "<h3>Unit III Overview</h3><p>Covers TCP adaptations for mobile networks and database issues like hoarding and caching.</p>",
+        notes: "<h3>Unit III Overview</h3><p>Standard TCP performs poorly in wireless environments due to packet loss being misinterpreted as congestion. This unit explores modifications to TCP for mobile networks.</p>",
         topics: [
             {
-                title: "Conventional TCP vs Mobile",
+                title: "Traditional TCP Issues",
                 content: `
           <div class="study-guide-box">
-            <h4>The TCP Problem</h4>
-            <p>TCP (Transmission Control Protocol) is tuned for wired networks. It assumes that <strong>Packet Loss = Network Congestion</strong>.</p>
-            <p><strong>Reaction:</strong> When a packet is lost, TCP invokes congestion control (slow start), drastically reducing the transmission speed.</p>
-            
-            <div class="deep-dive-box">
-              <h5>Why this is bad for Mobile</h5>
-              <p>In wireless networks, packet loss is rarely due to congestion. It is usually due to:</p>
-              <ul>
-                <li><strong>Bit Errors:</strong> Noise/Interference on the radio link.</li>
-                <li><strong>Handovers:</strong> Brief disconnection while switching towers.</li>
-              </ul>
-              <p><strong>Result:</strong> TCP "thinks" the network is congested and slows down unnecessarily, leading to poor throughput.</p>
-            </div>
+            <h4>Congestion Control vs Wireless Loss</h4>
+            <p><strong>Wired Networks:</strong> Packet loss = Congestion. Solution: Slow down (reduce window).</p>
+            <p><strong>Wireless Networks:</strong> Packet loss = Interference/Handover. Solution: Retransmit immediately (don't slow down).</p>
+            <p><strong>Problem:</strong> Standard TCP assumes all loss is congestion, so it slows down unnecessarily on wireless links, killing performance.</p>
           </div>
         `
             },
             {
-                title: "Indirect TCP (I-TCP)",
+                title: "TCP Improvements",
                 content: `
           <div class="study-guide-box">
             <h4>Indirect TCP (I-TCP)</h4>
-            <p><strong>Idea:</strong> Split the connection into two separate connections.</p>
+            <p>Splits connection into two: Fixed (CN to BS) and Wireless (BS to MN). BS acts as proxy.</p>
+            <ul>
+              <li><strong>Pros:</strong> Isolates wireless problems.</li>
+              <li><strong>Cons:</strong> Breaks end-to-end semantics. BS crash = lost data.</li>
+            </ul>
             
-            <div class="diagram-container">
-              <div class="diagram-row">
-                <div class="diagram-box">Fixed Host</div>
-                <div class="diagram-arrow">Connection 1 (Standard TCP)</div>
-                <div class="diagram-box">Base Station (BS)</div>
-                <div class="diagram-arrow">Connection 2 (Wireless TCP)</div>
-                <div class="diagram-box">Mobile Host</div>
-              </div>
-            </div>
-
-            <ul>
-              <li><strong>Connection 1:</strong> Between Fixed Host and BS. Uses standard TCP. BS acts as the receiver for the Fixed Host.</li>
-              <li><strong>Connection 2:</strong> Between BS and Mobile Host. Uses a protocol optimized for wireless (e.g., fast retransmission, selective ACKs).</li>
-            </ul>
-
-            <div class="concept-grid">
-              <div class="concept-card">
-                <strong>Advantage</strong>
-                Isolates the fixed network from wireless errors.
-              </div>
-              <div class="concept-card">
-                <strong>Disadvantage</strong>
-                Breaks end-to-end semantics. If BS crashes after ACKing, data is lost.
-              </div>
-            </div>
-          </div>
-        `
-            },
-            {
-                title: "Snooping TCP",
-                content: `
-          <div class="study-guide-box">
             <h4>Snooping TCP</h4>
-            <p><strong>Idea:</strong> The Base Station is "smart". It monitors (snoops) packets flowing through it.</p>
+            <p>BS "snoops" on packets. Buffers packets. If loss detected on wireless, BS retransmits locally (transparent to CN).</p>
             <ul>
-              <li>BS buffers packets sent to the Mobile Host.</li>
-              <li>If BS sees a duplicate ACK (indicating loss), it retransmits the packet from its buffer <strong>locally</strong> to the Mobile Host.</li>
-              <li>It suppresses the duplicate ACK from reaching the Fixed Host.</li>
+              <li><strong>Pros:</strong> Maintains end-to-end semantics.</li>
+              <li><strong>Cons:</strong> Doesn't work with encryption (can't snoop).</li>
             </ul>
-            <p><strong>Benefit:</strong> The Fixed Host never knows a loss occurred, so it doesn't slow down. End-to-end semantics are preserved (BS doesn't ACK, it just buffers).</p>
+            
+            <h4>Mobile TCP (M-TCP)</h4>
+            <p>Handles frequent disconnections. If disconnection detected, set window size to 0 (persist mode) to pause sender, rather than dropping window.</p>
           </div>
         `
             },
             {
-                title: "Database Hoarding & Caching",
+                title: "Other TCP Variants",
                 content: `
           <div class="study-guide-box">
-            <h4>Disconnected Operations</h4>
-            <p>Mobile devices frequently disconnect. How do we keep apps working?</p>
-
-            <h5>1. Hoarding (Prefetching)</h5>
-            <div class="definition-box">
-              The process of predictively downloading data that the user <em>is likely to need</em> in the future, before the device disconnects.
-            </div>
-            <p><strong>Example:</strong> Google Maps downloading the map of your route before you enter a tunnel.</p>
-
-            <h5>2. Caching</h5>
-            <p>Storing accessed data locally.</p>
-            <div class="deep-dive-box">
-              <h5>Cache Consistency Issue</h5>
-              <p>If the data changes on the server, the mobile cache becomes stale. How do we fix this?</p>
-              <ul>
-                <li><strong>Invalidation Reports:</strong> Server broadcasts a list of changed items. Clients check this list.</li>
-                <li><strong>Polling:</strong> Client asks server "Has this changed?" every time it accesses data. (High overhead).</li>
-              </ul>
-            </div>
+            <h4>Fast Retransmit / Fast Recovery</h4>
+            <p>Retransmit after 3 duplicate ACKs instead of waiting for timeout.</p>
+            
+            <h4>Transmission / Time-out Freezing</h4>
+            <p>Freeze TCP state during handover to prevent timeout.</p>
+            
+            <h4>Selective Retransmission</h4>
+            <p>SACK (Selective ACK). Retransmit <em>only</em> the lost packets, not everything after.</p>
+            
+            <h4>Transaction Oriented TCP (T-TCP)</h4>
+            <p>Optimized for short transactions (overhead reduction). Combines connection setup, data, and teardown.</p>
           </div>
         `
             }
@@ -560,62 +329,43 @@ export const syllabus = [
     {
         unit: "IV",
         title: "Data Dissemination and Synchronization",
-        notes: "<h3>Unit IV Overview</h3><p>Explores how data is delivered to mobile devices (Push/Pull) and how synchronization is handled.</p>",
+        notes: "<h3>Unit IV Overview</h3><p>Focuses on how data is delivered efficiently to mobile devices (Push vs Pull) and how data consistency is maintained (Synchronization).</p>",
         topics: [
             {
-                title: "Data Delivery Mechanisms",
+                title: "Data Dissemination",
                 content: `
           <div class="study-guide-box">
-            <h4>Communication Asymmetry</h4>
-            <p>In mobile networks, Downlink (Server -> Client) is fast. Uplink (Client -> Server) is slow and power-consuming.</p>
-          </div>
-
-          <div class="study-guide-box">
-            <h4>1. Push-Based (Publish-Subscribe)</h4>
-            <p>Server sends data without a specific request.</p>
-            <ul>
-              <li><strong>Pros:</strong> Highly scalable. Server load doesn't increase with more clients (Broadcast).</li>
-              <li><strong>Cons:</strong> "Spam" factor. User might get irrelevant data.</li>
-              <li><strong>Use Case:</strong> Emergency alerts, Stock tickers, Traffic updates.</li>
-            </ul>
-
-            <h4>2. Pull-Based (On-Demand)</h4>
-            <p>Client requests specific data.</p>
-            <ul>
-              <li><strong>Pros:</strong> Personalized. No junk data.</li>
-              <li><strong>Cons:</strong> Server bottleneck. High energy cost for client (sending requests).</li>
-              <li><strong>Use Case:</strong> Web browsing, Database queries.</li>
-            </ul>
-
-            <h4>3. Hybrid</h4>
-            <p>Push popular data. Pull specific data.</p>
+            <h4>Communications Asymmetry</h4>
+            <p>Downlink (Server -> Mobile) bandwidth is usually much higher than Uplink (Mobile -> Server).</p>
+            
+            <h4>Delivery Mechanisms</h4>
+            <div class="concept-grid">
+              <div class="concept-card">
+                <h5>Push (Broadcast)</h5>
+                <p>Server sends data without request. Good for popular data (News, Stock tickers).</p>
+              </div>
+              <div class="concept-card">
+                <h5>Pull (On-Demand)</h5>
+                <p>Client requests specific data. Good for personal data (Email, Bank balance).</p>
+              </div>
+              <div class="concept-card">
+                <h5>Hybrid</h5>
+                <p>Combine both. Push popular data, Pull specific data.</p>
+              </div>
+            </div>
           </div>
         `
             },
             {
-                title: "Selective Tuning & Indexing",
+                title: "Broadcast Models & Tuning",
                 content: `
           <div class="study-guide-box">
-            <h4>The Problem: Battery Drain</h4>
-            <p>Listening to a broadcast channel consumes power. We want the device to sleep and wake up <em>only</em> when its data is on air.</p>
-
-            <h4>Solution: Indexing</h4>
-            <div class="diagram-container">
-              <div class="diagram-row">
-                <div class="diagram-box">Index</div>
-                <div class="diagram-arrow">...Data...</div>
-                <div class="diagram-box">Item A</div>
-                <div class="diagram-arrow">...</div>
-                <div class="diagram-box">Item B</div>
-              </div>
-            </div>
-            <ol>
-              <li>Mobile wakes up and reads the <strong>Index</strong>.</li>
-              <li>Index says: "Item B will be broadcast at t=50ms".</li>
-              <li>Mobile goes to <strong>Sleep</strong>.</li>
-              <li>Mobile wakes up at t=50ms, downloads Item B.</li>
-            </ol>
-            <p><strong>Trade-off:</strong> Index takes up bandwidth, making the broadcast cycle longer (Access Latency increases), but Tuning Time (Power) decreases.</p>
+            <h4>Selective Tuning</h4>
+            <p>Mobile devices want to save battery. They shouldn't wake up for every packet.</p>
+            <p><strong>Indexing:</strong> Add a directory at the start of a broadcast cycle. Client reads index, sleeps, and wakes up exactly when its data arrives.</p>
+            
+            <h4>Digital Audio/Video Broadcasting (DAB/DVB)</h4>
+            <p>Standards for broadcasting digital media. DVB-H (Handheld) is optimized for mobile TV.</p>
           </div>
         `
             },
@@ -623,19 +373,18 @@ export const syllabus = [
                 title: "Data Synchronization",
                 content: `
           <div class="study-guide-box">
-            <h4>Data Synchronization</h4>
-            <p>When a mobile device modifies data while offline, it must reconcile these changes with the server upon reconnection.</p>
-
-            <h5>Conflict Resolution</h5>
-            <p>What if two users edit the same file?</p>
+            <h4>The Challenge</h4>
+            <p>Mobile devices work offline. Data on device (replica) changes. Data on server (master) changes. How to reconcile?</p>
+            
+            <h4>Synchronization Protocols</h4>
             <ul>
-              <li><strong>Timestamp:</strong> Last write wins.</li>
-              <li><strong>User Intervention:</strong> Ask the user to merge.</li>
-              <li><strong>Application Logic:</strong> Merge automatically (e.g., appending to a log).</li>
+              <li><strong>Slow Sync:</strong> Compare all records. Safe but slow.</li>
+              <li><strong>Fast Sync:</strong> Compare only modified records since last sync.</li>
             </ul>
-
-            <h5>SyncML</h5>
-            <p>An industry-standard XML-based protocol for synchronizing data (contacts, calendar, emails) across different devices and networks.</p>
+            
+            <div class="definition-box">
+              <strong>SyncML:</strong> An industry-standard protocol for platform-independent data synchronization.
+            </div>
           </div>
         `
             }
@@ -643,73 +392,68 @@ export const syllabus = [
     },
     {
         unit: "V",
-        title: "Mobile Ad hoc Networks (MANETs)",
-        notes: "<h3>Unit V Overview</h3><p>Introduction to MANETs, their characteristics, and routing protocols (DSDV, DSR, AODV).</p>",
+        title: "Mobile Ad-hoc Networks (MANETs)",
+        notes: "<h3>Unit V Overview</h3><p>Introduction to decentralized wireless networks where devices form the network themselves without infrastructure (routers/towers).</p>",
         topics: [
             {
-                title: "MANET Introduction",
+                title: "MANET Basics",
                 content: `
           <div class="study-guide-box">
-            <h4>What is a MANET?</h4>
+            <h4>Definition</h4>
             <div class="definition-box">
-              <strong>Mobile Ad hoc Network (MANET)</strong> is a decentralized network of mobile devices connected by wireless links. Each node acts as both a host and a router.
+              <strong>MANET:</strong> A collection of mobile nodes forming a temporary network without the aid of any centralized administration or standard support services.
             </div>
-
+            
             <h5>Characteristics:</h5>
             <ul>
-              <li><strong>Dynamic Topology:</strong> Nodes move, links break and form continuously.</li>
-              <li><strong>Multi-hop Routing:</strong> No base stations. Packets jump from node to node.</li>
-              <li><strong>Energy Constrained:</strong> Battery operated.</li>
-              <li><strong>Security:</strong> Vulnerable to eavesdropping and denial of service.</li>
+              <li>Dynamic Topology (Nodes move constantly).</li>
+              <li>Multi-hop routing (Nodes act as routers).</li>
+              <li>Energy constrained.</li>
+              <li>Limited security.</li>
             </ul>
+            
+            <p><strong>Applications:</strong> Military battlefields, Disaster relief (no towers), Sensor networks.</p>
           </div>
         `
             },
             {
-                title: "Routing Protocols Classification",
+                title: "Routing Protocols",
                 content: `
           <div class="study-guide-box">
-            <h4>Routing in MANETs</h4>
-            <p>Standard routing (OSPF, RIP) fails because topology changes too fast.</p>
-
-            <table class="comparison-table">
-              <tr>
-                <th>Type</th>
-                <th>Description</th>
-                <th>Examples</th>
-                <th>Pros/Cons</th>
-              </tr>
-              <tr>
-                <td><strong>Proactive (Table-Driven)</strong></td>
-                <td>Maintain routes to ALL destinations at ALL times. Periodic updates.</td>
-                <td>DSDV</td>
-                <td>✅ Low latency (route ready).<br/>❌ High overhead (wasted updates).</td>
-              </tr>
-              <tr>
-                <td><strong>Reactive (On-Demand)</strong></td>
-                <td>Find route only when needed.</td>
-                <td>DSR, AODV</td>
-                <td>✅ Low overhead.<br/>❌ High latency (Route Discovery delay).</td>
-              </tr>
-            </table>
+            <h4>Classification</h4>
+            
+            <div class="concept-grid">
+              <div class="concept-card">
+                <h5>Proactive (Table-Driven)</h5>
+                <p>Maintain routes to <em>all</em> nodes at all times. Low latency, high overhead.</p>
+                <p><strong>Examples:</strong> DSDV (Destination Sequenced Distance Vector), WRP.</p>
+              </div>
+              <div class="concept-card">
+                <h5>Reactive (On-Demand)</h5>
+                <p>Find route only when needed. High latency (initial), low overhead.</p>
+                <p><strong>Examples:</strong> DSR (Dynamic Source Routing), AODV (Ad-hoc On-demand Distance Vector).</p>
+              </div>
+              <div class="concept-card">
+                <h5>Hybrid</h5>
+                <p>Combine both. Proactive for local, Reactive for distant.</p>
+                <p><strong>Example:</strong> ZRP (Zone Routing Protocol).</p>
+              </div>
+            </div>
           </div>
         `
             },
             {
-                title: "AODV vs DSR",
+                title: "Specific Protocols",
                 content: `
           <div class="study-guide-box">
-            <h4>DSR (Dynamic Source Routing)</h4>
-            <p>Uses <strong>Source Routing</strong>. The sender decides the full path and puts the list of all nodes in the packet header.</p>
-            <p><strong>Route Discovery:</strong> Flood RREQ. Destination replies with RREP containing the path.</p>
-            <p><strong>Pros:</strong> Loop-free. <strong>Cons:</strong> Large packet headers.</p>
-          </div>
-
-          <div class="study-guide-box">
-            <h4>AODV (Ad hoc On-Demand Distance Vector)</h4>
-            <p>Combines on-demand mechanism of DSR with hop-by-hop routing of DSDV.</p>
-            <p>Nodes maintain a routing table. Packet header only contains destination IP.</p>
-            <p><strong>Pros:</strong> Lower header overhead. Good for dynamic environments.</p>
+            <h4>DSDV (Proactive)</h4>
+            <p>Based on Bellman-Ford. Adds sequence numbers to avoid routing loops.</p>
+            
+            <h4>DSR (Reactive)</h4>
+            <p>Source Routing. The sender puts the full path in the packet header. Route Discovery (RREQ, RREP) and Route Maintenance.</p>
+            
+            <h4>AODV (Reactive)</h4>
+            <p>Like DSR but uses hop-by-hop routing (routing tables) instead of source routing. Uses sequence numbers like DSDV.</p>
           </div>
         `
             }
