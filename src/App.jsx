@@ -23,6 +23,7 @@ import './tips.css'
 import './quiz.css'
 import './mindmap.css'
 import { mindmaps } from './data/mindmaps'
+import ReloadPrompt from './ReloadPrompt'
 
 const MindMapNode = ({ node }) => (
   <div className="mm-node">
@@ -666,6 +667,7 @@ function App() {
           </div>
         </div>
       )}
+      <ReloadPrompt />
     </div>
   )
 }
