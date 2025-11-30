@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react'
 import { syllabus as mobileSyllabus } from './data/syllabus'
 import { quizzes as mobileQuizzes } from './data/quiz'
-import { modelPaper as mobilePaper1 } from './data/modelPaper'
-import { modelPaper2 as mobilePaper2 } from './data/modelPaper2'
-import { modelPaper3 as mobilePaper3 } from './data/modelPaper3'
+import { modelPaper as modelPaper1 } from './data/modelPaper'
+import { modelPaper2 } from './data/modelPaper2'
+import { modelPaper3 } from './data/modelPaper3'
+import { modelPaper4 } from './data/modelPaper4'
 import { examTips as mobileTips } from './data/examTips'
 import { flashcards as mobileFlashcards } from './data/flashcards'
 
@@ -52,7 +53,7 @@ function App() {
       title: "Mobile Computing",
       syllabus: mobileSyllabus,
       quizzes: mobileQuizzes,
-      papers: [mobilePaper1, mobilePaper2, mobilePaper3],
+      papers: [modelPaper1, modelPaper2, modelPaper3, modelPaper4],
       tips: mobileTips,
       flashcards: mobileFlashcards,
       progressKey: 'mobileComputingProgress'
