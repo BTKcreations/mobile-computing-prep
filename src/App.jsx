@@ -21,6 +21,21 @@ import { ppleTips } from './data/ppleTips'
 import { ppleFlashcards } from './data/ppleFlashcards'
 import './tips.css'
 import './quiz.css'
+import './mindmap.css'
+import { mindmaps } from './data/mindmaps'
+
+const MindMapNode = ({ node }) => (
+  <div className="mm-node">
+    <div className="mm-content">{node.label}</div>
+    {node.children && node.children.length > 0 && (
+      <div className="mm-children">
+        {node.children.map((child) => (
+          <MindMapNode key={child.id} node={child} />
+        ))}
+      </div>
+    )}
+  </div>
+)
 
 function App() {
   const [currentSubject, setCurrentSubject] = useState(null) // null (selection), 'mobile', 'sensors'
@@ -76,6 +91,9 @@ function App() {
   const [revealedAnswers, setRevealedAnswers] = useState({})
   const [userAnswers, setUserAnswers] = useState({})
   const [selectedTopic, setSelectedTopic] = useState(null)
+  const [activeMindMap, setActiveMindMap] = useState(null)
+  const [zoomLevel, setZoomLevel] = useState(1)
+  const [unitView, setUnitView] = useState({}) // { [unitId]: 'notes' | null }
 
   const [currentCardIndex, setCurrentCardIndex] = useState(0)
   const [isFlipped, setIsFlipped] = useState(false)
@@ -111,8 +129,11 @@ function App() {
     }
   }
 
-  const toggleNotes = (unitId) => {
-    setExpandedUnit(expandedUnit === unitId ? null : unitId)
+  const toggleSection = (unitId, section) => {
+    setUnitView(prev => ({
+      ...prev,
+      [unitId]: prev[unitId] === section ? null : section
+    }))
   }
 
   const openTopic = (topic) => setSelectedTopic(topic)
@@ -284,7 +305,7 @@ function App() {
               </div>
               <h2>{unit.title}</h2>
 
-              {expandedUnit === unit.unit && unit.notes ? (
+              {unitView[unit.unit] === 'notes' && unit.notes ? (
                 <div className="notes-content">
                   <div dangerouslySetInnerHTML={{ __html: unit.notes }} />
                 </div>
@@ -302,9 +323,23 @@ function App() {
               )}
 
               <div className="actions">
-                <button className={`btn ${expandedUnit === unit.unit ? 'btn-primary' : ''}`} onClick={() => unit.notes ? toggleNotes(unit.unit) : alert('Notes coming soon!')}>
-                  {expandedUnit === unit.unit ? 'Hide Overview' : 'Unit Overview'}
+                <button
+                  className={`btn ${unitView[unit.unit] === 'notes' ? 'btn-primary' : ''}`}
+                  onClick={() => unit.notes ? toggleSection(unit.unit, 'notes') : alert('Notes coming soon!')}
+                >
+                  {unitView[unit.unit] === 'notes' ? 'Hide Overview' : 'Unit Overview'}
                 </button>
+
+                <button
+                  className="btn btn-primary"
+                  onClick={() => {
+                    setActiveMindMap(unit.unit)
+                    setZoomLevel(1)
+                  }}
+                >
+                  Mind Map
+                </button>
+
                 <button className="btn btn-primary" onClick={() => startQuiz(unit.unit)}>Take Quiz</button>
               </div>
             </div>
@@ -572,6 +607,62 @@ function App() {
               <div dangerouslySetInnerHTML={{ __html: selectedTopic.content }} />
             </div>
             <button className="btn btn-primary" onClick={closeTopic} style={{ marginTop: '2rem' }}>Close</button>
+          </div>
+        </div>
+      )}
+      {/* Mind Map Modal */}
+      {activeMindMap && mindmaps[activeMindMap] && (
+        <div className="modal-overlay">
+          <div className="modal-content" style={{ width: '95%', height: '95%', maxWidth: '100%', display: 'flex', flexDirection: 'column', padding: '1rem' }}>
+            <button className="close-btn" onClick={() => setActiveMindMap(null)} style={{ top: '10px', right: '10px' }}>&times;</button>
+
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.5rem' }}>
+              <h2 style={{ color: 'var(--primary-color)', fontSize: '1.5rem', margin: 0 }}>
+                🧠 Concept Map: Unit {activeMindMap}
+              </h2>
+              <div className="zoom-controls" style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
+                <button className="btn btn-outline" style={{ padding: '0.2rem 0.8rem' }} onClick={() => setZoomLevel(z => Math.max(0.5, z - 0.1))}>-</button>
+                <span style={{ minWidth: '3rem', textAlign: 'center', fontWeight: 'bold' }}>{Math.round(zoomLevel * 100)}%</span>
+                <button className="btn btn-outline" style={{ padding: '0.2rem 0.8rem' }} onClick={() => setZoomLevel(z => Math.min(2, z + 0.1))}>+</button>
+                <button className="btn btn-outline" style={{ padding: '0.2rem 0.8rem' }} onClick={() => setZoomLevel(1)}>Reset</button>
+              </div>
+            </div>
+
+            <div className="mindmap-container" style={{
+              flex: 1,
+              overflow: 'auto',
+              marginTop: 0,
+              borderRadius: '12px',
+              border: '1px solid #e2e8f0',
+              position: 'relative',
+              display: 'flex',           // Use flex for centering/scrolling
+              alignItems: 'flex-start',  // Allow scrolling from top
+              justifyContent: 'flex-start' // Allow scrolling from left
+            }}>
+              <div className="mm-tree mm-root" style={{
+                zoom: zoomLevel,         // Use zoom for layout-aware scaling
+                margin: 'auto',          // Center content if smaller than container
+                transformOrigin: 'top left' // Fallback if zoom fails (though zoom overrides)
+              }}>
+                <MindMapNode node={mindmaps[activeMindMap]} />
+              </div>
+            </div>
+
+            <button
+              className="btn btn-primary"
+              onClick={() => setActiveMindMap(null)}
+              style={{
+                alignSelf: 'center',
+                marginTop: '1rem',
+                padding: '0.8rem 2rem',
+                width: 'auto',
+                height: 'auto',
+                flexShrink: 0,
+                boxShadow: '0 4px 12px rgba(0,0,0,0.2)'
+              }}
+            >
+              Close Map
+            </button>
           </div>
         </div>
       )}

@@ -1,0 +1,195 @@
+/* Mind Map Container */
+.mindmap-container {
+    padding: 3rem;
+    background: #f8fafc;
+    border-radius: 16px;
+    overflow: auto;
+    /* Critical for responsiveness */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 400px;
+    background-image: radial-gradient(#cbd5e1 1.5px, transparent 1.5px);
+    background-size: 24px 24px;
+    /* Custom Scrollbar for better UX */
+    scrollbar-width: thin;
+    scrollbar-color: #cbd5e1 transparent;
+}
+
+.mindmap-container::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+.mindmap-container::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.mindmap-container::-webkit-scrollbar-thumb {
+    background-color: #cbd5e1;
+    border-radius: 4px;
+}
+
+/* Tree Structure */
+.mm-tree {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 2rem;
+    /* Ensure it doesn't shrink below content size */
+    min-width: min-content;
+}
+
+.mm-node {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    padding-top: 30px;
+}
+
+.mm-children {
+    display: flex;
+    flex-direction: row;
+    padding-top: 30px;
+    position: relative;
+    gap: 3rem;
+}
+
+/* Node Content Styling */
+.mm-content {
+    padding: 14px 28px;
+    border-radius: 50px;
+    background: white;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    font-weight: 700;
+    color: #334155;
+    border: 2px solid #e2e8f0;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    z-index: 10;
+    min-width: 140px;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.mm-content:hover {
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    border-color: var(--primary-color);
+    z-index: 20;
+}
+
+/* Root Node */
+.mm-root>.mm-node>.mm-content {
+    background: linear-gradient(135deg, var(--primary-color), #4f46e5);
+    color: white;
+    font-size: 1.4rem;
+    padding: 20px 40px;
+    border: none;
+    box-shadow: 0 10px 25px -5px rgba(79, 70, 229, 0.5);
+}
+
+/* Level 1 Nodes */
+.mm-root>.mm-node>.mm-children>.mm-node>.mm-content {
+    border-color: #bfdbfe;
+    color: #1e40af;
+    background: #eff6ff;
+    font-size: 1.1rem;
+}
+
+/* Level 2 Nodes */
+.mm-root>.mm-node>.mm-children>.mm-node>.mm-children>.mm-node>.mm-content {
+    border-color: #e2e8f0;
+    font-size: 0.95rem;
+    background: white;
+    color: #64748b;
+}
+
+/* Connectors */
+.mm-children::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 3px;
+    height: 30px;
+    background: #cbd5e1;
+    transform: translateX(-50%);
+}
+
+.mm-node::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 3px;
+    height: 30px;
+    background: #cbd5e1;
+    transform: translateX(-50%);
+}
+
+.mm-node::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: #cbd5e1;
+}
+
+.mm-root>.mm-node::before {
+    display: none;
+}
+
+.mm-root>.mm-node {
+    padding-top: 0;
+}
+
+.mm-node:first-child::after {
+    left: 50%;
+    width: 50%;
+}
+
+.mm-node:last-child::after {
+    width: 50%;
+}
+
+.mm-node:only-child::after {
+    display: none;
+}
+
+.mm-node:hover::before,
+.mm-node:hover>.mm-children::before,
+.mm-node:hover>.mm-children>.mm-node::after {
+    background: var(--primary-color);
+    transition: background 0.3s;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .mindmap-container {
+        padding: 1.5rem;
+        align-items: flex-start;
+        /* Ensure top alignment on small screens */
+        justify-content: flex-start;
+        /* Allow scrolling from left */
+    }
+
+    .mm-children {
+        gap: 1.5rem;
+        /* Reduce gap */
+    }
+
+    .mm-content {
+        padding: 10px 16px;
+        min-width: 100px;
+        font-size: 0.9rem;
+    }
+
+    .mm-root>.mm-node>.mm-content {
+        padding: 14px 24px;
+        font-size: 1.1rem;
+    }
+}
