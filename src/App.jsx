@@ -234,27 +234,68 @@ function App() {
     }, 200)
   }
 
+  const [showAbout, setShowAbout] = useState(false)
+
   if (!currentSubject) {
     return (
-      <div className="container" style={{ textAlign: 'center', marginTop: '4rem' }}>
-        <h1>🎓 B.Tech Exam Prep</h1>
-        <div className="grid" style={{ maxWidth: '800px', margin: '2rem auto' }}>
-          <div className="card" style={{ cursor: 'pointer' }} onClick={() => setCurrentSubject('mobile')}>
-            <h2>📱 Mobile Computing</h2>
-            <p>Unit I - V, Quizzes, Model Papers</p>
-            <button className="btn btn-primary">Start Learning</button>
-          </div>
-          <div className="card" style={{ cursor: 'pointer' }} onClick={() => setCurrentSubject('sensors')}>
-            <h2>🌡️ Electronic Sensors</h2>
-            <p>Unit I - V, Open Elective-II</p>
-            <button className="btn btn-primary">Start Learning</button>
-          </div>
-          <div className="card" style={{ cursor: 'pointer' }} onClick={() => setCurrentSubject('pple')}>
-            <h2>⚖️ Professional Practice & Ethics</h2>
-            <p>Unit I - V, Law, IPR & Contracts</p>
-            <button className="btn btn-primary">Start Learning</button>
+      <div className="container" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+        <div style={{ position: 'absolute', top: '1rem', right: '1rem' }}>
+          <button
+            className="btn btn-outline"
+            style={{ borderRadius: '50%', width: '40px', height: '40px', padding: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.2rem' }}
+            onClick={() => setShowAbout(true)}
+          >
+            ℹ️
+          </button>
+        </div>
+
+        <div style={{ textAlign: 'center', marginTop: '4rem', flex: 1 }}>
+          <h1>🎓 B.Tech Exam Prep</h1>
+          <p style={{ color: '#666', marginBottom: '2rem' }}>Select a subject to start mastering concepts</p>
+          <div className="grid" style={{ maxWidth: '800px', margin: '2rem auto' }}>
+            <div className="card" style={{ cursor: 'pointer' }} onClick={() => setCurrentSubject('mobile')}>
+              <h2>📱 Mobile Computing</h2>
+              <p>Unit I - V, Quizzes, Model Papers</p>
+              <button className="btn btn-primary">Start Learning</button>
+            </div>
+            <div className="card" style={{ cursor: 'pointer' }} onClick={() => setCurrentSubject('sensors')}>
+              <h2>🌡️ Electronic Sensors</h2>
+              <p>Unit I - V, Open Elective-II</p>
+              <button className="btn btn-primary">Start Learning</button>
+            </div>
+            <div className="card" style={{ cursor: 'pointer' }} onClick={() => setCurrentSubject('pple')}>
+              <h2>⚖️ Professional Practice & Ethics</h2>
+              <p>Unit I - V, Law, IPR & Contracts</p>
+              <button className="btn btn-primary">Start Learning</button>
+            </div>
           </div>
         </div>
+
+        <footer style={{ textAlign: 'center', padding: '2rem', color: '#64748b', fontSize: '0.9rem' }}>
+          <p>Designed & Developed by <strong>BTK Creations</strong> 🚀</p>
+          <p style={{ fontSize: '0.8rem', opacity: 0.7 }}>© {new Date().getFullYear()} B.Tech Exam Prep</p>
+        </footer>
+
+        {/* About Modal */}
+        {showAbout && (
+          <div className="modal-overlay">
+            <div className="modal-content" style={{ maxWidth: '500px', textAlign: 'center' }}>
+              <button className="close-btn" onClick={() => setShowAbout(false)}>&times;</button>
+              <h2 style={{ color: 'var(--primary-color)', marginBottom: '1rem' }}>About B.Tech Exam Prep</h2>
+              <p style={{ marginBottom: '1.5rem', lineHeight: '1.6' }}>
+                This application is designed to help B.Tech students prepare for their exams effectively.
+                It features comprehensive notes, interactive quizzes, model papers, and visual mind maps.
+              </p>
+              <div style={{ background: '#f8fafc', padding: '1.5rem', borderRadius: '12px', marginBottom: '1.5rem' }}>
+                <h3 style={{ fontSize: '1.1rem', marginBottom: '0.5rem' }}>👨‍💻 Developer</h3>
+                <p style={{ fontWeight: 'bold', fontSize: '1.2rem', color: 'var(--primary-color)' }}>BTK Creations</p>
+                <p style={{ fontSize: '0.9rem', color: '#64748b' }}>Passionate about Education & Technology</p>
+              </div>
+              <button className="btn btn-primary" onClick={() => setShowAbout(false)}>Close</button>
+            </div>
+          </div>
+        )}
+        <ReloadPrompt />
       </div>
     )
   }
