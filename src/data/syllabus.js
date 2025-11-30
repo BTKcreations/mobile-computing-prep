@@ -2,290 +2,152 @@ export const syllabus = [
   {
     unit: "I",
     title: "Introduction to Mobile Computing",
-    notes: "<h3>Unit I Overview</h3><p>This unit establishes the foundation of Mobile Computing, distinguishing it from general wireless networking. It covers the essential 3-Tier architecture used in mobile apps and provides a comprehensive deep-dive into the Global System for Mobile Communications (GSM), the standard that defined modern cellular networks.</p>",
+    notes: "<h3>Unit I Overview</h3><p>This unit covers the fundamental paradigms of mobile computing, device architecture, and the GSM standard.</p>",
     topics: [
       {
-        title: "Introduction to Mobile Computing",
+        title: "Mobile Computing Paradigm",
         content: `
           <div class="study-guide-box">
-            <h4>1. Definition & Core Concepts</h4>
+            <h4>1. Introduction</h4>
             <div class="definition-box">
-              <strong>Mobile Computing:</strong> A technology paradigm that allows transmission of data, voice, and video via a computer or any other wireless-enabled device without having to be connected to a fixed physical link. It focuses on the ability to compute while moving.
+              <strong>Mobile Computing:</strong> A technology allowing transmission of data, voice, and video via a computer or any other wireless-enabled device without having to be connected to a fixed physical link.
             </div>
             
-            <h5>The Three Dimensions of Mobile Computing:</h5>
+            <h4>2. Paradigm & Architecture</h4>
+            <div class="diagram-container">
+              <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" style="background:#f8f9fa; border-radius:8px;">
+                <defs><marker id="arrow-p" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#555"/></marker></defs>
+                <rect x="100" y="20" width="200" height="50" rx="5" fill="#e3f2fd" stroke="#1e88e5"/>
+                <text x="200" y="50" text-anchor="middle" font-weight="bold" fill="#0d47a1">Mobile Device</text>
+                <line x1="200" y1="70" x2="200" y2="110" stroke="#555" stroke-width="2" marker-end="url(#arrow-p)"/>
+                <ellipse cx="200" cy="140" rx="120" ry="30" fill="#fff3e0" stroke="#fb8c00"/>
+                <text x="200" y="145" text-anchor="middle" fill="#e65100">Wireless Network</text>
+                <line x1="200" y1="170" x2="200" y2="210" stroke="#555" stroke-width="2" marker-end="url(#arrow-p)"/>
+                <rect x="100" y="210" width="200" height="50" rx="5" fill="#e8f5e9" stroke="#43a047"/>
+                <text x="200" y="240" text-anchor="middle" font-weight="bold" fill="#1b5e20">Server / Internet</text>
+              </svg>
+            </div>
+
+            <h4>3. Promises (Novel Applications)</h4>
             <ul>
-              <li><strong>Ubiquity:</strong> The ability to access information and services from anywhere, at any time. The user is not tied to a specific location.</li>
-              <li><strong>Convenience:</strong> Devices are portable, lightweight, and designed for easy interaction, allowing users to carry their "office" with them.</li>
-              <li><strong>Connectivity:</strong> Continuous access to the network (Internet/Intranet) regardless of movement, ensuring real-time data availability.</li>
+              <li><strong>Ubiquity:</strong> Access from anywhere.</li>
+              <li><strong>Location Awareness:</strong> GPS-based services (Uber, Maps).</li>
+              <li><strong>Adaptation:</strong> Adjusting to bandwidth/context.</li>
             </ul>
 
-            <h4>2. Mobile Computing vs. Wireless Networking</h4>
-            <p>While often used interchangeably, they are distinct concepts:</p>
+            <h4>4. Impediments (Limitations)</h4>
+            <ul>
+              <li><strong>Bandwidth:</strong> Scarce and expensive.</li>
+              <li><strong>Security:</strong> Wireless is easier to eavesdrop.</li>
+              <li><strong>Power Consumption:</strong> Battery life constraints.</li>
+              <li><strong>Interface:</strong> Small screens and keyboards.</li>
+            </ul>
+          </div>
+        `
+      },
+      {
+        title: "Mobile Devices & Architecture",
+        content: `
+          <div class="study-guide-box">
+            <h4>1. Mobile & Handheld Devices</h4>
+            <ul>
+              <li><strong>Smartphones:</strong> General purpose (Android/iOS).</li>
+              <li><strong>Tablets:</strong> Larger screens, media focus.</li>
+              <li><strong>Sensors:</strong> IoT devices, low power.</li>
+              <li><strong>Wearables:</strong> Smartwatches, fitness trackers.</li>
+            </ul>
+
+            <h4>2. Device Architecture</h4>
+            <div class="diagram-container">
+              <svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg" style="background:#fff; border:1px solid #ddd; border-radius:8px;">
+                <rect x="50" y="20" width="300" height="40" fill="#ffcdd2" stroke="#c62828"/>
+                <text x="200" y="45" text-anchor="middle" font-weight="bold">Application Layer</text>
+                <rect x="50" y="60" width="300" height="40" fill="#fff9c4" stroke="#fbc02d"/>
+                <text x="200" y="85" text-anchor="middle" font-weight="bold">Operating System / Middleware</text>
+                <rect x="50" y="100" width="300" height="40" fill="#c8e6c9" stroke="#2e7d32"/>
+                <text x="200" y="125" text-anchor="middle" font-weight="bold">Hardware (CPU, Memory)</text>
+                <rect x="50" y="140" width="300" height="40" fill="#bbdefb" stroke="#1565c0"/>
+                <text x="200" y="165" text-anchor="middle" font-weight="bold">Communication (Radio)</text>
+              </svg>
+            </div>
+          </div>
+        `
+      },
+      {
+        title: "GSM Architecture & Services",
+        content: `
+          <div class="study-guide-box">
+            <h4>1. GSM Services</h4>
             <table class="comparison-table">
-              <tr>
-                <th>Feature</th>
-                <th>Mobile Computing</th>
-                <th>Wireless Networking</th>
-              </tr>
-              <tr>
-                <td><strong>Primary Focus</strong></td>
-                <td><strong>Computing while moving.</strong> Focuses on the applications, user experience, and data access on portable devices.</td>
-                <td><strong>Communication without wires.</strong> Focuses on the physical infrastructure (radio waves, routers) that replaces cables.</td>
-              </tr>
-              <tr>
-                <td><strong>Dependency</strong></td>
-                <td>Relies on wireless networking as a transport medium.</td>
-                <td>Can exist without mobile computing (e.g., a fixed desktop connected via Wi-Fi).</td>
-              </tr>
-              <tr>
-                <td><strong>Key Challenges</strong></td>
-                <td>Battery life, screen size, user interface, variable bandwidth, mobility management.</td>
-                <td>Signal interference, spectrum allocation, data rate, coverage area.</td>
-              </tr>
-              <tr>
-                <td><strong>Example</strong></td>
-                <td>Checking email on a smartphone while riding a train.</td>
-                <td>Connecting a printer to a router using Wi-Fi.</td>
-              </tr>
+              <tr><th>Service Type</th><th>Description</th></tr>
+              <tr><td><strong>Bearer Services</strong></td><td>Data transmission (SMS, GPRS).</td></tr>
+              <tr><td><strong>Tele Services</strong></td><td>Voice calls, Emergency calls.</td></tr>
+              <tr><td><strong>Supplementary</strong></td><td>Call forwarding, Call waiting, Caller ID.</td></tr>
             </table>
-          </div>
-        `
-      },
-      {
-        title: "Architecture of Mobile Computing",
-        content: `
-          <div class="study-guide-box">
-            <h4>The 3-Tier Architecture</h4>
-            <p>Modern mobile applications are rarely standalone; they interact with remote servers. The 3-Tier Architecture is the industry standard for designing scalable and secure mobile systems.</p>
-            
-            <!-- 3-Tier Architecture Diagram -->
+
+            <h4>2. System Architecture</h4>
             <div class="diagram-container">
-              <svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: auto; background: #f8f9fa; border-radius: 8px;">
-                <defs>
-                  <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
-                    <polygon points="0 0, 10 3.5, 0 7" fill="#555" />
-                  </marker>
-                </defs>
-                
-                <!-- Tier 1 -->
-                <rect x="50" y="50" width="150" height="200" rx="10" fill="#e3f2fd" stroke="#1e88e5" stroke-width="2"/>
-                <text x="125" y="80" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#0d47a1">Tier 1</text>
-                <text x="125" y="105" font-family="sans-serif" font-size="14" text-anchor="middle" fill="#1565c0">Presentation</text>
-                <text x="125" y="150" font-family="sans-serif" font-size="12" text-anchor="middle" fill="#333">Mobile Device</text>
-                <text x="125" y="170" font-family="sans-serif" font-size="12" text-anchor="middle" fill="#333">(UI / Browser)</text>
-
-                <!-- Arrow 1-2 -->
-                <line x1="200" y1="150" x2="300" y2="150" stroke="#555" stroke-width="2" marker-end="url(#arrowhead)"/>
-                <text x="250" y="140" font-family="sans-serif" font-size="12" text-anchor="middle" fill="#666">HTTP/Request</text>
-
-                <!-- Tier 2 -->
-                <rect x="300" y="50" width="150" height="200" rx="10" fill="#fff3e0" stroke="#fb8c00" stroke-width="2"/>
-                <text x="375" y="80" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#e65100">Tier 2</text>
-                <text x="375" y="105" font-family="sans-serif" font-size="14" text-anchor="middle" fill="#ef6c00">Application</text>
-                <text x="375" y="150" font-family="sans-serif" font-size="12" text-anchor="middle" fill="#333">Web Server</text>
-                <text x="375" y="170" font-family="sans-serif" font-size="12" text-anchor="middle" fill="#333">(Business Logic)</text>
-
-                <!-- Arrow 2-3 -->
-                <line x1="450" y1="150" x2="550" y2="150" stroke="#555" stroke-width="2" marker-end="url(#arrowhead)"/>
-                <text x="500" y="140" font-family="sans-serif" font-size="12" text-anchor="middle" fill="#666">SQL/Query</text>
-
-                <!-- Tier 3 -->
-                <rect x="550" y="50" width="150" height="200" rx="10" fill="#e8f5e9" stroke="#43a047" stroke-width="2"/>
-                <text x="625" y="80" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#1b5e20">Tier 3</text>
-                <text x="625" y="105" font-family="sans-serif" font-size="14" text-anchor="middle" fill="#2e7d32">Data</text>
-                <text x="625" y="150" font-family="sans-serif" font-size="12" text-anchor="middle" fill="#333">Database</text>
-                <text x="625" y="170" font-family="sans-serif" font-size="12" text-anchor="middle" fill="#333">(Storage)</text>
+              <svg viewBox="0 0 600 300" xmlns="http://www.w3.org/2000/svg" style="background:#fff; border:1px solid #ccc; border-radius:8px;">
+                <defs><marker id="arrow-gsm" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#333"/></marker></defs>
+                <rect x="20" y="120" width="60" height="80" rx="5" fill="#e1bee7" stroke="#8e24aa"/>
+                <text x="50" y="165" text-anchor="middle" font-weight="bold">MS</text>
+                <rect x="120" y="50" width="160" height="200" rx="5" fill="none" stroke="#666" stroke-dasharray="5,5"/>
+                <text x="200" y="70" text-anchor="middle" fill="#666">BSS</text>
+                <rect x="140" y="100" width="50" height="60" fill="#bbdefb" stroke="#1976d2"/>
+                <text x="165" y="135" text-anchor="middle" font-size="12">BTS</text>
+                <rect x="210" y="100" width="50" height="60" fill="#bbdefb" stroke="#1976d2"/>
+                <text x="235" y="135" text-anchor="middle" font-size="12">BSC</text>
+                <rect x="320" y="20" width="260" height="260" rx="5" fill="none" stroke="#666" stroke-dasharray="5,5"/>
+                <text x="450" y="40" text-anchor="middle" fill="#666">NSS</text>
+                <rect x="340" y="100" width="60" height="60" fill="#c8e6c9" stroke="#388e3c"/>
+                <text x="370" y="135" text-anchor="middle" font-weight="bold">MSC</text>
+                <rect x="450" y="60" width="50" height="40" fill="#fff9c4" stroke="#fbc02d"/><text x="475" y="85" text-anchor="middle" font-size="12">HLR</text>
+                <rect x="450" y="110" width="50" height="40" fill="#fff9c4" stroke="#fbc02d"/><text x="475" y="135" text-anchor="middle" font-size="12">VLR</text>
+                <line x1="80" y1="160" x2="140" y2="130" stroke="#333" marker-end="url(#arrow-gsm)"/>
+                <line x1="260" y1="130" x2="340" y2="130" stroke="#333" marker-end="url(#arrow-gsm)"/>
               </svg>
-            </div>
-
-            <div class="concept-grid">
-              <div class="concept-card">
-                <h5>Tier 1: Presentation Tier (Client)</h5>
-                <p><strong>Location:</strong> Runs on the mobile device (Smartphone, Tablet).</p>
-                <p><strong>Responsibilities:</strong> UI, Input Capture, Basic Validation.</p>
-              </div>
-              <div class="concept-card">
-                <h5>Tier 2: Application Tier (Server)</h5>
-                <p><strong>Location:</strong> Remote server.</p>
-                <p><strong>Responsibilities:</strong> Business Logic, Decision Making, Security.</p>
-              </div>
-              <div class="concept-card">
-                <h5>Tier 3: Data Tier (Database)</h5>
-                <p><strong>Location:</strong> Database server.</p>
-                <p><strong>Responsibilities:</strong> Data Storage, Retrieval, Integrity.</p>
-              </div>
             </div>
           </div>
         `
       },
       {
-        title: "GSM Architecture",
+        title: "GSM Protocols, Localization & Handover",
         content: `
           <div class="study-guide-box">
-            <h4>Global System for Mobile Communications (GSM)</h4>
-            <p>GSM is the standard that created the second generation (2G) of mobile networks. Its modular architecture is the blueprint for modern cellular systems.</p>
-            
-            <!-- GSM Architecture Diagram -->
-            <div class="diagram-container">
-              <svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: auto; background: #fff; border: 1px solid #ddd; border-radius: 8px;">
-                <defs>
-                  <marker id="arrowhead-gsm" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
-                    <polygon points="0 0, 10 3.5, 0 7" fill="#333" />
-                  </marker>
-                </defs>
+            <h4>1. Localization & Calling</h4>
+            <p><strong>Localization:</strong> The network tracks the user via periodic updates to the HLR/VLR.</p>
+            <p><strong>MTC (Mobile Terminated Call):</strong> PSTN -> GMSC -> HLR (finds VLR) -> VLR (assigns MSRN) -> MSC -> BTS -> Mobile.</p>
 
-                <!-- MS -->
-                <rect x="20" y="150" width="80" height="100" rx="5" fill="#e1bee7" stroke="#8e24aa" stroke-width="2" />
-                <text x="60" y="205" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#4a148c">MS</text>
-                
-                <!-- Um Interface -->
-                <line x1="100" y1="200" x2="160" y2="200" stroke="#333" stroke-width="2" marker-end="url(#arrowhead-gsm)" />
-                <text x="130" y="190" font-family="sans-serif" font-size="12" text-anchor="middle" fill="#555">Um</text>
+            <h4>2. Handover</h4>
+            <p>Switching the call from one channel/cell to another to maintain continuity.</p>
+            <ul>
+              <li><strong>Intra-cell:</strong> Change frequency in same cell (interference).</li>
+              <li><strong>Inter-cell, Intra-BSC:</strong> Move to new cell, same controller.</li>
+              <li><strong>Inter-BSC:</strong> Move to new controller.</li>
+              <li><strong>Inter-MSC:</strong> Move to new switch (complex).</li>
+            </ul>
 
-                <!-- BSS Area -->
-                <rect x="160" y="100" width="200" height="200" rx="5" fill="none" stroke="#666" stroke-dasharray="5,5" />
-                <text x="260" y="120" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#666">BSS</text>
-                
-                <rect x="180" y="150" width="60" height="100" rx="5" fill="#bbdefb" stroke="#1976d2" stroke-width="2" />
-                <text x="210" y="205" font-family="sans-serif" font-size="14" text-anchor="middle" fill="#0d47a1">BTS</text>
-                
-                <line x1="240" y1="200" x2="280" y2="200" stroke="#333" stroke-width="2" marker-end="url(#arrowhead-gsm)" />
-                
-                <rect x="280" y="150" width="60" height="100" rx="5" fill="#bbdefb" stroke="#1976d2" stroke-width="2" />
-                <text x="310" y="205" font-family="sans-serif" font-size="14" text-anchor="middle" fill="#0d47a1">BSC</text>
-
-                <!-- A Interface -->
-                <line x1="340" y1="200" x2="400" y2="200" stroke="#333" stroke-width="2" marker-end="url(#arrowhead-gsm)" />
-                <text x="370" y="190" font-family="sans-serif" font-size="12" text-anchor="middle" fill="#555">A-Int</text>
-
-                <!-- NSS Area -->
-                <rect x="400" y="50" width="380" height="300" rx="5" fill="none" stroke="#666" stroke-dasharray="5,5" />
-                <text x="590" y="70" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#666">NSS (Core Network)</text>
-
-                <rect x="420" y="150" width="80" height="100" rx="5" fill="#c8e6c9" stroke="#388e3c" stroke-width="2" />
-                <text x="460" y="205" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#1b5e20">MSC</text>
-
-                <!-- Databases -->
-                <g transform="translate(550, 100)">
-                   <rect x="0" y="0" width="80" height="40" rx="5" fill="#fff9c4" stroke="#fbc02d" stroke-width="2" />
-                   <text x="40" y="25" font-family="sans-serif" font-size="14" text-anchor="middle" fill="#f57f17">HLR</text>
-                </g>
-                <g transform="translate(550, 160)">
-                   <rect x="0" y="0" width="80" height="40" rx="5" fill="#fff9c4" stroke="#fbc02d" stroke-width="2" />
-                   <text x="40" y="25" font-family="sans-serif" font-size="14" text-anchor="middle" fill="#f57f17">VLR</text>
-                </g>
-                <g transform="translate(550, 220)">
-                   <rect x="0" y="0" width="80" height="40" rx="5" fill="#ffccbc" stroke="#d84315" stroke-width="2" />
-                   <text x="40" y="25" font-family="sans-serif" font-size="14" text-anchor="middle" fill="#bf360c">AuC</text>
-                </g>
-                <g transform="translate(550, 280)">
-                   <rect x="0" y="0" width="80" height="40" rx="5" fill="#cfd8dc" stroke="#455a64" stroke-width="2" />
-                   <text x="40" y="25" font-family="sans-serif" font-size="14" text-anchor="middle" fill="#263238">EIR</text>
-                </g>
-
-                <!-- Connections -->
-                <line x1="500" y1="200" x2="550" y2="120" stroke="#999" stroke-width="1" />
-                <line x1="500" y1="200" x2="550" y2="180" stroke="#999" stroke-width="1" />
-                <line x1="500" y1="200" x2="550" y2="240" stroke="#999" stroke-width="1" />
-                <line x1="500" y1="200" x2="550" y2="300" stroke="#999" stroke-width="1" />
-
-              </svg>
-            </div>
-
-            <div class="deep-dive-box">
-              <h4>1. Mobile Station (MS)</h4>
-              <p><strong>ME (Mobile Equipment):</strong> The phone hardware (IMEI).<br/><strong>SIM (Subscriber Identity Module):</strong> The smart card (IMSI, Ki).</p>
-            </div>
-
-            <div class="deep-dive-box">
-              <h4>2. Base Station Subsystem (BSS)</h4>
-              <p><strong>BTS (Base Transceiver Station):</strong> The radio tower.<br/><strong>BSC (Base Station Controller):</strong> Manages radio resources and handovers.</p>
-            </div>
-
-            <div class="deep-dive-box">
-              <h4>3. Network Switching Subsystem (NSS)</h4>
-              <p><strong>MSC:</strong> Call routing switch.<br/><strong>HLR:</strong> Permanent user database.<br/><strong>VLR:</strong> Temporary roaming database.<br/><strong>AuC:</strong> Security keys.<br/><strong>EIR:</strong> Stolen phone list.</p>
-            </div>
+            <h4>3. Security</h4>
+            <ul>
+              <li><strong>Authentication:</strong> Challenge-Response using Ki and A3 algorithm.</li>
+              <li><strong>Encryption:</strong> Voice encryption using A5 algorithm.</li>
+              <li><strong>Anonymity:</strong> Using TMSI (Temporary ID) instead of IMSI.</li>
+            </ul>
           </div>
         `
       },
       {
-        title: "GSM Call Routing",
+        title: "GPRS, CSHSD & DECT",
         content: `
           <div class="study-guide-box">
-            <h4>How a Call is Connected</h4>
-            
-            <!-- Mobile Terminating Call Flowchart -->
-            <div class="diagram-container">
-              <h5 style="text-align:center; margin-bottom: 10px;">Mobile Terminating (MT) Call Flow</h5>
-              <svg viewBox="0 0 800 250" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: auto; background: #f0f4c3; border-radius: 8px;">
-                 <defs>
-                  <marker id="arrowhead-flow" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
-                    <polygon points="0 0, 10 3.5, 0 7" fill="#333" />
-                  </marker>
-                </defs>
+            <h4>1. GPRS (General Packet Radio Service)</h4>
+            <p>Upgrade to GSM for packet data. Always-on connection. Uses <strong>SGSN</strong> (Serving GPRS Support Node) and <strong>GGSN</strong> (Gateway GPRS Support Node).</p>
 
-                <!-- Steps -->
-                <g transform="translate(20, 100)">
-                  <rect width="100" height="50" rx="5" fill="#fff" stroke="#333" />
-                  <text x="50" y="30" font-size="12" text-anchor="middle">1. PSTN Call</text>
-                </g>
-                <line x1="120" y1="125" x2="150" y2="125" stroke="#333" stroke-width="2" marker-end="url(#arrowhead-flow)" />
+            <h4>2. CSHSD (Circuit Switched High Speed Data)</h4>
+            <p>Enhancement to standard GSM data. Allocates multiple time slots to a single user to increase speed (up to 57.6 kbps).</p>
 
-                <g transform="translate(150, 100)">
-                  <rect width="100" height="50" rx="5" fill="#c8e6c9" stroke="#2e7d32" />
-                  <text x="50" y="30" font-size="12" text-anchor="middle">2. GMSC</text>
-                </g>
-                <line x1="250" y1="125" x2="280" y2="125" stroke="#333" stroke-width="2" marker-end="url(#arrowhead-flow)" />
-
-                <g transform="translate(280, 100)">
-                  <rect width="100" height="50" rx="5" fill="#fff9c4" stroke="#fbc02d" />
-                  <text x="50" y="20" font-size="10" text-anchor="middle">3. HLR Query</text>
-                  <text x="50" y="40" font-size="10" text-anchor="middle">(Get MSRN)</text>
-                </g>
-                <line x1="380" y1="125" x2="410" y2="125" stroke="#333" stroke-width="2" marker-end="url(#arrowhead-flow)" />
-
-                <g transform="translate(410, 100)">
-                  <rect width="100" height="50" rx="5" fill="#c8e6c9" stroke="#2e7d32" />
-                  <text x="50" y="30" font-size="12" text-anchor="middle">4. Visited MSC</text>
-                </g>
-                <line x1="510" y1="125" x2="540" y2="125" stroke="#333" stroke-width="2" marker-end="url(#arrowhead-flow)" />
-
-                <g transform="translate(540, 100)">
-                  <rect width="100" height="50" rx="5" fill="#bbdefb" stroke="#1565c0" />
-                  <text x="50" y="30" font-size="12" text-anchor="middle">5. Paging (BSS)</text>
-                </g>
-                <line x1="640" y1="125" x2="670" y2="125" stroke="#333" stroke-width="2" marker-end="url(#arrowhead-flow)" />
-
-                <g transform="translate(670, 100)">
-                  <rect width="100" height="50" rx="5" fill="#e1bee7" stroke="#6a1b9a" />
-                  <text x="50" y="30" font-size="12" text-anchor="middle">6. Mobile Rings</text>
-                </g>
-              </svg>
-            </div>
-
-            <div class="concept-grid">
-              <div class="concept-card">
-                <h5>Mobile Originating (MO) Call</h5>
-                <ol>
-                  <li><strong>Request:</strong> MS -> BSS -> MSC.</li>
-                  <li><strong>Auth:</strong> MSC checks VLR/AuC.</li>
-                  <li><strong>Setup:</strong> MSC routes to PSTN.</li>
-                  <li><strong>Connect:</strong> Voice path established.</li>
-                </ol>
-              </div>
-              <div class="concept-card">
-                <h5>Mobile Terminating (MT) Call</h5>
-                <ol>
-                  <li><strong>Entry:</strong> Call hits GMSC.</li>
-                  <li><strong>Locate:</strong> GMSC asks HLR. HLR asks VLR.</li>
-                  <li><strong>MSRN:</strong> VLR gives MSRN to HLR -> GMSC.</li>
-                  <li><strong>Route:</strong> GMSC routes to current MSC.</li>
-                  <li><strong>Page:</strong> MSC pages MS.</li>
-                </ol>
-              </div>
-            </div>
+            <h4>3. DECT (Digital Enhanced Cordless Telecommunications)</h4>
+            <p>Standard for cordless phones. High capacity in small areas (homes/offices). Uses FDMA/TDMA/TDD.</p>
           </div>
         `
       }
@@ -293,129 +155,109 @@ export const syllabus = [
   },
   {
     unit: "II",
-    title: "Wireless Medium Access Control and Mobile Network Layer",
-    notes: "<h3>Unit II Overview</h3><p>This unit explores the challenges of sharing the wireless medium (MAC Layer) and the complex problem of maintaining an IP address while moving across different networks (Mobile IP).</p>",
+    title: "Wireless MAC & Mobile Network Layer",
+    notes: "<h3>Unit II Overview</h3><p>Focuses on accessing the shared medium (MAC) and routing packets to mobile nodes (Mobile IP).</p>",
     topics: [
       {
-        title: "Medium Access Control (MAC)",
+        title: "Motivation for Specialized MAC",
         content: `
           <div class="study-guide-box">
-            <h4>The Hidden Terminal Problem</h4>
-            
-            <!-- Hidden Terminal Diagram -->
+            <h4>Why not CSMA/CD?</h4>
+            <p>Standard Ethernet MAC doesn't work because collision detection is impossible in wireless (signal fading).</p>
+
+            <h4>1. Hidden & Exposed Terminals</h4>
             <div class="diagram-container">
-               <svg viewBox="0 0 600 200" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: auto; background: #fff; border: 1px solid #eee; border-radius: 8px;">
-                <!-- Range Circles -->
-                <circle cx="100" cy="100" r="90" fill="rgba(33, 150, 243, 0.1)" stroke="#2196f3" stroke-dasharray="4" />
-                <circle cx="500" cy="100" r="90" fill="rgba(244, 67, 54, 0.1)" stroke="#f44336" stroke-dasharray="4" />
-                
-                <!-- Nodes -->
-                <circle cx="100" cy="100" r="20" fill="#2196f3" />
-                <text x="100" y="105" fill="white" text-anchor="middle" font-weight="bold">A</text>
-                
-                <circle cx="300" cy="100" r="20" fill="#4caf50" />
-                <text x="300" y="105" fill="white" text-anchor="middle" font-weight="bold">B</text>
-                
-                <circle cx="500" cy="100" r="20" fill="#f44336" />
-                <text x="500" y="105" fill="white" text-anchor="middle" font-weight="bold">C</text>
-
-                <!-- Labels -->
-                <text x="100" y="180" text-anchor="middle" font-size="12">Range of A</text>
-                <text x="500" y="180" text-anchor="middle" font-size="12">Range of C</text>
-                <text x="300" y="50" text-anchor="middle" font-size="14" font-weight="bold">Collision at B!</text>
-                <text x="300" y="150" text-anchor="middle" font-size="12" fill="#666">A and C cannot see each other.</text>
-               </svg>
+              <svg viewBox="0 0 500 150" xmlns="http://www.w3.org/2000/svg" style="background:#fff; border-radius:8px;">
+                <circle cx="100" cy="75" r="20" fill="#2196f3"/><text x="100" y="80" text-anchor="middle" fill="white">A</text>
+                <circle cx="250" cy="75" r="20" fill="#4caf50"/><text x="250" y="80" text-anchor="middle" fill="white">B</text>
+                <circle cx="400" cy="75" r="20" fill="#f44336"/><text x="400" y="80" text-anchor="middle" fill="white">C</text>
+                <text x="250" y="120" text-anchor="middle" fill="#d32f2f" font-weight="bold">Hidden Terminal Problem</text>
+                <text x="250" y="140" text-anchor="middle" font-size="12">A & C transmit to B simultaneously -> Collision</text>
+              </svg>
             </div>
 
-            <div class="concept-grid">
-              <div class="concept-card">
-                <h5>Hidden Terminal Problem</h5>
-                <p><strong>Scenario:</strong> A and C want to send to B. A and C are far apart.</p>
-                <p><strong>Issue:</strong> A transmits. C checks medium, hears silence (can't hear A), and transmits. <strong>Collision at B!</strong></p>
-                <p><strong>Solution:</strong> RTS/CTS (Request to Send / Clear to Send).</p>
-              </div>
-              <div class="concept-card">
-                <h5>Exposed Terminal Problem</h5>
-                <p><strong>Scenario:</strong> B sends to A. C wants to send to D.</p>
-                <p><strong>Issue:</strong> C hears B and waits unnecessarily.</p>
-                <p><strong>Result:</strong> Wasted bandwidth.</p>
-              </div>
-            </div>
+            <h4>2. Near and Far Terminals</h4>
+            <p>A strong signal from a nearby node drowns out a weak signal from a far node. Requires power control.</p>
           </div>
         `
       },
       {
-        title: "Multiplexing Techniques",
+        title: "MAC Protocols (SDMA, FDMA, TDMA, CDMA)",
         content: `
           <div class="study-guide-box">
-            <h4>Sharing the Spectrum</h4>
+            <h4>Multiplexing Techniques</h4>
             <table class="comparison-table">
-              <tr><th>Technique</th><th>Concept</th><th>Analogy</th></tr>
-              <tr><td><strong>SDMA</strong></td><td>Space Division.</td><td>Separate rooms.</td></tr>
-              <tr><td><strong>FDMA</strong></td><td>Frequency Division.</td><td>Radio stations.</td></tr>
-              <tr><td><strong>TDMA</strong></td><td>Time Division.</td><td>Taking turns speaking.</td></tr>
-              <tr><td><strong>CDMA</strong></td><td>Code Division.</td><td>Different languages.</td></tr>
+              <tr><th>Technique</th><th>Concept</th><th>Pros/Cons</th></tr>
+              <tr><td><strong>SDMA</strong></td><td>Space Division (Sectorized Antennas).</td><td>High reuse, complex HW.</td></tr>
+              <tr><td><strong>FDMA</strong></td><td>Frequency Division (Distinct bands).</td><td>Simple, inflexible.</td></tr>
+              <tr><td><strong>TDMA</strong></td><td>Time Division (Time slots).</td><td>Flexible, sync required.</td></tr>
+              <tr><td><strong>CDMA</strong></td><td>Code Division (Orthogonal codes).</td><td>Secure, complex power control.</td></tr>
             </table>
           </div>
         `
       },
       {
-        title: "Mobile IP",
+        title: "Wireless LAN (IEEE 802.11)",
         content: `
           <div class="study-guide-box">
-            <h4>Mobile IP Architecture</h4>
-            
-            <!-- Mobile IP Diagram -->
+            <h4>IEEE 802.11 Architecture</h4>
+            <ul>
+              <li><strong>Infrastructure Mode:</strong> Devices connect via Access Point (AP).</li>
+              <li><strong>Ad-hoc Mode:</strong> Devices connect directly.</li>
+            </ul>
+            <h4>Protocol: CSMA/CA</h4>
+            <p>Carrier Sense Multiple Access with Collision Avoidance. Uses <strong>RTS/CTS</strong> (Request to Send / Clear to Send) to solve hidden node problem.</p>
+          </div>
+        `
+      },
+      {
+        title: "Mobile IP Network Layer",
+        content: `
+          <div class="study-guide-box">
+            <h4>1. Goal</h4>
+            <p>Allow a device to keep its IP address while moving across networks.</p>
+
+            <h4>2. Entities & Architecture</h4>
             <div class="diagram-container">
-              <svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: auto; background: #e0f7fa; border-radius: 8px;">
-                <defs>
-                  <marker id="arrowhead-mip" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
-                    <polygon points="0 0, 10 3.5, 0 7" fill="#006064" />
-                  </marker>
-                </defs>
-
-                <!-- Home Network -->
-                <rect x="50" y="50" width="200" height="200" rx="10" fill="#fff" stroke="#00bcd4" stroke-dasharray="5,5" />
-                <text x="150" y="70" text-anchor="middle" fill="#00bcd4" font-weight="bold">Home Network</text>
-                
-                <rect x="100" y="100" width="100" height="60" rx="5" fill="#00bcd4" />
-                <text x="150" y="135" text-anchor="middle" fill="white" font-weight="bold">HA (Home Agent)</text>
-
-                <!-- Foreign Network -->
-                <rect x="550" y="50" width="200" height="200" rx="10" fill="#fff" stroke="#ff9800" stroke-dasharray="5,5" />
-                <text x="650" y="70" text-anchor="middle" fill="#ff9800" font-weight="bold">Foreign Network</text>
-                
-                <rect x="600" y="100" width="100" height="60" rx="5" fill="#ff9800" />
-                <text x="650" y="135" text-anchor="middle" fill="white" font-weight="bold">FA (Foreign Agent)</text>
-
-                <!-- MN -->
-                <circle cx="650" cy="210" r="20" fill="#9c27b0" />
-                <text x="650" y="245" text-anchor="middle" fill="#9c27b0" font-weight="bold">MN</text>
-
-                <!-- Internet/Tunnel -->
-                <path d="M 200 130 Q 400 50 600 130" stroke="#006064" stroke-width="4" fill="none" stroke-dasharray="10,5" marker-end="url(#arrowhead-mip)" />
-                <text x="400" y="80" text-anchor="middle" fill="#006064" font-weight="bold">Tunnel</text>
-
-                <!-- CN -->
-                <rect x="350" y="220" width="100" height="50" rx="5" fill="#607d8b" />
-                <text x="400" y="250" text-anchor="middle" fill="white">CN (Sender)</text>
-                
-                <!-- CN to HA -->
-                <line x1="350" y1="245" x2="150" y2="160" stroke="#333" stroke-width="2" marker-end="url(#arrowhead-mip)" />
-                <text x="250" y="220" text-anchor="middle" font-size="12">1. Packet to Home IP</text>
-
+              <svg viewBox="0 0 600 250" xmlns="http://www.w3.org/2000/svg" style="background:#e0f7fa; border-radius:8px;">
+                <rect x="50" y="50" width="150" height="100" rx="10" fill="white" stroke="#00bcd4"/>
+                <text x="125" y="80" text-anchor="middle" fill="#00bcd4">Home Network</text>
+                <rect x="90" y="90" width="70" height="40" fill="#00bcd4"/><text x="125" y="115" text-anchor="middle" fill="white">HA</text>
+                <rect x="400" y="50" width="150" height="100" rx="10" fill="white" stroke="#ff9800"/>
+                <text x="475" y="80" text-anchor="middle" fill="#ff9800">Foreign Network</text>
+                <rect x="440" y="90" width="70" height="40" fill="#ff9800"/><text x="475" y="115" text-anchor="middle" fill="white">FA</text>
+                <circle cx="475" cy="200" r="20" fill="#9c27b0"/><text x="475" y="205" text-anchor="middle" fill="white" font-size="10">MN</text>
+                <path d="M 160 110 Q 300 20 440 110" stroke="#006064" stroke-width="3" stroke-dasharray="5,5" fill="none"/>
+                <text x="300" y="50" text-anchor="middle" fill="#006064" font-weight="bold">Tunnel</text>
               </svg>
             </div>
+          </div>
+        `
+      },
+      {
+        title: "Packet Delivery & Handover Management",
+        content: `
+          <div class="study-guide-box">
+            <h4>1. Packet Delivery</h4>
+            <p>CN -> HA -> Tunnel -> FA -> MN. Reverse path is usually direct (Triangular Routing).</p>
 
-            <div class="definition-box">
-              <h5>Key Entities</h5>
-              <ul>
-                <li><strong>HA (Home Agent):</strong> Intercepts packets on home network.</li>
-                <li><strong>FA (Foreign Agent):</strong> Receives tunneled packets on visited network.</li>
-                <li><strong>CoA (Care-of Address):</strong> Temporary address at FA.</li>
-                <li><strong>Tunneling:</strong> Encapsulating packet inside another packet to route it to CoA.</li>
-              </ul>
-            </div>
+            <h4>2. Registration</h4>
+            <p>MN registers its new CoA (Care-of Address) with the HA via the FA.</p>
+
+            <h4>3. Tunneling & Encapsulation</h4>
+            <p><strong>IP-in-IP Encapsulation:</strong> The original IP packet is wrapped inside a new IP packet destined for the CoA.</p>
+          </div>
+        `
+      },
+      {
+        title: "Optimization & DHCP",
+        content: `
+          <div class="study-guide-box">
+            <h4>1. Route Optimization</h4>
+            <p>Solves Triangular Routing. The CN learns the current CoA of the MN and sends packets directly, bypassing the HA (requires updates to CN).</p>
+
+            <h4>2. DHCP (Dynamic Host Configuration Protocol)</h4>
+            <p>Used to automatically assign a CoA to the MN when it enters a foreign network.</p>
           </div>
         `
       }
@@ -423,62 +265,62 @@ export const syllabus = [
   },
   {
     unit: "III",
-    title: "Mobile Transport Layer",
-    notes: "<h3>Unit III Overview</h3><p>Standard TCP performs poorly in wireless. This unit covers solutions like I-TCP and Snooping TCP.</p>",
+    title: "Mobile Transport Layer & Database Issues",
+    notes: "<h3>Unit III Overview</h3><p>Transport layer adaptations for wireless and data management strategies.</p>",
     topics: [
       {
-        title: "Traditional TCP Issues",
+        title: "Mobile Transport Layer (TCP)",
         content: `
           <div class="study-guide-box">
-            <h4>The "Congestion" Assumption</h4>
-            <p>TCP assumes packet loss = Congestion. In wireless, loss = Noise/Handover. TCP slows down unnecessarily.</p>
+            <h4>1. Conventional TCP Issues</h4>
+            <p>Designed for wired networks. Interprets packet loss as congestion. In wireless, loss is due to noise/handover. TCP slows down unnecessarily.</p>
+
+            <h4>2. Indirect TCP (I-TCP)</h4>
+            <p>Splits connection at the Base Station. Standard TCP on fixed link, Wireless TCP on mobile link. <strong>Pros:</strong> Isolation. <strong>Cons:</strong> Loss of end-to-end semantics.</p>
+
+            <h4>3. Snooping TCP</h4>
+            <p>BS buffers packets and retransmits locally if loss is detected. <strong>Pros:</strong> Maintains semantics. <strong>Cons:</strong> Fails with encryption.</p>
+
+            <h4>4. Mobile TCP (M-TCP)</h4>
+            <p>Handles frequent disconnections. Freezes the sender's window (Persist Mode) during disconnection.</p>
           </div>
         `
       },
       {
-        title: "TCP Improvements",
+        title: "Database Hoarding & Caching",
         content: `
           <div class="study-guide-box">
-            <h4>Indirect TCP (I-TCP)</h4>
-            
-            <!-- I-TCP Diagram -->
+            <h4>1. Hoarding</h4>
+            <p>Predictively downloading data before disconnection (e.g., downloading map area before entering tunnel).</p>
+
+            <h4>2. Caching Techniques</h4>
+            <p>Storing frequently accessed data on the mobile device to reduce latency and bandwidth usage. Requires cache invalidation strategies.</p>
             <div class="diagram-container">
-              <svg viewBox="0 0 600 150" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: auto; background: #fff3e0; border-radius: 8px;">
-                <!-- Fixed Host -->
-                <rect x="20" y="50" width="80" height="50" rx="5" fill="#795548" />
-                <text x="60" y="80" text-anchor="middle" fill="white">FH</text>
-
-                <!-- Base Station -->
-                <rect x="260" y="40" width="80" height="70" rx="5" fill="#ff9800" />
-                <text x="300" y="80" text-anchor="middle" fill="white" font-weight="bold">Base Station</text>
-
-                <!-- Mobile Host -->
-                <rect x="500" y="50" width="80" height="50" rx="5" fill="#2196f3" />
-                <text x="540" y="80" text-anchor="middle" fill="white">MH</text>
-
-                <!-- Connection 1 -->
-                <line x1="100" y1="75" x2="260" y2="75" stroke="#333" stroke-width="3" />
-                <text x="180" y="65" text-anchor="middle" font-size="12">Standard TCP</text>
-
-                <!-- Connection 2 -->
-                <line x1="340" y1="75" x2="500" y2="75" stroke="#333" stroke-width="3" stroke-dasharray="5,5" />
-                <text x="420" y="65" text-anchor="middle" font-size="12">Wireless TCP</text>
-                
-                <!-- Split -->
-                <line x1="300" y1="40" x2="300" y2="110" stroke="white" stroke-width="2" />
+              <svg viewBox="0 0 300 150" xmlns="http://www.w3.org/2000/svg" style="background:#f1f8e9; border-radius:8px;">
+                 <rect x="100" y="20" width="100" height="40" fill="#4caf50"/><text x="150" y="45" text-anchor="middle" fill="white">Server DB</text>
+                 <line x1="150" y1="60" x2="150" y2="100" stroke="#333" marker-end="url(#arrow-p)"/>
+                 <rect x="80" y="100" width="140" height="40" fill="#c5e1a5"/><text x="150" y="125" text-anchor="middle" fill="#333">Mobile Cache</text>
               </svg>
             </div>
+          </div>
+        `
+      },
+      {
+        title: "Transactional Models & QoS",
+        content: `
+          <div class="study-guide-box">
+            <h4>1. Transactional Models</h4>
+            <p>ACID properties are hard to maintain in mobile.</p>
+            <ul>
+              <li><strong>Kangaroo Transactions:</strong> Transaction moves with the user across base stations.</li>
+              <li><strong>Tentative Transactions:</strong> Local commit, verified later with server.</li>
+            </ul>
 
-            <div class="concept-grid">
-              <div class="concept-card">
-                <h5>Indirect TCP (I-TCP)</h5>
-                <p>Splits connection at BS. FH sees standard TCP. Wireless link is isolated.</p>
-              </div>
-              <div class="concept-card">
-                <h5>Snooping TCP</h5>
-                <p>BS monitors packets. Retransmits locally if lost. Preserves end-to-end semantics.</p>
-              </div>
-            </div>
+            <h4>2. Query Processing</h4>
+            <p>Optimizing queries for low bandwidth and high latency.</p>
+
+            <h4>3. QoS (Quality of Service)</h4>
+            <p>Managing resources to guarantee performance (bandwidth, delay, jitter) for applications like VoIP.</p>
           </div>
         `
       }
@@ -486,56 +328,39 @@ export const syllabus = [
   },
   {
     unit: "IV",
-    title: "Data Dissemination and Synchronization",
-    notes: "<h3>Unit IV Overview</h3><p>Efficient data delivery (Push/Pull) and consistency (Sync).</p>",
+    title: "Data Dissemination & Synchronization",
+    notes: "<h3>Unit IV Overview</h3><p>Mechanisms for delivering data and keeping it consistent.</p>",
     topics: [
       {
         title: "Data Dissemination",
         content: `
           <div class="study-guide-box">
-            <h4>Push vs. Pull</h4>
-            
-            <!-- Push Pull Diagram -->
-            <div class="diagram-container">
-              <svg viewBox="0 0 600 200" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: auto; background: #f3e5f5; border-radius: 8px;">
-                 <!-- Server -->
-                 <rect x="50" y="20" width="100" height="160" rx="5" fill="#9c27b0" />
-                 <text x="100" y="105" text-anchor="middle" fill="white" font-weight="bold">Server</text>
+            <h4>1. Communications Asymmetry</h4>
+            <p>Downlink (Server to Mobile) bandwidth is much higher than Uplink (Mobile to Server).</p>
 
-                 <!-- Clients -->
-                 <circle cx="500" cy="50" r="20" fill="#2196f3" />
-                 <circle cx="500" cy="100" r="20" fill="#2196f3" />
-                 <circle cx="500" cy="150" r="20" fill="#2196f3" />
-
-                 <!-- Push Arrows -->
-                 <g stroke="#9c27b0" stroke-width="2" marker-end="url(#arrowhead-flow)">
-                   <line x1="160" y1="50" x2="470" y2="50" />
-                   <line x1="160" y1="100" x2="470" y2="100" />
-                   <line x1="160" y1="150" x2="470" y2="150" />
-                 </g>
-                 <text x="300" y="40" text-anchor="middle" fill="#9c27b0" font-size="12">PUSH (Broadcast)</text>
-              </svg>
-            </div>
-
-            <div class="concept-grid">
-              <div class="concept-card">
-                <h5>Push (Broadcast)</h5>
-                <p>Server sends. Scalable. Good for news/traffic.</p>
-              </div>
-              <div class="concept-card">
-                <h5>Pull (On-Demand)</h5>
-                <p>Client asks. Personalized. Good for email/banking.</p>
-              </div>
-            </div>
+            <h4>2. Classification of Delivery Mechanisms</h4>
+            <ul>
+              <li><strong>Push (Broadcast):</strong> Server sends to all. Scalable.</li>
+              <li><strong>Pull (On-Demand):</strong> Client requests. Personalized.</li>
+              <li><strong>Hybrid:</strong> Combination.</li>
+            </ul>
           </div>
         `
       },
       {
-        title: "Selective Tuning",
+        title: "Broadcast Models & Selective Tuning",
         content: `
           <div class="study-guide-box">
-            <h4>Index-Based Method</h4>
-            <p>Device reads Index -> Sleeps -> Wakes up for Data.</p>
+            <h4>1. Broadcast Models</h4>
+            <ul>
+              <li><strong>Flat:</strong> Data sent sequentially.</li>
+              <li><strong>Hash-based:</strong> Uses hashing for location.</li>
+              <li><strong>Index-based:</strong> Directory sent first.</li>
+            </ul>
+
+            <h4>2. Selective Tuning</h4>
+            <p>Technique to save battery. Device wakes up only when desired data is broadcast.</p>
+            <p><strong>Indexing:</strong> Server sends an index. Client reads index, sleeps, and wakes up exactly when data arrives.</p>
           </div>
         `
       },
@@ -543,8 +368,15 @@ export const syllabus = [
         title: "Data Synchronization",
         content: `
           <div class="study-guide-box">
-            <h4>SyncML</h4>
-            <p>Standard protocol for syncing data (Contacts, Calendar) across devices.</p>
+            <h4>1. Introduction</h4>
+            <p>Process of making two datasets identical (Mobile & Server).</p>
+
+            <h4>2. Protocols & Software</h4>
+            <ul>
+              <li><strong>SyncML:</strong> Industry standard XML-based protocol.</li>
+              <li><strong>HotSync:</strong> Palm OS protocol.</li>
+              <li><strong>ActiveSync:</strong> Microsoft protocol.</li>
+            </ul>
           </div>
         `
       }
@@ -553,56 +385,66 @@ export const syllabus = [
   {
     unit: "V",
     title: "Mobile Ad-hoc Networks (MANETs)",
-    notes: "<h3>Unit V Overview</h3><p>Decentralized networks without infrastructure.</p>",
+    notes: "<h3>Unit V Overview</h3><p>Decentralized networks where every node is a router.</p>",
     topics: [
       {
-        title: "MANET Basics",
+        title: "MANET Introduction",
         content: `
           <div class="study-guide-box">
-            <h4>MANET Topology</h4>
-            <!-- MANET Diagram -->
-            <div class="diagram-container">
-               <svg viewBox="0 0 600 200" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: auto; background: #fff; border: 1px solid #ccc; border-radius: 8px;">
-                 <circle cx="100" cy="100" r="15" fill="#4caf50" />
-                 <circle cx="200" cy="50" r="15" fill="#4caf50" />
-                 <circle cx="200" cy="150" r="15" fill="#4caf50" />
-                 <circle cx="350" cy="100" r="15" fill="#4caf50" />
-                 <circle cx="500" cy="100" r="15" fill="#4caf50" />
+            <h4>1. Definition</h4>
+            <p>Infrastructure-less network. Nodes move and configure themselves dynamically.</p>
 
-                 <line x1="100" y1="100" x2="200" y2="50" stroke="#999" stroke-dasharray="4" />
-                 <line x1="100" y1="100" x2="200" y2="150" stroke="#999" stroke-dasharray="4" />
-                 <line x1="200" y1="50" x2="350" y2="100" stroke="#999" stroke-dasharray="4" />
-                 <line x1="200" y1="150" x2="350" y2="100" stroke="#999" stroke-dasharray="4" />
-                 <line x1="350" y1="100" x2="500" y2="100" stroke="#999" stroke-dasharray="4" />
-                 
-                 <text x="300" y="180" text-anchor="middle" fill="#555">Dynamic Mesh Topology</text>
-               </svg>
-            </div>
-            <div class="definition-box">
-              <strong>MANET:</strong> Infrastructure-less network. Nodes act as routers.
+            <h4>2. Applications</h4>
+            <p>Military (Battlefield), Disaster Relief (No towers), Sensor Networks, VANETs (Vehicles).</p>
+
+            <h4>3. Challenges</h4>
+            <p>Dynamic Topology, Limited Battery, Security, Routing Overhead, Hidden Terminal.</p>
+          </div>
+        `
+      },
+      {
+        title: "Routing Algorithms Classification",
+        content: `
+          <div class="study-guide-box">
+            <h4>Classification</h4>
+            <div class="diagram-container">
+              <svg viewBox="0 0 500 150" xmlns="http://www.w3.org/2000/svg" style="background:#e8f5e9; border-radius:8px;">
+                <rect x="200" y="20" width="100" height="30" fill="#2e7d32"/><text x="250" y="40" text-anchor="middle" fill="white">Routing</text>
+                <line x1="250" y1="50" x2="100" y2="80" stroke="#333"/>
+                <line x1="250" y1="50" x2="250" y2="80" stroke="#333"/>
+                <line x1="250" y1="50" x2="400" y2="80" stroke="#333"/>
+                <rect x="50" y="80" width="100" height="30" fill="#43a047"/><text x="100" y="100" text-anchor="middle" fill="white">Proactive</text>
+                <rect x="200" y="80" width="100" height="30" fill="#43a047"/><text x="250" y="100" text-anchor="middle" fill="white">Reactive</text>
+                <rect x="350" y="80" width="100" height="30" fill="#43a047"/><text x="400" y="100" text-anchor="middle" fill="white">Hybrid</text>
+              </svg>
             </div>
           </div>
         `
       },
       {
-        title: "Routing Protocols",
+        title: "Specific Routing Protocols",
         content: `
           <div class="study-guide-box">
-            <h4>Protocols</h4>
-            <div class="concept-grid">
-              <div class="concept-card">
-                <h5>DSDV (Proactive)</h5>
-                <p>Table-driven. High overhead. Low latency.</p>
-              </div>
-              <div class="concept-card">
-                <h5>DSR (Reactive)</h5>
-                <p>Source routing. Full path in header. No idle overhead.</p>
-              </div>
-              <div class="concept-card">
-                <h5>AODV (Reactive)</h5>
-                <p>Hop-by-hop. Sequence numbers. Industry standard.</p>
-              </div>
-            </div>
+            <h4>1. DSDV (Destination-Sequenced Distance-Vector)</h4>
+            <p><strong>Proactive.</strong> Table-driven. Uses sequence numbers to avoid loops. High overhead.</p>
+
+            <h4>2. DSR (Dynamic Source Routing)</h4>
+            <p><strong>Reactive.</strong> Source routing (full path in header). No periodic updates. High header overhead.</p>
+
+            <h4>3. AODV (Ad-hoc On-demand Distance Vector)</h4>
+            <p><strong>Reactive.</strong> Hop-by-hop routing. Uses RREQ (Request) and RREP (Reply). Industry standard.</p>
+          </div>
+        `
+      },
+      {
+        title: "Mobile Agents & Service Discovery",
+        content: `
+          <div class="study-guide-box">
+            <h4>1. Mobile Agents</h4>
+            <p>Code that moves from node to node to perform tasks (e.g., collecting data, negotiating). Saves bandwidth by moving computation to data.</p>
+
+            <h4>2. Service Discovery</h4>
+            <p>Mechanism to find services (printers, gateways) in a dynamic network without a central server. Examples: Jini, UPnP.</p>
           </div>
         `
       }

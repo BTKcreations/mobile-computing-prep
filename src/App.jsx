@@ -13,6 +13,12 @@ import { electronicSensorsModelPaper } from './data/electronicSensorsModelPaper'
 import { electronicSensorsTips } from './data/electronicSensorsTips'
 import { electronicSensorsFlashcards } from './data/electronicSensorsFlashcards'
 
+import { ppleSyllabus } from './data/ppleSyllabus'
+import { ppleQuiz } from './data/ppleQuiz'
+import { ppleModelPaper } from './data/ppleModelPaper'
+import { ppleTips } from './data/ppleTips'
+import { ppleFlashcards } from './data/ppleFlashcards'
+
 function App() {
   const [currentSubject, setCurrentSubject] = useState(null) // null (selection), 'mobile', 'sensors'
 
@@ -27,6 +33,17 @@ function App() {
         tips: electronicSensorsTips,
         flashcards: electronicSensorsFlashcards,
         progressKey: 'electronicSensorsProgress'
+      }
+    }
+    if (currentSubject === 'pple') {
+      return {
+        title: "Professional Practice, Law & Ethics",
+        syllabus: ppleSyllabus,
+        quizzes: ppleQuiz,
+        papers: [ppleModelPaper],
+        tips: ppleTips,
+        flashcards: ppleFlashcards,
+        progressKey: 'ppleProgress'
       }
     }
     // Default to Mobile Computing
@@ -202,6 +219,11 @@ function App() {
           <div className="card" style={{ cursor: 'pointer' }} onClick={() => setCurrentSubject('sensors')}>
             <h2>🌡️ Electronic Sensors</h2>
             <p>Unit I - V, Open Elective-II</p>
+            <button className="btn btn-primary">Start Learning</button>
+          </div>
+          <div className="card" style={{ cursor: 'pointer' }} onClick={() => setCurrentSubject('pple')}>
+            <h2>⚖️ Professional Practice & Ethics</h2>
+            <p>Unit I - V, Law, IPR & Contracts</p>
             <button className="btn btn-primary">Start Learning</button>
           </div>
         </div>
