@@ -2,46 +2,53 @@ export const syllabus = [
   {
     unit: "I",
     title: "Introduction to Mobile Computing",
-    notes: "<h3>Unit I Overview</h3><p>This unit covers the fundamental paradigms of mobile computing, device architecture, and the GSM standard.</p>",
+    notes: "<h3>Unit I Overview</h3><p>This unit establishes the foundational concepts of mobile computing, including the paradigm, architecture, devices, and the GSM standard.</p>",
     topics: [
       {
         title: "Mobile Computing Paradigm",
         content: `
           <div class="study-guide-box">
-            <h4>1. Introduction</h4>
+            <h4>1. Deep Dive: What is Mobile Computing?</h4>
             <div class="definition-box">
-              <strong>Mobile Computing:</strong> A technology allowing transmission of data, voice, and video via a computer or any other wireless-enabled device without having to be connected to a fixed physical link.
+              <strong>Mobile Computing</strong> is not just about using a laptop in a cafe. It is a paradigm shift where the <em>computer</em> is no longer the center of attention; the <em>user</em> is. It involves the seamless integration of:
+              <ul>
+                <li><strong>Mobile Communication:</strong> The infrastructure (towers, satellites).</li>
+                <li><strong>Mobile Hardware:</strong> The device (phone, sensor).</li>
+                <li><strong>Mobile Software:</strong> The OS and Apps (Android, iOS).</li>
+              </ul>
             </div>
             
-            <h4>2. Paradigm & Architecture</h4>
-            <div class="diagram-container">
-              <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" style="background:#f8f9fa; border-radius:8px;">
-                <defs><marker id="arrow-p" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#555"/></marker></defs>
-                <rect x="100" y="20" width="200" height="50" rx="5" fill="#e3f2fd" stroke="#1e88e5"/>
-                <text x="200" y="50" text-anchor="middle" font-weight="bold" fill="#0d47a1">Mobile Device</text>
-                <line x1="200" y1="70" x2="200" y2="110" stroke="#555" stroke-width="2" marker-end="url(#arrow-p)"/>
-                <ellipse cx="200" cy="140" rx="120" ry="30" fill="#fff3e0" stroke="#fb8c00"/>
-                <text x="200" y="145" text-anchor="middle" fill="#e65100">Wireless Network</text>
-                <line x1="200" y1="170" x2="200" y2="210" stroke="#555" stroke-width="2" marker-end="url(#arrow-p)"/>
-                <rect x="100" y="210" width="200" height="50" rx="5" fill="#e8f5e9" stroke="#43a047"/>
-                <text x="200" y="240" text-anchor="middle" font-weight="bold" fill="#1b5e20">Server / Internet</text>
-              </svg>
+            <h4>2. The Paradigm Shift: Fixed vs. Mobile</h4>
+            <p>In the traditional <strong>Fixed Computing</strong> model, you go to the computer. The device is tied to a location (desk) and a network (cable).</p>
+            <p>In the <strong>Mobile Computing</strong> model, the computer goes with you. This introduces the concept of <strong>"Ubiquitous Computing"</strong> - computing is everywhere.</p>
+            <div class="example-box">
+              <strong>Real-World Example:</strong> <br>
+              <em>Fixed:</em> You have to go to the bank branch to check your balance. <br>
+              <em>Mobile:</em> You check your balance on your phone while riding the bus. The bank has "moved" to your pocket.
             </div>
 
-            <h4>3. Promises (Novel Applications)</h4>
+            <h4>3. Novel Applications (Why do we need it?)</h4>
             <ul>
-              <li><strong>Ubiquity:</strong> Access from anywhere.</li>
-              <li><strong>Location Awareness:</strong> GPS-based services (Uber, Maps).</li>
-              <li><strong>Adaptation:</strong> Adjusting to bandwidth/context.</li>
+              <li><strong>Location Based Services (LBS):</strong> Apps that react to <em>where</em> you are.
+                <br><em>Example:</em> <strong>Uber</strong> finding the nearest driver, or <strong>Zomato</strong> suggesting restaurants within 2km.
+              </li>
+              <li><strong>Mobile Workforce:</strong>
+                <br><em>Example:</em> A delivery agent updating the status of a package ("Delivered") instantly from the doorstep using a handheld scanner.
+              </li>
+              <li><strong>Emergency Services:</strong>
+                <br><em>Example:</em> eCall systems in cars that automatically dial 911 and send GPS coordinates when an airbag deploys.
+              </li>
             </ul>
 
-            <h4>4. Impediments (Limitations)</h4>
-            <ul>
-              <li><strong>Bandwidth:</strong> Scarce and expensive.</li>
-              <li><strong>Security:</strong> Wireless is easier to eavesdrop.</li>
-              <li><strong>Power Consumption:</strong> Battery life constraints.</li>
-              <li><strong>Interface:</strong> Small screens and keyboards.</li>
-            </ul>
+            <h4>4. Impediments (The Hard Challenges)</h4>
+            <p>Mobile computing isn't perfect. It faces unique challenges that wired networks don't:</p>
+            <table class="comparison-table">
+              <tr><th>Challenge</th><th>Detailed Explanation</th><th>Example</th></tr>
+              <tr><td><strong>Bandwidth</strong></td><td>Airwaves are a shared resource. Bandwidth is limited and fluctuates.</td><td>Video buffering when you enter a tunnel.</td></tr>
+              <tr><td><strong>Security</strong></td><td>Radio waves go through walls. Anyone with an antenna can potentially intercept them.</td><td>Using public Wi-Fi at a cafe is risky without VPN.</td></tr>
+              <tr><td><strong>Interference</strong></td><td>Weather, buildings, and other devices cause noise.</td><td>Microwave ovens interfering with 2.4GHz Wi-Fi.</td></tr>
+              <tr><td><strong>Power</strong></td><td>We are tethered by the battery. Performance is throttled to save juice.</td><td>Screen dimming automatically when battery is low.</td></tr>
+            </table>
           </div>
         `
       },
@@ -49,56 +56,79 @@ export const syllabus = [
         title: "Mobile Devices & Architecture",
         content: `
           <div class="study-guide-box">
-            <h4>1. Mobile & Handheld Devices</h4>
+            <h4>1. Mobile Device Architecture</h4>
+            <p>A mobile device is a miniature computer, but with a different architecture focus:</p>
             <ul>
-              <li><strong>Smartphones:</strong> General purpose (Android/iOS).</li>
-              <li><strong>Tablets:</strong> Larger screens, media focus.</li>
-              <li><strong>Sensors:</strong> IoT devices, low power.</li>
-              <li><strong>Wearables:</strong> Smartwatches, fitness trackers.</li>
+              <li><strong>SoC (System on Chip):</strong> CPU, GPU, Modem, and RAM are often packed into one chip (like Snapdragon or Apple A-series) to save space and power.</li>
+              <li><strong>Sensors:</strong> The "eyes and ears" of the device. Accelerometer (tilt), Gyroscope (rotation), GPS (location), Proximity (screen off during calls).</li>
             </ul>
 
-            <h4>2. Device Architecture</h4>
-            <div class="diagram-container">
-              <svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg" style="background:#fff; border:1px solid #ddd; border-radius:8px;">
-                <rect x="50" y="20" width="300" height="40" fill="#ffcdd2" stroke="#c62828"/>
-                <text x="200" y="45" text-anchor="middle" font-weight="bold">Application Layer</text>
-                <rect x="50" y="60" width="300" height="40" fill="#fff9c4" stroke="#fbc02d"/>
-                <text x="200" y="85" text-anchor="middle" font-weight="bold">Operating System / Middleware</text>
-                <rect x="50" y="100" width="300" height="40" fill="#c8e6c9" stroke="#2e7d32"/>
-                <text x="200" y="125" text-anchor="middle" font-weight="bold">Hardware (CPU, Memory)</text>
-                <rect x="50" y="140" width="300" height="40" fill="#bbdefb" stroke="#1565c0"/>
-                <text x="200" y="165" text-anchor="middle" font-weight="bold">Communication (Radio)</text>
-              </svg>
+            <h4>2. Types of Devices</h4>
+            <ul>
+              <li><strong>Smartphones:</strong> The "Swiss Army Knife". Does everything.</li>
+              <li><strong>Wearables:</strong> Smartwatches. Focus on health monitoring and quick notifications. Limited battery.</li>
+              <li><strong>Sensors/IoT:</strong> Embedded devices.
+                <br><em>Example:</em> A smart agriculture sensor in a field that only wakes up once an hour to report soil moisture.
+              </li>
+            </ul>
+
+            <h4>3. Limitations in Depth</h4>
+            <div class="concept-grid">
+              <div class="concept-card">
+                <h5>Battery (The Bottleneck)</h5>
+                <p>Battery technology (Li-Ion) hasn't kept pace with Moore's Law. We must design software that "sleeps" as much as possible.</p>
+              </div>
+              <div class="concept-card">
+                <h5>User Interface</h5>
+                <p>Fat Finger Syndrome: Touch targets must be large enough. Typing on glass is slow and error-prone compared to physical keys.</p>
+              </div>
             </div>
           </div>
         `
       },
       {
-        title: "GSM Architecture & Services",
+        title: "GSM Architecture (Deep Dive)",
         content: `
           <div class="study-guide-box">
-            <h4>1. GSM Services</h4>
-            <table class="comparison-table">
-              <tr><th>Service Type</th><th>Description</th></tr>
-              <tr><td><strong>Bearer Services</strong></td><td>Data transmission (SMS, GPRS).</td></tr>
-              <tr><td><strong>Tele Services</strong></td><td>Voice calls, Emergency calls.</td></tr>
-              <tr><td><strong>Supplementary</strong></td><td>Call forwarding, Call waiting, Caller ID.</td></tr>
-            </table>
+            <h4>1. What is GSM?</h4>
+            <p><strong>GSM (Global System for Mobile Communications)</strong> is the standard that brought us the SIM card and digital voice calls (2G). Before GSM, phones were analog and insecure.</p>
 
-            <h4>2. System Architecture</h4>
+            <h4>2. The Three Subsystems (The "Big Three")</h4>
+            <p>Imagine GSM as a postal system:</p>
+            
+            <h5>A. RSS (Radio Subsystem) - "The Postbox"</h5>
+            <p>This is the part you see (the tower) and hold (the phone).</p>
+            <ul>
+              <li><strong>MS (Mobile Station):</strong> Your phone + SIM. The SIM contains your identity (IMSI).</li>
+              <li><strong>BTS (Base Transceiver Station):</strong> The big tower. It handles the radio link with your phone.</li>
+              <li><strong>BSC (Base Station Controller):</strong> The "Brain" of the towers. It manages radio resources for multiple BTSs (like handing off a call from one tower to another).</li>
+            </ul>
+
+            <h5>B. NSS (Network & Switching Subsystem) - "The Sorting Office"</h5>
+            <p>This is the core network that connects calls.</p>
+            <ul>
+              <li><strong>MSC (Mobile Switching Center):</strong> The main telephone exchange. It routes calls to other users or landlines.</li>
+              <li><strong>HLR (Home Location Register):</strong> The "Master Database". It knows who you are, what plan you have, and roughly where you are (which VLR you're in).</li>
+              <li><strong>VLR (Visitor Location Register):</strong> The "Temporary Database". When you travel to a new city, the local MSC copies your data from HLR to its VLR to serve you locally.</li>
+            </ul>
+
+            <h5>C. OSS (Operation Subsystem) - "The Maintenance Crew"</h5>
+            <p>Monitors the network for faults, billing, and configuration.</p>
+
+            <h4>3. Visualizing the Flow</h4>
             <div class="diagram-container">
               <svg viewBox="0 0 600 300" xmlns="http://www.w3.org/2000/svg" style="background:#fff; border:1px solid #ccc; border-radius:8px;">
                 <defs><marker id="arrow-gsm" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#333"/></marker></defs>
                 <rect x="20" y="120" width="60" height="80" rx="5" fill="#e1bee7" stroke="#8e24aa"/>
                 <text x="50" y="165" text-anchor="middle" font-weight="bold">MS</text>
                 <rect x="120" y="50" width="160" height="200" rx="5" fill="none" stroke="#666" stroke-dasharray="5,5"/>
-                <text x="200" y="70" text-anchor="middle" fill="#666">BSS</text>
+                <text x="200" y="70" text-anchor="middle" fill="#666">BSS (Radio)</text>
                 <rect x="140" y="100" width="50" height="60" fill="#bbdefb" stroke="#1976d2"/>
                 <text x="165" y="135" text-anchor="middle" font-size="12">BTS</text>
                 <rect x="210" y="100" width="50" height="60" fill="#bbdefb" stroke="#1976d2"/>
                 <text x="235" y="135" text-anchor="middle" font-size="12">BSC</text>
                 <rect x="320" y="20" width="260" height="260" rx="5" fill="none" stroke="#666" stroke-dasharray="5,5"/>
-                <text x="450" y="40" text-anchor="middle" fill="#666">NSS</text>
+                <text x="450" y="40" text-anchor="middle" fill="#666">NSS (Core)</text>
                 <rect x="340" y="100" width="60" height="60" fill="#c8e6c9" stroke="#388e3c"/>
                 <text x="370" y="135" text-anchor="middle" font-weight="bold">MSC</text>
                 <rect x="450" y="60" width="50" height="40" fill="#fff9c4" stroke="#fbc02d"/><text x="475" y="85" text-anchor="middle" font-size="12">HLR</text>
@@ -114,40 +144,71 @@ export const syllabus = [
         title: "GSM Protocols, Localization & Handover",
         content: `
           <div class="study-guide-box">
-            <h4>1. Localization & Calling</h4>
-            <p><strong>Localization:</strong> The network tracks the user via periodic updates to the HLR/VLR.</p>
-            <p><strong>MTC (Mobile Terminated Call):</strong> PSTN -> GMSC -> HLR (finds VLR) -> VLR (assigns MSRN) -> MSC -> BTS -> Mobile.</p>
-
-            <h4>2. Handover</h4>
-            <p>Switching the call from one channel/cell to another to maintain continuity.</p>
+            <h4>1. Localization (How does the network find you?)</h4>
+            <p>Imagine you are traveling. For someone to call you, the network needs to know where you are.</p>
             <ul>
-              <li><strong>Intra-cell:</strong> Change frequency in same cell (interference).</li>
-              <li><strong>Inter-cell, Intra-BSC:</strong> Move to new cell, same controller.</li>
-              <li><strong>Inter-BSC:</strong> Move to new controller.</li>
-              <li><strong>Inter-MSC:</strong> Move to new switch (complex).</li>
+              <li><strong>Update:</strong> As you move, your phone listens to the "Broadcast Channel" of nearby towers.</li>
+              <li><strong>Location Area (LA):</strong> A group of cells. If you move to a new LA, your phone sends a "Location Update Request".</li>
+              <li><strong>VLR Update:</strong> The new VLR records your presence and tells your HLR "He is here now".</li>
             </ul>
 
-            <h4>3. Security</h4>
+            <h4>2. Mobile Terminated Call (MTC) - The "Call Flow"</h4>
+            <p>Someone calls your number. What happens?</p>
+            <ol>
+              <li><strong>Gateway MSC:</strong> The call hits the GMSC. GMSC asks HLR: "Where is this user?"</li>
+              <li><strong>HLR Query:</strong> HLR checks its DB. "He is in Mumbai VLR."</li>
+              <li><strong>Roaming Number:</strong> HLR asks Mumbai VLR for a temporary number (MSRN).</li>
+              <li><strong>Routing:</strong> GMSC routes the call to Mumbai MSC using the MSRN.</li>
+              <li><strong>Paging:</strong> Mumbai MSC tells all towers in your area to broadcast: "Incoming call for User X!"</li>
+              <li><strong>Response:</strong> Your phone hears it and rings.</li>
+            </ol>
+
+            <h4>3. Handover (The "Relay Race")</h4>
+            <p>You are driving while talking. You move out of range of Tower A and into Tower B. The call must not drop.</p>
+            <div class="example-box">
+              <strong>Analogy:</strong> Think of a relay race. The runner (Call) passes the baton (Connection) from one runner (Tower A) to the next (Tower B) without stopping.
+            </div>
             <ul>
-              <li><strong>Authentication:</strong> Challenge-Response using Ki and A3 algorithm.</li>
-              <li><strong>Encryption:</strong> Voice encryption using A5 algorithm.</li>
-              <li><strong>Anonymity:</strong> Using TMSI (Temporary ID) instead of IMSI.</li>
+              <li><strong>Hard Handover (GSM):</strong> "Break before Make". The phone disconnects from A for a split second before connecting to B. You might hear a tiny click.</li>
+              <li><strong>Soft Handover (CDMA/3G):</strong> "Make before Break". Connected to both A and B simultaneously for a moment. Smoother.</li>
             </ul>
           </div>
         `
       },
       {
-        title: "GPRS, CSHSD & DECT",
+        title: "Security & Data Services (GPRS/DECT)",
         content: `
           <div class="study-guide-box">
-            <h4>1. GPRS (General Packet Radio Service)</h4>
-            <p>Upgrade to GSM for packet data. Always-on connection. Uses <strong>SGSN</strong> (Serving GPRS Support Node) and <strong>GGSN</strong> (Gateway GPRS Support Node).</p>
+            <h4>1. GSM Security (The "Secret Handshake")</h4>
+            <p>How does the network know it's really you (and not a clone)?</p>
+            <ul>
+              <li><strong>Authentication (A3 Algorithm):</strong>
+                <br>Network sends a random number (Challenge). SIM calculates a result using its secret key (Ki). If the result matches the network's calculation, you are authenticated.
+                <br><em>Note:</em> The secret key (Ki) never leaves the SIM card.
+              </li>
+              <li><strong>Encryption (A5 Algorithm):</strong>
+                <br>Once authenticated, the voice data is scrambled so eavesdroppers only hear static.
+              </li>
+              <li><strong>Anonymity (TMSI):</strong>
+                <br>The network rarely uses your real ID (IMSI). It assigns a Temporary ID (TMSI) that changes frequently, so stalkers can't track your signal.
+              </li>
+            </ul>
 
-            <h4>2. CSHSD (Circuit Switched High Speed Data)</h4>
-            <p>Enhancement to standard GSM data. Allocates multiple time slots to a single user to increase speed (up to 57.6 kbps).</p>
+            <h4>2. GPRS (General Packet Radio Service)</h4>
+            <p>GSM was built for voice (Circuit Switched). GPRS added <strong>Packet Switching</strong> for data (Internet).</p>
+            <ul>
+              <li><strong>Always On:</strong> Unlike a voice call, you don't "dial up". You are always connected.</li>
+              <li><strong>Billing:</strong> You pay by the Megabyte, not the Minute.</li>
+              <li><strong>New Nodes:</strong> Added SGSN (like a local router) and GGSN (gateway to the internet).</li>
+            </ul>
 
             <h4>3. DECT (Digital Enhanced Cordless Telecommunications)</h4>
-            <p>Standard for cordless phones. High capacity in small areas (homes/offices). Uses FDMA/TDMA/TDD.</p>
+            <p>Think of the cordless landline phone in your house. That's DECT.</p>
+            <ul>
+              <li>Designed for high user density in small areas (offices, homes).</li>
+              <li><strong>Picocells:</strong> Very small range (up to 300m).</li>
+              <li>Excellent voice quality, no echo.</li>
+            </ul>
           </div>
         `
       }
@@ -156,28 +217,26 @@ export const syllabus = [
   {
     unit: "II",
     title: "Wireless MAC & Mobile Network Layer",
-    notes: "<h3>Unit II Overview</h3><p>Focuses on accessing the shared medium (MAC) and routing packets to mobile nodes (Mobile IP).</p>",
+    notes: "<h3>Unit II Overview</h3><p>This unit covers the mechanisms to access the shared wireless medium (MAC) and the network layer protocols (Mobile IP) to handle mobility.</p>",
     topics: [
       {
         title: "Motivation for Specialized MAC",
         content: `
           <div class="study-guide-box">
-            <h4>Why not CSMA/CD?</h4>
-            <p>Standard Ethernet MAC doesn't work because collision detection is impossible in wireless (signal fading).</p>
+            <h4>1. The Problem with Wireless</h4>
+            <p>In a wired network (Ethernet), everyone can hear everyone. If two people speak at once, they hear the crash (Collision). In wireless, this doesn't work.</p>
 
-            <h4>1. Hidden & Exposed Terminals</h4>
-            <div class="diagram-container">
-              <svg viewBox="0 0 500 150" xmlns="http://www.w3.org/2000/svg" style="background:#fff; border-radius:8px;">
-                <circle cx="100" cy="75" r="20" fill="#2196f3"/><text x="100" y="80" text-anchor="middle" fill="white">A</text>
-                <circle cx="250" cy="75" r="20" fill="#4caf50"/><text x="250" y="80" text-anchor="middle" fill="white">B</text>
-                <circle cx="400" cy="75" r="20" fill="#f44336"/><text x="400" y="80" text-anchor="middle" fill="white">C</text>
-                <text x="250" y="120" text-anchor="middle" fill="#d32f2f" font-weight="bold">Hidden Terminal Problem</text>
-                <text x="250" y="140" text-anchor="middle" font-size="12">A & C transmit to B simultaneously -> Collision</text>
-              </svg>
+            <h4>2. Hidden Terminal Problem (The "Party" Analogy)</h4>
+            <div class="example-box">
+              <strong>Analogy:</strong> Imagine A and C are at opposite ends of a large party hall. B is in the middle.
+              <br>A speaks to B. C cannot hear A (too far).
+              <br>C decides to speak to B at the same time.
+              <br><strong>Result:</strong> B hears gibberish (Collision). A and C are "hidden" from each other.
             </div>
+            <p><strong>Solution:</strong> We need a protocol like RTS/CTS (Request to Send / Clear to Send). A asks permission first!</p>
 
-            <h4>2. Near and Far Terminals</h4>
-            <p>A strong signal from a nearby node drowns out a weak signal from a far node. Requires power control.</p>
+            <h4>3. Exposed Terminal Problem</h4>
+            <p>B wants to send to C. A is transmitting to someone else. B hears A and thinks "The air is busy, I should wait". But C is far away from A and wouldn't hear A anyway. B is "Exposed" to A and waits unnecessarily, wasting bandwidth.</p>
           </div>
         `
       },
@@ -185,79 +244,80 @@ export const syllabus = [
         title: "MAC Protocols (SDMA, FDMA, TDMA, CDMA)",
         content: `
           <div class="study-guide-box">
-            <h4>Multiplexing Techniques</h4>
-            <table class="comparison-table">
-              <tr><th>Technique</th><th>Concept</th><th>Pros/Cons</th></tr>
-              <tr><td><strong>SDMA</strong></td><td>Space Division (Sectorized Antennas).</td><td>High reuse, complex HW.</td></tr>
-              <tr><td><strong>FDMA</strong></td><td>Frequency Division (Distinct bands).</td><td>Simple, inflexible.</td></tr>
-              <tr><td><strong>TDMA</strong></td><td>Time Division (Time slots).</td><td>Flexible, sync required.</td></tr>
-              <tr><td><strong>CDMA</strong></td><td>Code Division (Orthogonal codes).</td><td>Secure, complex power control.</td></tr>
-            </table>
-          </div>
-        `
-      },
-      {
-        title: "Wireless LAN (IEEE 802.11)",
-        content: `
-          <div class="study-guide-box">
-            <h4>IEEE 802.11 Architecture</h4>
-            <ul>
-              <li><strong>Infrastructure Mode:</strong> Devices connect via Access Point (AP).</li>
-              <li><strong>Ad-hoc Mode:</strong> Devices connect directly.</li>
-            </ul>
-            <h4>Protocol: CSMA/CA</h4>
-            <p>Carrier Sense Multiple Access with Collision Avoidance. Uses <strong>RTS/CTS</strong> (Request to Send / Clear to Send) to solve hidden node problem.</p>
-          </div>
-        `
-      },
-      {
-        title: "Mobile IP Network Layer",
-        content: `
-          <div class="study-guide-box">
-            <h4>1. Goal</h4>
-            <p>Allow a device to keep its IP address while moving across networks.</p>
+            <h4>How do we share the air? (Multiplexing)</h4>
+            <p>Imagine a room full of people wanting to talk. How do we organize them?</p>
 
-            <h4>2. Entities & Architecture</h4>
-            <div class="diagram-container">
-              <svg viewBox="0 0 600 250" xmlns="http://www.w3.org/2000/svg" style="background:#e0f7fa; border-radius:8px;">
-                <rect x="50" y="50" width="150" height="100" rx="10" fill="white" stroke="#00bcd4"/>
-                <text x="125" y="80" text-anchor="middle" fill="#00bcd4">Home Network</text>
-                <rect x="90" y="90" width="70" height="40" fill="#00bcd4"/><text x="125" y="115" text-anchor="middle" fill="white">HA</text>
-                <rect x="400" y="50" width="150" height="100" rx="10" fill="white" stroke="#ff9800"/>
-                <text x="475" y="80" text-anchor="middle" fill="#ff9800">Foreign Network</text>
-                <rect x="440" y="90" width="70" height="40" fill="#ff9800"/><text x="475" y="115" text-anchor="middle" fill="white">FA</text>
-                <circle cx="475" cy="200" r="20" fill="#9c27b0"/><text x="475" y="205" text-anchor="middle" fill="white" font-size="10">MN</text>
-                <path d="M 160 110 Q 300 20 440 110" stroke="#006064" stroke-width="3" stroke-dasharray="5,5" fill="none"/>
-                <text x="300" y="50" text-anchor="middle" fill="#006064" font-weight="bold">Tunnel</text>
-              </svg>
+            <h4>1. SDMA (Space Division) - "Separate Rooms"</h4>
+            <p>Use directional antennas. You can talk in the North corner, I can talk in the South corner. We don't interfere.</p>
+
+            <h4>2. FDMA (Frequency Division) - "Different Pitches"</h4>
+            <p>You speak in a high voice (Channel 1), I speak in a low voice (Channel 2). The listener tunes into one.</p>
+            <ul><li><em>Con:</em> If I stop talking, my channel is wasted. No one else can use it.</li></ul>
+
+            <h4>3. TDMA (Time Division) - "Take Turns"</h4>
+            <p>We all use the same pitch, but I speak for 1 second, then you speak for 1 second.</p>
+            <ul><li><em>Pro:</em> Flexible.</li><li><em>Con:</em> We need perfect clocks to synchronize.</li></ul>
+
+            <h4>4. CDMA (Code Division) - "Different Languages"</h4>
+            <p>We all speak at the same time on the same frequency! But I speak English, and you speak French. The receiver filters out everything except English.</p>
+            <ul><li><em>Pro:</em> Very secure and efficient.</li><li><em>Con:</em> Complex math (Orthogonal codes).</li></ul>
+          </div>
+        `
+      },
+      {
+        title: "Wireless LAN (IEEE 802.11 - Wi-Fi)",
+        content: `
+          <div class="study-guide-box">
+            <h4>1. Architecture</h4>
+            <ul>
+              <li><strong>Infrastructure Mode:</strong> The standard Wi-Fi at home. All devices (Stations) connect to a central Router (Access Point). If you want to send a file to the printer, it goes Laptop -> Router -> Printer.</li>
+              <li><strong>Ad-hoc Mode:</strong> No router. Laptop connects directly to Printer. Good for quick file sharing.</li>
+            </ul>
+
+            <h4>2. CSMA/CA (Collision Avoidance)</h4>
+            <p>Since we can't <em>detect</em> collisions easily (Hidden Terminal), we try to <em>avoid</em> them.</p>
+            <div class="example-box">
+              <strong>The Protocol Steps:</strong>
+              <ol>
+                <li><strong>Listen:</strong> Is the channel free?</li>
+                <li><strong>Wait:</strong> If busy, wait a random time (Backoff).</li>
+                <li><strong>RTS (Request to Send):</strong> Send a tiny packet: "Can I speak?"</li>
+                <li><strong>CTS (Clear to Send):</strong> AP replies: "Yes, go ahead." (Everyone else hears this and stays silent).</li>
+                <li><strong>Data:</strong> Send the actual file.</li>
+                <li><strong>ACK:</strong> Receiver confirms: "Got it!"</li>
+              </ol>
             </div>
           </div>
         `
       },
       {
-        title: "Packet Delivery & Handover Management",
+        title: "Mobile IP (The Network Layer)",
         content: `
           <div class="study-guide-box">
-            <h4>1. Packet Delivery</h4>
-            <p>CN -> HA -> Tunnel -> FA -> MN. Reverse path is usually direct (Triangular Routing).</p>
+            <h4>1. The IP Address Problem</h4>
+            <p>An IP address is like a street address. It tells the internet <em>where</em> you are. If you move to a new network (new city), you get a new IP.</p>
+            <p><strong>The Issue:</strong> If your IP changes, all your open connections (downloads, video calls) break. Mobile IP solves this.</p>
 
-            <h4>2. Registration</h4>
-            <p>MN registers its new CoA (Care-of Address) with the HA via the FA.</p>
+            <h4>2. The Solution: Two Addresses</h4>
+            <div class="example-box">
+              <strong>Analogy: Mail Forwarding</strong>
+              <br>You move to Paris for a month, but you want to keep receiving mail at your New York home.
+              <ul>
+                <li><strong>Home Address (Home IP):</strong> Your permanent ID.</li>
+                <li><strong>Care-of Address (CoA):</strong> Your temporary address in Paris.</li>
+                <li><strong>Home Agent (HA):</strong> Your mom in New York. She collects your mail and forwards it to Paris.</li>
+                <li><strong>Foreign Agent (FA):</strong> The hotel desk in Paris. They receive the forwarded mail and give it to you.</li>
+              </ul>
+            </div>
 
-            <h4>3. Tunneling & Encapsulation</h4>
-            <p><strong>IP-in-IP Encapsulation:</strong> The original IP packet is wrapped inside a new IP packet destined for the CoA.</p>
-          </div>
-        `
-      },
-      {
-        title: "Optimization & DHCP",
-        content: `
-          <div class="study-guide-box">
-            <h4>1. Route Optimization</h4>
-            <p>Solves Triangular Routing. The CN learns the current CoA of the MN and sends packets directly, bypassing the HA (requires updates to CN).</p>
-
-            <h4>2. DHCP (Dynamic Host Configuration Protocol)</h4>
-            <p>Used to automatically assign a CoA to the MN when it enters a foreign network.</p>
+            <h4>3. How it works (Tunneling)</h4>
+            <p>When a packet arrives for you at your Home Network:</p>
+            <ol>
+              <li>HA intercepts it.</li>
+              <li>HA wraps it inside a new packet (Encapsulation) addressed to your CoA.</li>
+              <li>The packet travels through the "Tunnel" to the Foreign Network.</li>
+              <li>FA unwraps it (Decapsulation) and delivers the original packet to you.</li>
+            </ol>
           </div>
         `
       }
@@ -266,61 +326,65 @@ export const syllabus = [
   {
     unit: "III",
     title: "Mobile Transport Layer & Database Issues",
-    notes: "<h3>Unit III Overview</h3><p>Transport layer adaptations for wireless and data management strategies.</p>",
+    notes: "<h3>Unit III Overview</h3><p>This unit addresses the challenges of TCP in wireless environments and data management strategies like hoarding and caching.</p>",
     topics: [
       {
-        title: "Mobile Transport Layer (TCP)",
+        title: "Mobile Transport Layer (TCP Challenges)",
         content: `
           <div class="study-guide-box">
-            <h4>1. Conventional TCP Issues</h4>
-            <p>Designed for wired networks. Interprets packet loss as congestion. In wireless, loss is due to noise/handover. TCP slows down unnecessarily.</p>
+            <h4>1. Why TCP hates Wireless</h4>
+            <p>TCP (Transmission Control Protocol) is the backbone of the internet. It guarantees delivery. It was designed for <strong>Wired Networks</strong>.</p>
+            <p><strong>The Misunderstanding:</strong>
+              <br>In wired networks, if a packet is lost, it's almost always because of <strong>Congestion</strong> (traffic jam). TCP's reaction is to <strong>Slow Down</strong>.
+              <br>In wireless, packets are lost because of <strong>Noise</strong> or <strong>Handover</strong> (brief disconnect). The network isn't full!
+              <br><strong>Result:</strong> TCP slows down unnecessarily, killing your download speed.
+            </p>
 
-            <h4>2. Indirect TCP (I-TCP)</h4>
-            <p>Splits connection at the Base Station. Standard TCP on fixed link, Wireless TCP on mobile link. <strong>Pros:</strong> Isolation. <strong>Cons:</strong> Loss of end-to-end semantics.</p>
-
-            <h4>3. Snooping TCP</h4>
-            <p>BS buffers packets and retransmits locally if loss is detected. <strong>Pros:</strong> Maintains semantics. <strong>Cons:</strong> Fails with encryption.</p>
-
-            <h4>4. Mobile TCP (M-TCP)</h4>
-            <p>Handles frequent disconnections. Freezes the sender's window (Persist Mode) during disconnection.</p>
-          </div>
-        `
-      },
-      {
-        title: "Database Hoarding & Caching",
-        content: `
-          <div class="study-guide-box">
-            <h4>1. Hoarding</h4>
-            <p>Predictively downloading data before disconnection (e.g., downloading map area before entering tunnel).</p>
-
-            <h4>2. Caching Techniques</h4>
-            <p>Storing frequently accessed data on the mobile device to reduce latency and bandwidth usage. Requires cache invalidation strategies.</p>
-            <div class="diagram-container">
-              <svg viewBox="0 0 300 150" xmlns="http://www.w3.org/2000/svg" style="background:#f1f8e9; border-radius:8px;">
-                 <rect x="100" y="20" width="100" height="40" fill="#4caf50"/><text x="150" y="45" text-anchor="middle" fill="white">Server DB</text>
-                 <line x1="150" y1="60" x2="150" y2="100" stroke="#333" marker-end="url(#arrow-p)"/>
-                 <rect x="80" y="100" width="140" height="40" fill="#c5e1a5"/><text x="150" y="125" text-anchor="middle" fill="#333">Mobile Cache</text>
-              </svg>
-            </div>
-          </div>
-        `
-      },
-      {
-        title: "Transactional Models & QoS",
-        content: `
-          <div class="study-guide-box">
-            <h4>1. Transactional Models</h4>
-            <p>ACID properties are hard to maintain in mobile.</p>
+            <h4>2. Solutions (Fixing TCP)</h4>
+            
+            <h5>A. Indirect TCP (I-TCP) - "The Split"</h5>
+            <p>Split the connection at the Base Station (Tower).</p>
             <ul>
-              <li><strong>Kangaroo Transactions:</strong> Transaction moves with the user across base stations.</li>
-              <li><strong>Tentative Transactions:</strong> Local commit, verified later with server.</li>
+              <li><strong>Standard TCP:</strong> Server <-> Tower. (Fast, wired).</li>
+              <li><strong>Wireless TCP:</strong> Tower <-> Phone. (Optimized for wireless).</li>
+              <li><em>Problem:</em> If the Tower crashes, the Server thinks the Phone got the data (because the Tower acknowledged it). Breaks end-to-end reliability.</li>
             </ul>
 
-            <h4>2. Query Processing</h4>
-            <p>Optimizing queries for low bandwidth and high latency.</p>
+            <h5>B. Snooping TCP - "The Helper"</h5>
+            <p>The Tower spies on the packets. If it sees a packet is missing (gap in sequence), it quickly re-sends it from its own cache <em>before</em> the Server notices.</p>
+            <ul>
+              <li><em>Benefit:</em> Server doesn't slow down. End-to-end reliability is kept.</li>
+              <li><em>Problem:</em> Doesn't work with Encryption (HTTPS), because the Tower can't read the packet headers.</li>
+            </ul>
 
-            <h4>3. QoS (Quality of Service)</h4>
-            <p>Managing resources to guarantee performance (bandwidth, delay, jitter) for applications like VoIP.</p>
+            <h5>C. Mobile TCP (M-TCP) - "The Pauser"</h5>
+            <p>When you disconnect (e.g., entering an elevator), the Tower tells the Server: "<strong>Pause!</strong> Don't send anything, and don't slow down. Just wait." (Sets window size to 0). When you reconnect, it says "Resume".</p>
+          </div>
+        `
+      },
+      {
+        title: "Database Issues (Hoarding & Caching)",
+        content: `
+          <div class="study-guide-box">
+            <h4>1. The Disconnection Problem</h4>
+            <p>Mobile devices are frequently offline (tunnel, flight, poor signal). How do we access data?</p>
+
+            <h4>2. Hoarding (Prefetching)</h4>
+            <p>Downloading data <em>before</em> you need it.</p>
+            <div class="example-box">
+              <strong>Example: Google Maps Offline Areas</strong>
+              <br>Before a trip, you download the map of the city. Even if you lose signal, you can still navigate. This is hoarding.
+            </div>
+
+            <h4>3. Caching</h4>
+            <p>Storing data you <em>recently</em> used.</p>
+            <ul>
+              <li><strong>Benefit:</strong> Faster access (RAM is faster than 4G) and saves battery (radio stays off).</li>
+              <li><strong>Challenge: Consistency.</strong> If the stock price changes on the server, your cached version is wrong (Stale). We need "Invalidation Reports" - the server telling the phone "Hey, that data is old, delete it!"</li>
+            </ul>
+
+            <h4>4. Kangaroo Transactions</h4>
+            <p>A transaction (like a bank transfer) might take time. If you move to a new Tower while it's processing, the transaction "hops" with you, like a Kangaroo carrying its joey. It doesn't restart from scratch.</p>
           </div>
         `
       }
@@ -329,38 +393,52 @@ export const syllabus = [
   {
     unit: "IV",
     title: "Data Dissemination & Synchronization",
-    notes: "<h3>Unit IV Overview</h3><p>Mechanisms for delivering data and keeping it consistent.</p>",
+    notes: "<h3>Unit IV Overview</h3><p>Focuses on how data is delivered to mobile users (Push vs Pull) and how consistency is maintained.</p>",
     topics: [
       {
-        title: "Data Dissemination",
+        title: "Data Dissemination (Push vs Pull)",
         content: `
           <div class="study-guide-box">
-            <h4>1. Communications Asymmetry</h4>
-            <p>Downlink (Server to Mobile) bandwidth is much higher than Uplink (Mobile to Server).</p>
+            <h4>1. The Asymmetry</h4>
+            <p>Mobile devices are "Consumers". They download huge videos but only upload small clicks. The bandwidth is <strong>Asymmetric</strong> (Downlink >> Uplink).</p>
 
-            <h4>2. Classification of Delivery Mechanisms</h4>
-            <ul>
-              <li><strong>Push (Broadcast):</strong> Server sends to all. Scalable.</li>
-              <li><strong>Pull (On-Demand):</strong> Client requests. Personalized.</li>
-              <li><strong>Hybrid:</strong> Combination.</li>
-            </ul>
+            <h4>2. Push Mechanism (Broadcast)</h4>
+            <p>The server sends data to everyone without them asking.</p>
+            <div class="example-box">
+              <strong>Analogy: Radio Station</strong>
+              <br>The DJ plays a song. Everyone tuned in hears it. It costs the DJ the same effort whether 1 person listens or 1 million.
+              <br><em>Use Case:</em> Stock tickers, News headlines, Traffic alerts.
+            </div>
+            <ul><li><em>Pro:</em> Extremely scalable.</li><li><em>Con:</em> You get data you might not want (Spam).</li></ul>
+
+            <h4>3. Pull Mechanism (On-Demand)</h4>
+            <p>The user asks for specific data.</p>
+            <div class="example-box">
+              <strong>Analogy: Web Browsing</strong>
+              <br>You type a URL. The server sends that specific page.
+            </div>
+            <ul><li><em>Pro:</em> You get exactly what you want.</li><li><em>Con:</em> If 1 million people ask at once, the server crashes.</li></ul>
+
+            <h4>4. Hybrid</h4>
+            <p>Push the popular stuff (Top 10 News), Pull the niche stuff (Archive articles).</p>
           </div>
         `
       },
       {
-        title: "Broadcast Models & Selective Tuning",
+        title: "Selective Tuning & Indexing",
         content: `
           <div class="study-guide-box">
-            <h4>1. Broadcast Models</h4>
-            <ul>
-              <li><strong>Flat:</strong> Data sent sequentially.</li>
-              <li><strong>Hash-based:</strong> Uses hashing for location.</li>
-              <li><strong>Index-based:</strong> Directory sent first.</li>
-            </ul>
+            <h4>1. Saving Battery</h4>
+            <p>Listening to a broadcast stream drains battery. The CPU has to check every packet: "Is this for me? No. Is this for me? No."</p>
 
-            <h4>2. Selective Tuning</h4>
-            <p>Technique to save battery. Device wakes up only when desired data is broadcast.</p>
-            <p><strong>Indexing:</strong> Server sends an index. Client reads index, sleeps, and wakes up exactly when data arrives.</p>
+            <h4>2. Indexing</h4>
+            <p>The server sends a "Table of Contents" (Index) at the start of the cycle.</p>
+            <div class="example-box">
+              <strong>Scenario:</strong>
+              <br>Server: "Sports is at Minute 5. Weather is at Minute 10."
+              <br>Phone: Reads Index. "I want Weather." -> <strong>Sleeps</strong> for 9 minutes. -> <strong>Wakes up</strong> at Minute 10 to download Weather.
+            </div>
+            <p>This technique (Selective Tuning) drastically reduces power consumption.</p>
           </div>
         `
       },
@@ -368,15 +446,19 @@ export const syllabus = [
         title: "Data Synchronization",
         content: `
           <div class="study-guide-box">
-            <h4>1. Introduction</h4>
-            <p>Process of making two datasets identical (Mobile & Server).</p>
+            <h4>1. The Sync Problem</h4>
+            <p>You edit a document on your phone while offline. Your colleague edits the same document on the server. When you reconnect, whose version wins?</p>
 
-            <h4>2. Protocols & Software</h4>
+            <h4>2. Conflict Resolution Strategies</h4>
             <ul>
-              <li><strong>SyncML:</strong> Industry standard XML-based protocol.</li>
-              <li><strong>HotSync:</strong> Palm OS protocol.</li>
-              <li><strong>ActiveSync:</strong> Microsoft protocol.</li>
+              <li><strong>Server Wins:</strong> Your phone's changes are discarded. (Safe but frustrating).</li>
+              <li><strong>Client Wins:</strong> You overwrite your colleague's work. (Dangerous).</li>
+              <li><strong>Timestamp:</strong> The last person to save wins.</li>
+              <li><strong>Merge:</strong> The software tries to combine both (like Git merge). If it can't, it asks the user.</li>
             </ul>
+
+            <h4>3. SyncML</h4>
+            <p>The industry standard protocol for syncing. It's the language your phone uses to talk to your Google Contacts or Outlook Calendar.</p>
           </div>
         `
       }
@@ -385,66 +467,62 @@ export const syllabus = [
   {
     unit: "V",
     title: "Mobile Ad-hoc Networks (MANETs)",
-    notes: "<h3>Unit V Overview</h3><p>Decentralized networks where every node is a router.</p>",
+    notes: "<h3>Unit V Overview</h3><p>This unit covers decentralized networks where every node is a router, focusing on routing protocols.</p>",
     topics: [
       {
         title: "MANET Introduction",
         content: `
           <div class="study-guide-box">
-            <h4>1. Definition</h4>
-            <p>Infrastructure-less network. Nodes move and configure themselves dynamically.</p>
+            <h4>1. What is a MANET?</h4>
+            <p><strong>Mobile Ad-hoc Network.</strong> It's a network without a boss. No towers, no routers, no cables.</p>
+            <p>Every device (Node) talks directly to its neighbors. If it wants to talk to someone far away, the neighbors pass the message along (Multi-hop).</p>
 
-            <h4>2. Applications</h4>
-            <p>Military (Battlefield), Disaster Relief (No towers), Sensor Networks, VANETs (Vehicles).</p>
+            <h4>2. Real-World Scenario: Disaster Relief</h4>
+            <div class="example-box">
+              <strong>Scenario:</strong> An earthquake destroys all cell towers. Rescuers arrive.
+              <br>Rescuer A (at Base) needs to talk to Rescuer C (in the rubble). They are too far apart.
+              <br>Rescuer B is halfway between them.
+              <br>A sends to B -> B forwards to C.
+              <br>They have formed a MANET instantly.
+            </div>
 
             <h4>3. Challenges</h4>
-            <p>Dynamic Topology, Limited Battery, Security, Routing Overhead, Hidden Terminal.</p>
+            <ul>
+              <li><strong>Dynamic Topology:</strong> Nodes move constantly. The path A->B->C might exist now, but B might walk away in 5 seconds.</li>
+              <li><strong>Battery:</strong> Forwarding other people's packets drains your battery. Why should you help? (Selfish Node problem).</li>
+            </ul>
           </div>
         `
       },
       {
-        title: "Routing Algorithms Classification",
+        title: "Routing Protocols (DSDV, DSR, AODV)",
         content: `
           <div class="study-guide-box">
-            <h4>Classification</h4>
-            <div class="diagram-container">
-              <svg viewBox="0 0 500 150" xmlns="http://www.w3.org/2000/svg" style="background:#e8f5e9; border-radius:8px;">
-                <rect x="200" y="20" width="100" height="30" fill="#2e7d32"/><text x="250" y="40" text-anchor="middle" fill="white">Routing</text>
-                <line x1="250" y1="50" x2="100" y2="80" stroke="#333"/>
-                <line x1="250" y1="50" x2="250" y2="80" stroke="#333"/>
-                <line x1="250" y1="50" x2="400" y2="80" stroke="#333"/>
-                <rect x="50" y="80" width="100" height="30" fill="#43a047"/><text x="100" y="100" text-anchor="middle" fill="white">Proactive</text>
-                <rect x="200" y="80" width="100" height="30" fill="#43a047"/><text x="250" y="100" text-anchor="middle" fill="white">Reactive</text>
-                <rect x="350" y="80" width="100" height="30" fill="#43a047"/><text x="400" y="100" text-anchor="middle" fill="white">Hybrid</text>
-              </svg>
-            </div>
-          </div>
-        `
-      },
-      {
-        title: "Specific Routing Protocols",
-        content: `
-          <div class="study-guide-box">
-            <h4>1. DSDV (Destination-Sequenced Distance-Vector)</h4>
-            <p><strong>Proactive.</strong> Table-driven. Uses sequence numbers to avoid loops. High overhead.</p>
+            <h4>How do we find the path?</h4>
 
-            <h4>2. DSR (Dynamic Source Routing)</h4>
-            <p><strong>Reactive.</strong> Source routing (full path in header). No periodic updates. High header overhead.</p>
+            <h4>1. Proactive (Table-Driven) - DSDV</h4>
+            <p><strong>"The Map Approach"</strong></p>
+            <p>Every node keeps a full map of the network (Routing Table). "To reach C, go through B."</p>
+            <ul>
+              <li><em>Pro:</em> Instant. You already know the way.</li>
+              <li><em>Con:</em> If nodes move, you spend all your time updating the map, even if no one is talking. Wastes battery.</li>
+            </ul>
 
-            <h4>3. AODV (Ad-hoc On-demand Distance Vector)</h4>
-            <p><strong>Reactive.</strong> Hop-by-hop routing. Uses RREQ (Request) and RREP (Reply). Industry standard.</p>
-          </div>
-        `
-      },
-      {
-        title: "Mobile Agents & Service Discovery",
-        content: `
-          <div class="study-guide-box">
-            <h4>1. Mobile Agents</h4>
-            <p>Code that moves from node to node to perform tasks (e.g., collecting data, negotiating). Saves bandwidth by moving computation to data.</p>
+            <h4>2. Reactive (On-Demand) - DSR / AODV</h4>
+            <p><strong>"The Asking Directions Approach"</strong></p>
+            <p>I don't know the way to C. I'll shout (Broadcast): "Does anyone know C?"</p>
+            <ul>
+              <li><strong>RREQ (Route Request):</strong> The shout spreads through the network.</li>
+              <li><strong>RREP (Route Reply):</strong> C hears it and replies: "I'm here! The path is A->B->C."</li>
+              <li><em>Pro:</em> Saves battery. No updates unless you need to talk.</li>
+              <li><em>Con:</em> Initial delay. You have to wait for the reply before sending data.</li>
+            </ul>
 
-            <h4>2. Service Discovery</h4>
-            <p>Mechanism to find services (printers, gateways) in a dynamic network without a central server. Examples: Jini, UPnP.</p>
+            <h4>3. AODV vs DSR</h4>
+            <ul>
+              <li><strong>DSR (Source Routing):</strong> The entire path "A-B-C-D" is written in the packet header. Good for small networks.</li>
+              <li><strong>AODV (Hop-by-Hop):</strong> Like road signs. Packet just says "Destination D". Node A looks at sign: "For D, go to B". Node B looks: "For D, go to C". Less overhead.</li>
+            </ul>
           </div>
         `
       }
