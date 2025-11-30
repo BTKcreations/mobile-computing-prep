@@ -20,6 +20,7 @@ import { ppleModelPaper } from './data/ppleModelPaper'
 import { ppleTips } from './data/ppleTips'
 import { ppleFlashcards } from './data/ppleFlashcards'
 import './tips.css'
+import './quiz.css'
 
 function App() {
   const [currentSubject, setCurrentSubject] = useState(null) // null (selection), 'mobile', 'sensors'
@@ -492,39 +493,70 @@ function App() {
         </main>
       )}
 
-      {/* Quiz Modal */}
+      {/* Enhanced Quiz Modal */}
       {quizMode && (
-        <div className="modal-overlay">
-          <div className="modal-content">
-            <button className="close-btn" onClick={closeQuiz}>&times;</button>
+        <div className="quiz-overlay">
+          <div className="quiz-card">
+            <button className="close-btn" onClick={closeQuiz} style={{ position: 'absolute', right: '1.5rem', top: '1.5rem', zIndex: 10 }}>&times;</button>
+
             {showScore ? (
-              <div className="score-section">
-                <h2>Quiz Completed!</h2>
-                <p>Your Score: {score} / {quizMode === 'FINAL' ? finalExamQuestions.length : subjectData.quizzes[quizMode].length}</p>
-                <button className="btn btn-primary" onClick={closeQuiz}>Close</button>
+              <div className="score-container">
+                <div
+                  className="score-circle"
+                  style={{ '--score-percent': `${(score / (quizMode === 'FINAL' ? finalExamQuestions.length : subjectData.quizzes[quizMode].length)) * 100}%` }}
+                >
+                  <div className="score-text">
+                    <span className="score-number">{score}</span>
+                    <span className="score-total">of {quizMode === 'FINAL' ? finalExamQuestions.length : subjectData.quizzes[quizMode].length}</span>
+                  </div>
+                </div>
+                <h2 className="score-message">
+                  {score / (quizMode === 'FINAL' ? finalExamQuestions.length : subjectData.quizzes[quizMode].length) > 0.7 ? 'Excellent Work! 🎉' : 'Keep Practicing! 💪'}
+                </h2>
+                <p className="score-submessage">You've completed the {quizMode === 'FINAL' ? 'Final Exam' : `Unit ${quizMode}`} quiz.</p>
+                <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center' }}>
+                  <button className="btn btn-outline" onClick={closeQuiz}>Close</button>
+                  <button className="btn btn-primary" onClick={() => {
+                    setShowScore(false)
+                    setCurrentQuestion(0)
+                    setScore(0)
+                    // If final exam, reshuffle? For now just restart.
+                  }}>Try Again</button>
+                </div>
               </div>
             ) : (
-              <div className="quiz-section">
-                <h3>
-                  {quizMode === 'FINAL' ? 'Final Exam' : `Unit ${quizMode} Quiz`}
-                  - Question {currentQuestion + 1}/{quizMode === 'FINAL' ? finalExamQuestions.length : subjectData.quizzes[quizMode].length}
-                </h3>
-                {(() => {
-                  const questions = quizMode === 'FINAL' ? finalExamQuestions : subjectData.quizzes[quizMode]
-                  return (
-                    <>
-                      <p className="question-text">{questions[currentQuestion].question}</p>
-                      <div className="options-grid">
-                        {questions[currentQuestion].options.map((option, index) => (
-                          <button key={index} className="option-btn" onClick={() => handleAnswer(index)}>
-                            {option}
-                          </button>
-                        ))}
-                      </div>
-                    </>
-                  )
-                })()}
-              </div>
+              <>
+                <div className="quiz-header">
+                  <div className="quiz-meta">
+                    <span>{quizMode === 'FINAL' ? 'Final Exam' : `Unit ${quizMode} Quiz`}</span>
+                    <span>Question {currentQuestion + 1} / {quizMode === 'FINAL' ? finalExamQuestions.length : subjectData.quizzes[quizMode].length}</span>
+                  </div>
+                  <div className="quiz-progress-track">
+                    <div
+                      className="quiz-progress-fill"
+                      style={{ width: `${((currentQuestion + 1) / (quizMode === 'FINAL' ? finalExamQuestions.length : subjectData.quizzes[quizMode].length)) * 100}%` }}
+                    ></div>
+                  </div>
+                </div>
+
+                <div className="quiz-content">
+                  {(() => {
+                    const questions = quizMode === 'FINAL' ? finalExamQuestions : subjectData.quizzes[quizMode]
+                    return (
+                      <>
+                        <p className="quiz-question">{questions[currentQuestion].question}</p>
+                        <div className="quiz-options">
+                          {questions[currentQuestion].options.map((option, index) => (
+                            <button key={index} className="quiz-option-btn" onClick={() => handleAnswer(index)}>
+                              {option}
+                            </button>
+                          ))}
+                        </div>
+                      </>
+                    )
+                  })()}
+                </div>
+              </>
             )}
           </div>
         </div>
