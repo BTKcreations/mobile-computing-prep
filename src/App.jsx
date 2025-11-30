@@ -237,7 +237,7 @@ function App() {
   if (!currentSubject) {
     return (
       <div className="container" style={{ textAlign: 'center', marginTop: '4rem' }}>
-        <h1>Select Your Subject</h1>
+        <h1>🎓 B.Tech Exam Prep</h1>
         <div className="grid" style={{ maxWidth: '800px', margin: '2rem auto' }}>
           <div className="card" style={{ cursor: 'pointer' }} onClick={() => setCurrentSubject('mobile')}>
             <h2>📱 Mobile Computing</h2>
@@ -269,7 +269,7 @@ function App() {
           <span className="unit-badge">{subjectData.title}</span>
         </div>
         <h1>{subjectData.title} Prep</h1>
-        <p className="subtitle">B.Tech Exam Preparation Companion</p>
+        <p className="subtitle">Comprehensive B.Tech Exam Preparation</p>
 
         <div style={{ display: 'flex', gap: '10px', justifyContent: 'center', marginTop: '1rem', flexWrap: 'wrap' }}>
           <button className={`btn ${viewMode === 'study' ? 'btn-primary' : ''}`} onClick={() => setViewMode('study')}>Study Mode</button>

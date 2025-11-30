@@ -10,9 +10,9 @@ export default defineConfig({
       registerType: 'prompt',
       includeAssets: ['icon.svg'],
       manifest: {
-        name: 'Mobile Computing Prep',
-        short_name: 'MobilePrep',
-        description: 'Complete Mobile Computing Exam Preparation App',
+        name: 'B.Tech Exam Prep',
+        short_name: 'BTechPrep',
+        description: 'Complete B.Tech Exam Preparation App',
         theme_color: '#ffffff',
         background_color: '#ffffff',
         display: 'standalone',
