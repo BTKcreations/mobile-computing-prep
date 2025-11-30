@@ -24,6 +24,7 @@ import './quiz.css'
 import './mindmap.css'
 import { mindmaps } from './data/mindmaps'
 import ReloadPrompt from './ReloadPrompt'
+import { changelog } from './data/changelog'
 
 const MindMapNode = ({ node }) => (
   <div className="mm-node">
@@ -234,47 +235,61 @@ function App() {
     }, 200)
   }
 
+
+  // ... existing state
   const [showAbout, setShowAbout] = useState(false)
+  const [showHistory, setShowHistory] = useState(false)
 
   if (!currentSubject) {
     return (
       <div className="container" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
-        <div style={{ position: 'absolute', top: '1rem', right: '1rem' }}>
+        <div style={{ position: 'absolute', top: '1rem', right: '1rem', display: 'flex', gap: '0.5rem' }}>
+          <button
+            className="btn btn-outline"
+            style={{ borderRadius: '50%', width: '40px', height: '40px', padding: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.2rem' }}
+            onClick={() => setShowHistory(true)}
+            title="Update History"
+          >
+            🕒
+          </button>
           <button
             className="btn btn-outline"
             style={{ borderRadius: '50%', width: '40px', height: '40px', padding: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.2rem' }}
             onClick={() => setShowAbout(true)}
+            title="About App"
           >
             ℹ️
           </button>
         </div>
 
-        <div style={{ textAlign: 'center', marginTop: '4rem', flex: 1 }}>
-          <h1>🎓 B.Tech Exam Prep</h1>
-          <p style={{ color: '#666', marginBottom: '2rem' }}>Select a subject to start mastering concepts</p>
-          <div className="grid" style={{ maxWidth: '800px', margin: '2rem auto' }}>
-            <div className="card" style={{ cursor: 'pointer' }} onClick={() => setCurrentSubject('mobile')}>
-              <h2>📱 Mobile Computing</h2>
-              <p>Unit I - V, Quizzes, Model Papers</p>
-              <button className="btn btn-primary">Start Learning</button>
-            </div>
-            <div className="card" style={{ cursor: 'pointer' }} onClick={() => setCurrentSubject('sensors')}>
-              <h2>🌡️ Electronic Sensors</h2>
-              <p>Unit I - V, Open Elective-II</p>
-              <button className="btn btn-primary">Start Learning</button>
-            </div>
-            <div className="card" style={{ cursor: 'pointer' }} onClick={() => setCurrentSubject('pple')}>
-              <h2>⚖️ Professional Practice & Ethics</h2>
-              <p>Unit I - V, Law, IPR & Contracts</p>
-              <button className="btn btn-primary">Start Learning</button>
+        {/* ... existing content ... */}
+
+        {/* History Modal */}
+        {showHistory && (
+          <div className="modal-overlay">
+            <div className="modal-content" style={{ maxWidth: '600px', maxHeight: '80vh', display: 'flex', flexDirection: 'column' }}>
+              <button className="close-btn" onClick={() => setShowHistory(false)}>&times;</button>
+              <h2 style={{ color: 'var(--primary-color)', marginBottom: '1rem', textAlign: 'center' }}>📅 Update History</h2>
+              <div style={{ overflowY: 'auto', paddingRight: '0.5rem' }}>
+                {changelog.map((log, index) => (
+                  <div key={index} style={{ marginBottom: '1.5rem', borderLeft: '3px solid var(--primary-color)', paddingLeft: '1rem' }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: '0.5rem' }}>
+                      <h3 style={{ fontSize: '1.1rem', margin: 0 }}>{log.title}</h3>
+                      <span style={{ fontSize: '0.8rem', color: '#64748b', background: '#f1f5f9', padding: '2px 8px', borderRadius: '12px' }}>v{log.version}</span>
+                    </div>
+                    <p style={{ fontSize: '0.85rem', color: '#94a3b8', marginBottom: '0.5rem' }}>{log.date}</p>
+                    <ul style={{ paddingLeft: '1.2rem', margin: 0 }}>
+                      {log.changes.map((change, i) => (
+                        <li key={i} style={{ fontSize: '0.95rem', color: '#334155', marginBottom: '0.25rem' }}>{change}</li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+              <button className="btn btn-primary" onClick={() => setShowHistory(false)} style={{ alignSelf: 'center', marginTop: '1rem' }}>Close</button>
             </div>
           </div>
-        </div>
-
-        <footer style={{ textAlign: 'center', padding: '2rem', color: '#64748b', fontSize: '0.9rem' }}>
-          <p>Designed & Developed by <strong>BTK Creations</strong> 🚀</p>
-          <p style={{ fontSize: '0.8rem', opacity: 0.7 }}>© {new Date().getFullYear()} B.Tech Exam Prep</p>
-        </footer>
+        )}
 
         {/* About Modal */}
         {showAbout && (
