@@ -18,6 +18,7 @@ import { ppleQuiz } from './data/ppleQuiz'
 import { ppleModelPaper } from './data/ppleModelPaper'
 import { ppleTips } from './data/ppleTips'
 import { ppleFlashcards } from './data/ppleFlashcards'
+import './tips.css'
 
 function App() {
   const [currentSubject, setCurrentSubject] = useState(null) // null (selection), 'mobile', 'sensors'
@@ -77,6 +78,9 @@ function App() {
   const [currentCardIndex, setCurrentCardIndex] = useState(0)
   const [isFlipped, setIsFlipped] = useState(false)
   const [shuffledCards, setShuffledCards] = useState([])
+
+  // Tips State
+  const [activeTipCategory, setActiveTipCategory] = useState(0)
 
   useEffect(() => {
     if (currentSubject) {
@@ -392,26 +396,65 @@ function App() {
       )}
 
       {viewMode === 'tips' && (
-        <main className="tips-container">
-          <div className="tips-header">
-            <h2>Exam Tips & Hacks</h2>
-            <p>Master the art of writing exams with these strategic insights.</p>
+        <main className="tips-container-pro">
+          <div className="tips-sidebar">
+            <h3>Exam Strategy</h3>
+            <ul>
+              {subjectData.tips.map((section, index) => (
+                <li
+                  key={index}
+                  className={activeTipCategory === index ? 'active' : ''}
+                  onClick={() => setActiveTipCategory(index)}
+                >
+                  {section.category.split(' ')[0]} {/* Show first word or icon if possible, or full title */}
+                  <span className="sidebar-subtitle">{section.category}</span>
+                </li>
+              ))}
+            </ul>
           </div>
 
-          <div className="tips-grid">
-            {subjectData.tips.map((section, index) => (
-              <div key={index} className="tip-section">
-                <h3>{section.category}</h3>
-                <div className="tips-list">
-                  {section.tips.map((tip, tipIndex) => (
-                    <div key={tipIndex} className="tip-card">
-                      <h4>{tip.title}</h4>
-                      <div dangerouslySetInnerHTML={{ __html: tip.content.replace(/\n/g, '<br/>').replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') }} />
-                    </div>
-                  ))}
-                </div>
+          <div className="tips-content-area">
+            <div className="tips-header-pro">
+              <h2>{subjectData.tips[activeTipCategory].category}</h2>
+              <div className="progress-bar">
+                <div
+                  className="progress-fill"
+                  style={{ width: `${((activeTipCategory + 1) / subjectData.tips.length) * 100}%` }}
+                ></div>
               </div>
-            ))}
+            </div>
+
+            <div className="tips-cards-pro">
+              {subjectData.tips[activeTipCategory].tips.map((tip, tipIndex) => (
+                <div key={tipIndex} className="tip-card-pro">
+                  <div className="tip-icon-pro">{tipIndex + 1}</div>
+                  <div className="tip-text-pro">
+                    <h4>{tip.title}</h4>
+                    <div dangerouslySetInnerHTML={{ __html: tip.content }} />
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="tips-navigation">
+              <button
+                className="btn"
+                disabled={activeTipCategory === 0}
+                onClick={() => setActiveTipCategory(prev => prev - 1)}
+              >
+                &larr; Previous
+              </button>
+              <span className="page-indicator">
+                {activeTipCategory + 1} of {subjectData.tips.length}
+              </span>
+              <button
+                className="btn btn-primary"
+                disabled={activeTipCategory === subjectData.tips.length - 1}
+                onClick={() => setActiveTipCategory(prev => prev + 1)}
+              >
+                Next &rarr;
+              </button>
+            </div>
           </div>
         </main>
       )}

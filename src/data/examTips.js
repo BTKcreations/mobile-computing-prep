@@ -1,48 +1,116 @@
 export const examTips = [
     {
-        category: "General Exam Strategy",
+        category: "🏆 The Golden Answer Framework",
         tips: [
             {
-                title: "The 15-Minute Rule",
-                content: "Use the first 15 minutes to read the paper. Don't write. Just plan. Mark the questions you know 100% and attempt them first."
+                title: "The Universal 5-Step Structure",
+                content: `
+          <p>Don't just write paragraphs. Structure <strong>every</strong> 10-mark answer like this to guarantee 7+ marks:</p>
+          <div class="study-guide-box">
+            <ol>
+              <li><strong>Introduction (2 lines):</strong> Define the core term. (e.g., <em>"MANET is a decentralized network..."</em>)</li>
+              <li><strong>The Diagram (Crucial):</strong> Draw a block diagram. Even a simple box-and-arrow diagram is better than nothing. Label it clearly.</li>
+              <li><strong>Core Concept (Bullet Points):</strong> Explain the "How" and "Why". Use subheadings.</li>
+              <li><strong>Advantages & Disadvantages:</strong> Always list 3 Pros and 2 Cons.</li>
+              <li><strong>Real-World Application:</strong> Give one example (e.g., <em>"Used in Military/Disaster Relief"</em>).</li>
+            </ol>
+          </div>
+        `
             },
             {
-                title: "Time Management",
-                content: "Allocate time based on marks. Don't spend 30 minutes on a 2-mark question. For a 10-mark question, aim for 15-20 minutes max."
-            },
-            {
-                title: "Presentation Matters",
-                content: "Examiners scan papers. Use bullet points, bold keywords, and leave space between answers. A messy paper is hard to grade."
+                title: "The 'Introduction' Hack",
+                content: `
+          <p>Stuck on how to start? Use the <strong>"Breakdown Method"</strong>.</p>
+          <p>If the question is <em>"Explain Snooping TCP"</em>, break it down:</p>
+          <ul>
+            <li><strong>Snooping:</strong> To watch secretly.</li>
+            <li><strong>TCP:</strong> Transmission Control Protocol.</li>
+          </ul>
+          <p><strong>Start with:</strong> <em>"Snooping TCP is a mechanism where the Base Station 'watches' or monitors packets to improve performance..."</em></p>
+        `
             }
         ]
     },
     {
-        category: "Universal Answering Hacks (When You Forget)",
+        category: "🧠 The 'Blackout' Protocol (When You Don't Know)",
         tips: [
             {
-                title: "The 'Definition-Diagram-Application' Framework",
-                content: "Even if you don't know the exact answer, follow this structure:\n1. **Define** the keywords in the question.\n2. **Draw** a generic block diagram (Input -> Process -> Output).\n3. **List** 3-4 general advantages (Speed, Efficiency, Cost) and applications."
+                title: "The 'Generic Features' Cheat Sheet",
+                content: `
+          <p>Blank on a Mobile Computing question? These 5 points apply to <strong>almost everything</strong> in this subject. Weave them into your answer:</p>
+          <div class="concept-grid">
+            <div class="concept-card"><strong>🔋 Battery</strong><br>Always a constraint.</div>
+            <div class="concept-card"><strong>📶 Bandwidth</strong><br>Always limited/expensive.</div>
+            <div class="concept-card"><strong>🔒 Security</strong><br>Wireless is easy to hack.</div>
+            <div class="concept-card"><strong>🏃 Mobility</strong><br>Nodes move, topology changes.</div>
+            <div class="concept-card"><strong>📉 Reliability</strong><br>Connections break often.</div>
+          </div>
+        `
             },
             {
-                title: "The 'Comparison' Hack",
-                content: "If asked about a specific technology (e.g., 'Explain AODV'), compare it with something else (e.g., 'Unlike DSDV which is proactive...'). This fills space and shows conceptual understanding."
-            },
-            {
-                title: "Generic Mobile Computing Points",
-                content: "For almost any Mobile Computing question, you can mention these challenges/features:\n- **Bandwidth Constraints**\n- **Battery Limitations**\n- **Security Risks**\n- **Mobility Management**\n- **Dynamic Topology**"
+                title: "The 'Logical Diagram' Technique",
+                content: `
+          <p>Forgot the architecture diagram? <strong>Invent one logically.</strong></p>
+          <p>Every Mobile System needs:</p>
+          <ul>
+            <li>A <strong>User/Device</strong> (Left side)</li>
+            <li>A <strong>Network/Medium</strong> (Middle cloud)</li>
+            <li>A <strong>Server/Database</strong> (Right side)</li>
+          </ul>
+          <p>Draw these three boxes, connect them with arrows, label them with keywords from the question, and you have a valid diagram!</p>
+        `
             }
         ]
     },
     {
-        category: "Diagram Hacks",
+        category: "🎨 Presentation & Examiner Psychology",
         tips: [
             {
-                title: "Block Diagrams are King",
-                content: "If you forget the specific architecture, draw a logical block diagram. Label boxes as 'Client', 'Server', 'Database', 'Network'. It earns partial marks."
+                title: "Make it 'Skimmable'",
+                content: `
+          <p>Examiners spend about <strong>2-3 minutes</strong> per paper. They don't read; they <strong>scan</strong>.</p>
+          <div class="example-box">
+            <strong>Do this:</strong>
+            <ul>
+              <li>Use <strong>ALL CAPS</strong> for headings.</li>
+              <li><u>Underline</u> key technical terms (e.g., <u>Handover</u>, <u>Latency</u>).</li>
+              <li>Leave a blank line between paragraphs.</li>
+              <li>Draw a box around your final conclusion or formula.</li>
+            </ul>
+          </div>
+        `
             },
             {
-                title: "Flowcharts for Algorithms",
-                content: "Instead of writing paragraphs for algorithms (like DSR/AODV), draw a flowchart. It's faster to write and easier to check."
+                title: "The 'Comparison' Table",
+                content: `
+          <p>If asked to "Explain X", try to add a "Comparison with Y" table at the end.</p>
+          <p><em>Example:</em> Question asks for <strong>AODV</strong>. After explaining it, add a small table: <strong>AODV vs DSDV</strong>.</p>
+          <p>This shows <strong>deep knowledge</strong> and fills space effectively.</p>
+        `
+            }
+        ]
+    },
+    {
+        category: "🚀 Confidence Boosters",
+        tips: [
+            {
+                title: "You Know More Than You Think",
+                content: `
+          <p>Mobile Computing is about <strong>phones and internet</strong>. You use this every day!</p>
+          <ul>
+            <li><strong>Handover?</strong> That's just your call not dropping when you drive.</li>
+            <li><strong>Security?</strong> That's your OTP and PIN.</li>
+            <li><strong>LBS?</strong> That's just Uber/Maps.</li>
+          </ul>
+          <p>Relate the technical terms to your daily life, and the answers will flow.</p>
+        `
+            },
+            {
+                title: "Attempt Everything",
+                content: `
+          <p><strong>Never leave a question blank.</strong> A blank answer gets 0. A vague answer with a diagram and generic points gets 2-3 marks.</p>
+          <p>Those 2-3 marks add up to a passing grade or a distinction!</p>
+        `
             }
         ]
     }
