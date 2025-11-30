@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { useRegisterSW } from 'virtual:pwa-register/react'
 import './ReloadPrompt.css'
 
@@ -16,6 +16,17 @@ function ReloadPrompt() {
         },
     })
 
+    const [updateMessage, setUpdateMessage] = useState('')
+
+    useEffect(() => {
+        if (needRefresh) {
+            fetch('./version.json?t=' + Date.now())
+                .then(res => res.json())
+                .then(data => setUpdateMessage(data.message))
+                .catch(err => console.error('Failed to fetch update info', err))
+        }
+    }, [needRefresh])
+
     const close = () => {
         setOfflineReady(false)
         setNeedRefresh(false)
@@ -28,7 +39,10 @@ function ReloadPrompt() {
                     <div className="ReloadPrompt-message">
                         {offlineReady
                             ? <span>App ready to work offline</span>
-                            : <span>New content available, click on reload button to update.</span>
+                            : <div>
+                                <span style={{ display: 'block', fontWeight: 'bold', marginBottom: '0.2rem' }}>New Update Available!</span>
+                                <span>{updateMessage || 'New content available, click on reload button to update.'}</span>
+                            </div>
                         }
                     </div>
                     {needRefresh && (
