@@ -8,7 +8,8 @@ export const changelog = [
             'Included 11+ High-Quality SVG Diagrams for Exam Answers.',
             'Enhanced Study Mode with Textbook-style notes & SVGs.',
             'Added Interactive Mind Maps for Electronic Sensors.',
-            'Expanded Quiz with 25+ new questions.'
+            'Expanded Quiz with 25+ new questions.',
+            'Added 50+ Flashcards for quick revision.'
         ]
     },
     {
