@@ -262,7 +262,32 @@ function App() {
           </button>
         </div>
 
-        {/* ... existing content ... */}
+        <div style={{ textAlign: 'center', marginTop: '4rem', flex: 1 }}>
+          <h1>🎓 B.Tech Exam Prep</h1>
+          <p style={{ color: '#666', marginBottom: '2rem' }}>Select a subject to start mastering concepts</p>
+          <div className="grid" style={{ maxWidth: '800px', margin: '2rem auto' }}>
+            <div className="card" style={{ cursor: 'pointer' }} onClick={() => setCurrentSubject('mobile')}>
+              <h2>📱 Mobile Computing</h2>
+              <p>Unit I - V, Quizzes, Model Papers</p>
+              <button className="btn btn-primary">Start Learning</button>
+            </div>
+            <div className="card" style={{ cursor: 'pointer' }} onClick={() => setCurrentSubject('sensors')}>
+              <h2>🌡️ Electronic Sensors</h2>
+              <p>Unit I - V, Open Elective-II</p>
+              <button className="btn btn-primary">Start Learning</button>
+            </div>
+            <div className="card" style={{ cursor: 'pointer' }} onClick={() => setCurrentSubject('pple')}>
+              <h2>⚖️ Professional Practice & Ethics</h2>
+              <p>Unit I - V, Law, IPR & Contracts</p>
+              <button className="btn btn-primary">Start Learning</button>
+            </div>
+          </div>
+        </div>
+
+        <footer style={{ textAlign: 'center', padding: '2rem', color: '#64748b', fontSize: '0.9rem' }}>
+          <p>Designed & Developed by <strong>BTK Creations</strong> 🚀</p>
+          <p style={{ fontSize: '0.8rem', opacity: 0.7 }}>© {new Date().getFullYear()} B.Tech Exam Prep</p>
+        </footer>
 
         {/* History Modal */}
         {showHistory && (
