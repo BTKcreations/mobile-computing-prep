@@ -5,7 +5,8 @@ export const changelog = [
         title: 'Electronic Sensors Content',
         changes: [
             'Added Full Model Paper 1 for Electronic Sensors.',
-            'Includes detailed answers for Part A and Part B.',
+            'Included 11+ High-Quality SVG Diagrams for Exam Answers.',
+            'Detailed answers for Part A and Part B.',
             'Covered all 5 units with internal choices.'
         ]
     },

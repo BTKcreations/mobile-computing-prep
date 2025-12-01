@@ -112,7 +112,22 @@ export const electronicSensorsModelPaper = {
                                 <li><strong>Backing Material (Carrier):</strong> The grid is bonded to a thin, flexible insulating backing sheet made of <em>Polyimide</em> or <em>Epoxy</em>. This backing isolates the gauge from the test specimen and transmits the strain.</li>
                                 <li><strong>Leads:</strong> Heavy copper tabs are attached to the ends of the grid for soldering lead wires.</li>
                             </ul>
-                            <div class="diagram-placeholder">[Draw Diagram: A rectangular backing with a zig-zag metal foil grid pattern. Label: Solder Tabs, Grid Length, Grid Width, Backing, Alignment Marks.]</div>
+                            <div class="diagram-container" style="text-align:center; margin: 1rem 0;">
+                                <svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg" style="background:#fff; border:1px solid #ccc; border-radius:8px; max-width:100%;">
+                                    <!-- Backing -->
+                                    <rect x="50" y="20" width="300" height="160" rx="10" fill="#fff3e0" stroke="#e65100" stroke-width="2"/>
+                                    <!-- Solder Tabs -->
+                                    <rect x="60" y="70" width="40" height="60" fill="#ffcc80" stroke="#ef6c00"/>
+                                    <rect x="300" y="70" width="40" height="60" fill="#ffcc80" stroke="#ef6c00"/>
+                                    <!-- Grid -->
+                                    <path d="M 100 80 L 260 80 L 260 90 L 100 90 L 100 100 L 260 100 L 260 110 L 100 110 L 100 120 L 260 120" fill="none" stroke="#d84315" stroke-width="3"/>
+                                    <!-- Labels -->
+                                    <text x="200" y="150" text-anchor="middle" font-size="12" fill="#bf360c">Metal Foil Grid</text>
+                                    <text x="200" y="40" text-anchor="middle" font-size="12" fill="#e65100" font-weight="bold">Bonded Strain Gauge</text>
+                                    <line x1="100" y1="80" x2="60" y2="100" stroke="#333" stroke-width="2"/>
+                                    <line x1="260" y1="120" x2="300" y2="100" stroke="#333" stroke-width="2"/>
+                                </svg>
+                            </div>
 
                             <h3>4. Working Procedure</h3>
                             <ol>
@@ -196,7 +211,26 @@ export const electronicSensorsModelPaper = {
                                 <li><strong>Linearity:</strong> The response is non-linear (hyperbolic). However, for very small displacements (Δd << d), it is approximately linear.</li>
                                 <li><em>Application:</em> Microphone diaphragms, pressure sensors.</li>
                             </ul>
-                            <div class="diagram-placeholder">[Draw Diagram: Two parallel plates, one fixed, one moving left/right. Label 'd'.]</div>
+                            <div class="diagram-container" style="text-align:center; margin: 1rem 0;">
+                                <svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg" style="background:#fff; border:1px solid #ccc; border-radius:8px; max-width:100%;">
+                                    <!-- Fixed Plate -->
+                                    <rect x="50" y="50" width="20" height="100" fill="#90caf9" stroke="#1565c0"/>
+                                    <line x1="50" y1="100" x2="20" y2="100" stroke="#333" stroke-width="2"/>
+                                    <text x="35" y="165" text-anchor="middle" font-size="12">Fixed Plate</text>
+                                    
+                                    <!-- Movable Plate -->
+                                    <rect x="150" y="50" width="20" height="100" fill="#90caf9" stroke="#1565c0"/>
+                                    <line x1="170" y1="100" x2="200" y2="100" stroke="#333" stroke-width="2"/>
+                                    <text x="185" y="165" text-anchor="middle" font-size="12">Movable Plate</text>
+                                    
+                                    <!-- Distance d -->
+                                    <line x1="75" y1="70" x2="145" y2="70" stroke="#333" stroke-width="1" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
+                                    <text x="110" y="65" text-anchor="middle" font-size="14" font-weight="bold">d</text>
+                                    
+                                    <!-- Dielectric -->
+                                    <text x="110" y="120" text-anchor="middle" font-size="12" fill="#666">Dielectric (Air)</text>
+                                </svg>
+                            </div>
 
                             <h4>B. Variation in Area (A)</h4>
                             <p>One plate slides over the other, changing the overlapping area.</p>
@@ -205,7 +239,19 @@ export const electronicSensorsModelPaper = {
                                 <li><strong>Sensitivity:</strong> Constant (Linear response).</li>
                                 <li><em>Application:</em> Measuring larger displacements (1cm to 10cm).</li>
                             </ul>
-                            <div class="diagram-placeholder">[Draw Diagram: Two plates sliding past each other. Label 'Effective Area A'.]</div>
+                            <div class="diagram-container" style="text-align:center; margin: 1rem 0;">
+                                <svg viewBox="0 0 400 150" xmlns="http://www.w3.org/2000/svg" style="background:#fff; border:1px solid #ccc; border-radius:8px; max-width:100%;">
+                                    <!-- Plate 1 -->
+                                    <rect x="50" y="50" width="100" height="20" fill="#a5d6a7" stroke="#2e7d32"/>
+                                    <!-- Plate 2 -->
+                                    <rect x="100" y="80" width="100" height="20" fill="#a5d6a7" stroke="#2e7d32"/>
+                                    
+                                    <!-- Overlap Area -->
+                                    <rect x="100" y="50" width="50" height="50" fill="none" stroke="red" stroke-dasharray="4"/>
+                                    <text x="250" y="75" font-size="12" fill="#333">Overlapping Area (A)</text>
+                                    <line x1="160" y1="70" x2="240" y2="70" stroke="#333" stroke-width="1"/>
+                                </svg>
+                            </div>
 
                             <h4>C. Variation in Dielectric (εr)</h4>
                             <p>A dielectric material moves between fixed plates.</p>
@@ -282,7 +328,31 @@ export const electronicSensorsModelPaper = {
                                 <li><strong>Insulation:</strong> Wires are insulated using ceramic beads or fiberglass to prevent shorting.</li>
                                 <li><strong>Protective Sheath:</strong> The assembly is placed inside a stainless steel or Inconel thermowell to protect it from corrosive environments and mechanical damage.</li>
                             </ul>
-                            <div class="diagram-placeholder">[Draw Diagram: Two wires (Metal A, Metal B) joined at 'Hot Junction'. Other ends at 'Cold Junction' connected to a Voltmeter. Label T1 and T2.]</div>
+                            <div class="diagram-container" style="text-align:center; margin: 1rem 0;">
+                                <svg viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg" style="background:#fff; border:1px solid #ccc; border-radius:8px; max-width:100%;">
+                                    <!-- Metal A -->
+                                    <path d="M 50 100 Q 150 50 250 100" fill="none" stroke="#d32f2f" stroke-width="3"/>
+                                    <text x="150" y="60" text-anchor="middle" fill="#d32f2f" font-size="12">Metal A (Iron)</text>
+                                    
+                                    <!-- Metal B -->
+                                    <path d="M 50 100 Q 150 150 250 100" fill="none" stroke="#1976d2" stroke-width="3"/>
+                                    <text x="150" y="140" text-anchor="middle" fill="#1976d2" font-size="12">Metal B (Constantan)</text>
+                                    
+                                    <!-- Hot Junction -->
+                                    <circle cx="50" cy="100" r="5" fill="#333"/>
+                                    <text x="50" y="120" text-anchor="middle" font-weight="bold">Hot Junction (T1)</text>
+                                    <text x="50" y="80" text-anchor="middle" fill="red">Heat Source</text>
+                                    
+                                    <!-- Cold Junction -->
+                                    <circle cx="250" cy="100" r="5" fill="#333"/>
+                                    <text x="250" y="120" text-anchor="middle" font-weight="bold">Cold Junction (T2)</text>
+                                    
+                                    <!-- Voltmeter -->
+                                    <circle cx="350" cy="100" r="20" fill="#fff" stroke="#333" stroke-width="2"/>
+                                    <text x="350" y="105" text-anchor="middle" font-weight="bold">V</text>
+                                    <line x1="250" y1="100" x2="330" y2="100" stroke="#333" stroke-width="2"/>
+                                </svg>
+                            </div>
 
                             <h3>5. Cold Junction Compensation (CJC)</h3>
                             <p>The EMF depends on (Thot - Tcold). If Tcold varies (ambient temp), the reading will be wrong. Methods for compensation:</p>
@@ -350,7 +420,33 @@ export const electronicSensorsModelPaper = {
                                 <li>L3 carries the bridge current.</li>
                             </ul>
                             <p>If L1 and L2 have the same length/resistance, they cancel each other out in the bridge equation.</p>
-                            <div class="diagram-placeholder">[Draw Diagram: Wheatstone bridge with 3 leads connecting the RTD.]</div>
+                            <div class="diagram-container" style="text-align:center; margin: 1rem 0;">
+                                <svg viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg" style="background:#fff; border:1px solid #ccc; border-radius:8px; max-width:100%;">
+                                    <!-- Bridge -->
+                                    <rect x="150" y="50" width="100" height="100" fill="none" stroke="none"/>
+                                    <path d="M 200 50 L 300 150 L 200 250 L 100 150 Z" fill="none" stroke="#333" stroke-width="2"/>
+                                    
+                                    <!-- Resistors -->
+                                    <text x="130" y="100" font-size="12">R1</text>
+                                    <text x="260" y="100" font-size="12">R2</text>
+                                    <text x="130" y="210" font-size="12">R3</text>
+                                    
+                                    <!-- RTD -->
+                                    <rect x="250" y="200" width="40" height="20" fill="#e0e0e0" stroke="#333"/>
+                                    <text x="270" y="215" text-anchor="middle" font-size="10">RTD</text>
+                                    
+                                    <!-- 3 Leads -->
+                                    <line x1="300" y1="150" x2="350" y2="150" stroke="#f44336" stroke-width="2"/>
+                                    <text x="360" y="155" fill="#f44336">L1</text>
+                                    
+                                    <line x1="200" y1="250" x2="200" y2="280" stroke="#f44336" stroke-width="2"/>
+                                    <text x="210" y="290" fill="#f44336">L2</text>
+                                    
+                                    <!-- Galvanometer -->
+                                    <circle cx="200" cy="150" r="15" fill="#fff" stroke="#333"/>
+                                    <text x="200" y="155" text-anchor="middle">G</text>
+                                </svg>
+                            </div>
 
                             <h4>C. 4-Wire Configuration (High Precision)</h4>
                             <p>Uses a constant current source.</p>
@@ -388,7 +484,32 @@ export const electronicSensorsModelPaper = {
                                 <li><strong>Two Secondary Windings (S1, S2):</strong> Wound on either side of the primary. They have equal number of turns and are connected in <strong>Series Opposition</strong> (differentially).</li>
                                 <li><strong>Movable Core:</strong> A high-permeability, soft iron core moves axially inside the former. It couples the magnetic flux from primary to secondaries.</li>
                             </ul>
-                            <div class="diagram-placeholder">[Draw Diagram: Cylindrical former, Primary coil in center, S1 and S2 on sides. Core inside. Circuit showing S1 and S2 connected in series opposition.]</div>
+                            <div class="diagram-container" style="text-align:center; margin: 1rem 0;">
+                                <svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg" style="background:#fff; border:1px solid #ccc; border-radius:8px; max-width:100%;">
+                                    <!-- Former -->
+                                    <rect x="50" y="50" width="300" height="100" fill="#f5f5f5" stroke="#999"/>
+                                    
+                                    <!-- Primary Coil -->
+                                    <rect x="175" y="40" width="50" height="120" fill="#ffcc80" stroke="#ef6c00"/>
+                                    <text x="200" y="30" text-anchor="middle" font-size="12">Primary (P)</text>
+                                    
+                                    <!-- Secondary 1 -->
+                                    <rect x="75" y="40" width="50" height="120" fill="#bbdefb" stroke="#1976d2"/>
+                                    <text x="100" y="30" text-anchor="middle" font-size="12">Sec 1 (S1)</text>
+                                    
+                                    <!-- Secondary 2 -->
+                                    <rect x="275" y="40" width="50" height="120" fill="#bbdefb" stroke="#1976d2"/>
+                                    <text x="300" y="30" text-anchor="middle" font-size="12">Sec 2 (S2)</text>
+                                    
+                                    <!-- Core -->
+                                    <rect x="150" y="80" width="100" height="40" rx="5" fill="#616161" stroke="#333"/>
+                                    <text x="200" y="105" text-anchor="middle" fill="#fff" font-size="12">Soft Iron Core</text>
+                                    
+                                    <!-- Motion Arrow -->
+                                    <line x1="150" y1="140" x2="250" y2="140" stroke="#333" stroke-width="2" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
+                                    <text x="200" y="155" text-anchor="middle" font-size="10">Motion</text>
+                                </svg>
+                            </div>
 
                             <h3>3. Working Principle</h3>
                             <p>The output voltage depends on the position of the core.</p>
@@ -415,7 +536,28 @@ export const electronicSensorsModelPaper = {
                                 <li><strong>Non-Linear Region:</strong> Beyond the linear range, the curve bends due to flux leakage.</li>
                                 <li><strong>Residual Voltage:</strong> At null position, output is not exactly zero due to harmonics and stray capacitance. This small voltage is called residual voltage (typically < 1%).</li>
                             </ul>
-                            <div class="diagram-placeholder">[Draw Graph: X-axis = Displacement (+/-), Y-axis = Output Voltage. V-shaped curve passing through origin.]</div>
+                            <div class="diagram-container" style="text-align:center; margin: 1rem 0;">
+                                <svg viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg" style="background:#fff; border:1px solid #ccc; border-radius:8px; max-width:100%;">
+                                    <!-- Axes -->
+                                    <line x1="50" y1="200" x2="350" y2="200" stroke="#333" stroke-width="2"/>
+                                    <line x1="200" y1="20" x2="200" y2="220" stroke="#333" stroke-width="2"/>
+                                    
+                                    <!-- Labels -->
+                                    <text x="350" y="215" text-anchor="end" font-size="12">Displacement</text>
+                                    <text x="210" y="30" font-size="12">Output Voltage (Vo)</text>
+                                    <text x="50" y="215" font-size="12">-ve</text>
+                                    <text x="330" y="215" font-size="12">+ve</text>
+                                    <text x="190" y="215" font-size="12">Null</text>
+                                    
+                                    <!-- Curve -->
+                                    <polyline points="100,50 180,190 200,200 220,190 300,50" fill="none" stroke="#d32f2f" stroke-width="3"/>
+                                    
+                                    <!-- Linear Range -->
+                                    <line x1="180" y1="190" x2="180" y2="210" stroke="#999" stroke-dasharray="4"/>
+                                    <line x1="220" y1="190" x2="220" y2="210" stroke="#999" stroke-dasharray="4"/>
+                                    <text x="200" y="180" text-anchor="middle" font-size="10" fill="#666">Linear Range</text>
+                                </svg>
+                            </div>
 
                             <h3>5. Signal Conditioning</h3>
                             <p>Since the output is AC and magnitude is same for left/right movement, a <strong>Phase Sensitive Demodulator</strong> is used to convert the AC output into a DC voltage that indicates both magnitude and direction (polarity).</p>
@@ -463,7 +605,32 @@ export const electronicSensorsModelPaper = {
                                 <li><strong>t:</strong> Thickness of the strip.</li>
                             </ul>
                             <p><em>Note:</em> Semiconductors (InSb, GaAs) are used because they have high carrier mobility, producing a larger Vh than metals.</p>
-                            <div class="diagram-placeholder">[Draw Diagram: A rectangular slab. Current entering left. Magnet above. Voltmeter connected to top and bottom faces showing Vh.]</div>
+                            <div class="diagram-container" style="text-align:center; margin: 1rem 0;">
+                                <svg viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg" style="background:#fff; border:1px solid #ccc; border-radius:8px; max-width:100%;">
+                                    <!-- Slab -->
+                                    <path d="M 100 100 L 300 100 L 340 60 L 140 60 Z" fill="#b2dfdb" stroke="#00695c"/>
+                                    <rect x="100" y="100" width="200" height="40" fill="#80cbc4" stroke="#00695c"/>
+                                    <path d="M 300 100 L 340 60 L 340 100 L 300 140 Z" fill="#4db6ac" stroke="#00695c"/>
+                                    
+                                    <!-- Current I -->
+                                    <line x1="50" y1="120" x2="100" y2="120" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+                                    <text x="70" y="115" font-weight="bold">I</text>
+                                    
+                                    <!-- Magnetic Field B -->
+                                    <line x1="220" y1="20" x2="220" y2="80" stroke="#d32f2f" stroke-width="2" marker-end="url(#arrow)"/>
+                                    <text x="230" y="40" font-weight="bold" fill="#d32f2f">B</text>
+                                    
+                                    <!-- Voltage Vh -->
+                                    <line x1="220" y1="60" x2="220" y2="40" stroke="#333" stroke-width="1"/>
+                                    <line x1="220" y1="140" x2="220" y2="180" stroke="#333" stroke-width="1"/>
+                                    <circle cx="220" cy="200" r="15" fill="#fff" stroke="#333"/>
+                                    <text x="220" y="205" text-anchor="middle" font-weight="bold">Vh</text>
+                                    
+                                    <!-- Charge Accumulation -->
+                                    <text x="220" y="135" text-anchor="middle" font-size="10" font-weight="bold">- - - -</text>
+                                    <text x="220" y="75" text-anchor="middle" font-size="10" font-weight="bold">+ + + +</text>
+                                </svg>
+                            </div>
 
                             <h3>4. Types of Hall Sensors</h3>
                             <ul>
@@ -527,7 +694,32 @@ export const electronicSensorsModelPaper = {
                                 <li>Y-axis: Reverse Current (Ir).</li>
                                 <li>As Light Intensity (Lux) increases, the horizontal current lines shift downwards (current increases).</li>
                             </ul>
-                            <div class="diagram-placeholder">[Draw Graph: 3rd Quadrant. Flat lines for Dark, 1000 Lux, 2000 Lux, etc.]</div>
+                            <div class="diagram-container" style="text-align:center; margin: 1rem 0;">
+                                <svg viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg" style="background:#fff; border:1px solid #ccc; border-radius:8px; max-width:100%;">
+                                    <!-- Axes -->
+                                    <line x1="200" y1="20" x2="200" y2="220" stroke="#333" stroke-width="2"/>
+                                    <line x1="50" y1="120" x2="350" y2="120" stroke="#333" stroke-width="2"/>
+                                    
+                                    <!-- Labels -->
+                                    <text x="350" y="135" text-anchor="end" font-size="12">Voltage (V)</text>
+                                    <text x="210" y="30" font-size="12">Current (I)</text>
+                                    <text x="50" y="135" font-size="12">-Vr</text>
+                                    <text x="210" y="215" font-size="12">-Ir</text>
+                                    
+                                    <!-- Curves (3rd Quadrant) -->
+                                    <path d="M 200 120 L 50 125" fill="none" stroke="#999" stroke-dasharray="4"/>
+                                    <text x="80" y="115" font-size="10" fill="#666">Dark Current</text>
+                                    
+                                    <path d="M 200 120 L 50 150" fill="none" stroke="#d32f2f" stroke-width="2"/>
+                                    <text x="60" y="145" font-size="10" fill="#d32f2f">1000 Lux</text>
+                                    
+                                    <path d="M 200 120 L 50 180" fill="none" stroke="#d32f2f" stroke-width="2"/>
+                                    <text x="60" y="175" font-size="10" fill="#d32f2f">2000 Lux</text>
+                                    
+                                    <path d="M 200 120 L 50 210" fill="none" stroke="#d32f2f" stroke-width="2"/>
+                                    <text x="60" y="205" font-size="10" fill="#d32f2f">3000 Lux</text>
+                                </svg>
+                            </div>
 
                             <h3>5. Modes of Operation</h3>
                             <ul>
@@ -576,7 +768,35 @@ export const electronicSensorsModelPaper = {
                                 <li>Common types: <strong>Calomel Electrode</strong> (Hg/Hg₂Cl₂) or Silver-Silver Chloride (Ag/AgCl).</li>
                                 <li>It has a porous junction (salt bridge) to complete the electrical circuit with the test solution.</li>
                             </ul>
-                            <div class="diagram-placeholder">[Draw Diagram: Beaker with solution. Glass electrode and Reference electrode dipped in. Connected to pH meter.]</div>
+                            <div class="diagram-container" style="text-align:center; margin: 1rem 0;">
+                                <svg viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg" style="background:#fff; border:1px solid #ccc; border-radius:8px; max-width:100%;">
+                                    <!-- Beaker -->
+                                    <path d="M 100 50 L 100 200 Q 100 220 120 220 L 280 220 Q 300 220 300 200 L 300 50" fill="none" stroke="#333" stroke-width="2"/>
+                                    
+                                    <!-- Solution -->
+                                    <path d="M 100 100 L 100 200 Q 100 220 120 220 L 280 220 Q 300 220 300 200 L 300 100 Z" fill="#e1f5fe" stroke="none"/>
+                                    <text x="200" y="180" text-anchor="middle" fill="#0277bd" font-size="12">Test Solution</text>
+                                    
+                                    <!-- Glass Electrode -->
+                                    <rect x="140" y="20" width="20" height="150" fill="#fff" stroke="#333"/>
+                                    <circle cx="150" cy="170" r="15" fill="#fff" stroke="#333"/>
+                                    <line x1="150" y1="20" x2="150" y2="160" stroke="#333"/>
+                                    <text x="150" y="15" text-anchor="middle" font-size="10">Glass Electrode</text>
+                                    
+                                    <!-- Reference Electrode -->
+                                    <rect x="240" y="20" width="20" height="150" fill="#fff" stroke="#333"/>
+                                    <line x1="250" y1="20" x2="250" y2="160" stroke="#333"/>
+                                    <text x="250" y="15" text-anchor="middle" font-size="10">Ref Electrode</text>
+                                    
+                                    <!-- pH Meter -->
+                                    <rect x="170" y="-20" width="60" height="30" fill="#333" stroke="none"/>
+                                    <text x="200" y="0" text-anchor="middle" fill="#0f0" font-family="monospace">7.01</text>
+                                    
+                                    <!-- Wires -->
+                                    <path d="M 150 20 L 150 -5 L 170 -5" fill="none" stroke="#333"/>
+                                    <path d="M 250 20 L 250 -5 L 230 -5" fill="none" stroke="#333"/>
+                                </svg>
+                            </div>
 
                             <h3>3. Working Principle</h3>
                             <p>When the glass bulb is immersed in the test solution, an ion-exchange equilibrium is established at the glass-solution interface.</p>
@@ -632,7 +852,48 @@ export const electronicSensorsModelPaper = {
 
                             <h3>2. Block Diagram Description</h3>
                             <p>A smart sensor consists of the following functional blocks:</p>
-                            <div class="diagram-placeholder">[Draw Block Diagram: Physical Input -> [Primary Sensor] -> [Signal Conditioning (Amp/Filter)] -> [ADC] -> [Microprocessor/DSP + Memory] -> [Comm Interface] -> Digital Output]</div>
+                            <div class="diagram-container" style="text-align:center; margin: 1rem 0;">
+                                <svg viewBox="0 0 600 150" xmlns="http://www.w3.org/2000/svg" style="background:#fff; border:1px solid #ccc; border-radius:8px; max-width:100%;">
+                                    <defs>
+                                        <marker id="arrow-smart" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#333"/></marker>
+                                    </defs>
+                                    
+                                    <!-- Input -->
+                                    <text x="30" y="75" text-anchor="middle" font-size="10">Physical Input</text>
+                                    <line x1="50" y1="70" x2="70" y2="70" stroke="#333" stroke-width="2" marker-end="url(#arrow-smart)"/>
+                                    
+                                    <!-- Sensor -->
+                                    <rect x="70" y="40" width="60" height="60" rx="5" fill="#ffcc80" stroke="#ef6c00"/>
+                                    <text x="100" y="75" text-anchor="middle" font-size="10">Primary Sensor</text>
+                                    <line x1="130" y1="70" x2="150" y2="70" stroke="#333" stroke-width="2" marker-end="url(#arrow-smart)"/>
+                                    
+                                    <!-- Signal Cond -->
+                                    <rect x="150" y="40" width="80" height="60" rx="5" fill="#fff9c4" stroke="#fbc02d"/>
+                                    <text x="190" y="65" text-anchor="middle" font-size="10">Signal Cond.</text>
+                                    <text x="190" y="80" text-anchor="middle" font-size="8">(Amp/Filter)</text>
+                                    <line x1="230" y1="70" x2="250" y2="70" stroke="#333" stroke-width="2" marker-end="url(#arrow-smart)"/>
+                                    
+                                    <!-- ADC -->
+                                    <rect x="250" y="40" width="50" height="60" rx="5" fill="#e1bee7" stroke="#8e24aa"/>
+                                    <text x="275" y="75" text-anchor="middle" font-size="10">ADC</text>
+                                    <line x1="300" y1="70" x2="320" y2="70" stroke="#333" stroke-width="2" marker-end="url(#arrow-smart)"/>
+                                    
+                                    <!-- Microprocessor -->
+                                    <rect x="320" y="30" width="100" height="80" rx="5" fill="#bbdefb" stroke="#1976d2"/>
+                                    <text x="370" y="60" text-anchor="middle" font-size="10" font-weight="bold">Microprocessor</text>
+                                    <text x="370" y="75" text-anchor="middle" font-size="10">DSP / Logic</text>
+                                    <line x1="420" y1="70" x2="440" y2="70" stroke="#333" stroke-width="2" marker-end="url(#arrow-smart)"/>
+                                    
+                                    <!-- Comm Interface -->
+                                    <rect x="440" y="40" width="80" height="60" rx="5" fill="#c8e6c9" stroke="#388e3c"/>
+                                    <text x="480" y="65" text-anchor="middle" font-size="10">Comm.</text>
+                                    <text x="480" y="80" text-anchor="middle" font-size="10">Interface</text>
+                                    <line x1="520" y1="70" x2="550" y2="70" stroke="#333" stroke-width="2" marker-end="url(#arrow-smart)"/>
+                                    
+                                    <!-- Output -->
+                                    <text x="575" y="75" text-anchor="middle" font-size="10">Digital Out</text>
+                                </svg>
+                            </div>
 
                             <ul>
                                 <li><strong>Primary Sensing Element:</strong> Detects the physical quantity (e.g., pressure, temp) and gives a raw analog signal.</li>
