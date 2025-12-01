@@ -23,7 +23,7 @@ import { ppleFlashcards } from './data/ppleFlashcards'
 import './tips.css'
 import './quiz.css'
 import './mindmap.css'
-import { mindmaps as mobileMindmapsOld } from './data/mindmaps' // This line might be problematic if I overwrote the file.
+
 // Actually, I overwrote the file to export named exports.
 import { mobileMindmaps, electronicSensorsMindmaps } from './data/mindmaps'
 import ReloadPrompt from './ReloadPrompt'
@@ -700,7 +700,7 @@ function App() {
         </div>
       )}
       {/* Mind Map Modal */}
-      {activeMindMap && mindmaps[activeMindMap] && (
+      {activeMindMap && subjectData.mindmaps && subjectData.mindmaps[activeMindMap] && (
         <div className="modal-overlay">
           <div className="modal-content" style={{ width: '95%', height: '95%', maxWidth: '100%', display: 'flex', flexDirection: 'column', padding: '1rem' }}>
             <button className="close-btn" onClick={() => setActiveMindMap(null)} style={{ top: '10px', right: '10px' }}>&times;</button>
@@ -733,7 +733,7 @@ function App() {
                 margin: 'auto',          // Center content if smaller than container
                 transformOrigin: 'top left' // Fallback if zoom fails (though zoom overrides)
               }}>
-                <MindMapNode node={mindmaps[activeMindMap]} />
+                <MindMapNode node={subjectData.mindmaps[activeMindMap]} />
               </div>
             </div>
 
