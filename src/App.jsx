@@ -11,6 +11,7 @@ import { flashcards as mobileFlashcards } from './data/flashcards'
 import { electronicSensorsSyllabus } from './data/electronicSensorsSyllabus'
 import { electronicSensorsQuiz } from './data/electronicSensorsQuiz'
 import { electronicSensorsModelPaper } from './data/electronicSensorsModelPaper'
+import { electronicSensorsModelPaper2 } from './data/electronicSensorsModelPaper2'
 import { electronicSensorsTips } from './data/electronicSensorsTips'
 import { electronicSensorsFlashcards } from './data/electronicSensorsFlashcards'
 
@@ -22,7 +23,9 @@ import { ppleFlashcards } from './data/ppleFlashcards'
 import './tips.css'
 import './quiz.css'
 import './mindmap.css'
-import { mindmaps } from './data/mindmaps'
+import { mindmaps as mobileMindmapsOld } from './data/mindmaps' // This line might be problematic if I overwrote the file.
+// Actually, I overwrote the file to export named exports.
+import { mobileMindmaps, electronicSensorsMindmaps } from './data/mindmaps'
 import ReloadPrompt from './ReloadPrompt'
 import { changelog } from './data/changelog'
 
@@ -49,9 +52,10 @@ function App() {
         title: "Electronic Sensors",
         syllabus: electronicSensorsSyllabus,
         quizzes: electronicSensorsQuiz,
-        papers: [electronicSensorsModelPaper], // Only 1 paper for now
+        papers: [electronicSensorsModelPaper, electronicSensorsModelPaper2],
         tips: electronicSensorsTips,
         flashcards: electronicSensorsFlashcards,
+        mindmaps: electronicSensorsMindmaps,
         progressKey: 'electronicSensorsProgress'
       }
     }
@@ -63,6 +67,7 @@ function App() {
         papers: [ppleModelPaper],
         tips: ppleTips,
         flashcards: ppleFlashcards,
+        mindmaps: null, // No mindmaps yet for PPLE
         progressKey: 'ppleProgress'
       }
     }
@@ -74,9 +79,11 @@ function App() {
       papers: [modelPaper1, modelPaper2, modelPaper3, modelPaper4],
       tips: mobileTips,
       flashcards: mobileFlashcards,
+      mindmaps: mobileMindmaps,
       progressKey: 'mobileComputingProgress'
     }
   }
+
 
   const subjectData = getSubjectData()
 

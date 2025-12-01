@@ -4,10 +4,11 @@ export const changelog = [
         date: '2025-12-02',
         title: 'Electronic Sensors Content',
         changes: [
-            'Added Full Model Paper 1 for Electronic Sensors.',
+            'Added Full Model Paper 1 & 2 for Electronic Sensors.',
             'Included 11+ High-Quality SVG Diagrams for Exam Answers.',
-            'Detailed answers for Part A and Part B.',
-            'Covered all 5 units with internal choices.'
+            'Enhanced Study Mode with Textbook-style notes & SVGs.',
+            'Added Interactive Mind Maps for Electronic Sensors.',
+            'Expanded Quiz with 25+ new questions.'
         ]
     },
     {

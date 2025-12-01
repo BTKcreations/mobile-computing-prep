@@ -1,4 +1,4 @@
-export const mindmaps = {
+export const mobileMindmaps = {
     "I": {
         id: "root",
         label: "Mobile Computing",
@@ -134,6 +134,161 @@ export const mindmaps = {
                 children: [
                     { id: "config", label: "Config (CLDC)" },
                     { id: "profile", label: "Profile (MIDP)" }
+                ]
+            }
+        ]
+    }
+};
+
+export const electronicSensorsMindmaps = {
+    "I": {
+        id: "root",
+        label: "Sensors & Transducers",
+        children: [
+            {
+                id: "basics",
+                label: "Basics",
+                children: [
+                    { id: "def", label: "Sensor vs Transducer" },
+                    { id: "class", label: "Classification", children: [{ id: "act", label: "Active" }, { id: "pass", label: "Passive" }] },
+                    { id: "char", label: "Characteristics", children: [{ id: "stat", label: "Static (Accuracy, Precision)" }, { id: "dyn", label: "Dynamic" }] }
+                ]
+            },
+            {
+                id: "resistive",
+                label: "Resistive Sensors",
+                children: [
+                    { id: "pot", label: "Potentiometer" },
+                    { id: "strain", label: "Strain Gauge", children: [{ id: "gf", label: "Gauge Factor" }, { id: "bridge", label: "Wheatstone Bridge" }] }
+                ]
+            },
+            {
+                id: "inductive",
+                label: "Inductive Sensors",
+                children: [
+                    { id: "lvdt", label: "LVDT", children: [{ id: "core", label: "Movable Core" }, { id: "out", label: "Vout = Vs1 - Vs2" }] }
+                ]
+            },
+            {
+                id: "capacitive",
+                label: "Capacitive Sensors",
+                children: [
+                    { id: "var", label: "Variations", children: [{ id: "dist", label: "Distance (d)" }, { id: "area", label: "Area (A)" }, { id: "diel", label: "Dielectric (ε)" }] }
+                ]
+            }
+        ]
+    },
+    "II": {
+        id: "root",
+        label: "Thermal Sensors",
+        children: [
+            {
+                id: "expansion",
+                label: "Expansion Type",
+                children: [
+                    { id: "bimetal", label: "Bimetallic Strip" },
+                    { id: "liq", label: "Liquid in Glass" }
+                ]
+            },
+            {
+                id: "electrical",
+                label: "Electrical Type",
+                children: [
+                    { id: "rtd", label: "RTD (Pt100)", children: [{ id: "ptc", label: "PTC (Linear)" }] },
+                    { id: "thermistor", label: "Thermistor", children: [{ id: "ntc", label: "NTC (Non-linear)" }] },
+                    { id: "tcouple", label: "Thermocouple", children: [{ id: "seebeck", label: "Seebeck Effect" }, { id: "types", label: "Types (J, K, T)" }] }
+                ]
+            },
+            {
+                id: "radiation",
+                label: "Radiation Type",
+                children: [
+                    { id: "pyro", label: "Pyrometers", children: [{ id: "opt", label: "Optical" }, { id: "rad", label: "Total Radiation" }] }
+                ]
+            }
+        ]
+    },
+    "III": {
+        id: "root",
+        label: "Magnetic Sensors",
+        children: [
+            {
+                id: "hall",
+                label: "Hall Effect",
+                children: [
+                    { id: "principle", label: "Lorentz Force" },
+                    { id: "app", label: "Applications", children: [{ id: "rpm", label: "RPM" }, { id: "curr", label: "Current Sensing" }] }
+                ]
+            },
+            {
+                id: "magneto",
+                label: "Magnetoresistive",
+                children: [
+                    { id: "amr", label: "AMR" },
+                    { id: "gmr", label: "GMR (Giant MR)" }
+                ]
+            },
+            {
+                id: "strictive",
+                label: "Magnetostrictive",
+                children: [
+                    { id: "wied", label: "Wiedemann Effect" },
+                    { id: "level", label: "Liquid Level Sensing" }
+                ]
+            }
+        ]
+    },
+    "IV": {
+        id: "root",
+        label: "Radiation & Electroanalytical",
+        children: [
+            {
+                id: "optical",
+                label: "Optical Sensors",
+                children: [
+                    { id: "pdiode", label: "Photodiode" },
+                    { id: "ptrans", label: "Phototransistor" },
+                    { id: "ldr", label: "LDR" },
+                    { id: "solar", label: "Solar Cell" }
+                ]
+            },
+            {
+                id: "nuclear",
+                label: "Nuclear Radiation",
+                children: [
+                    { id: "gm", label: "Geiger Muller Counter" },
+                    { id: "scint", label: "Scintillation Counter" }
+                ]
+            },
+            {
+                id: "chem",
+                label: "Chemical Sensors",
+                children: [
+                    { id: "ph", label: "pH Sensor", children: [{ id: "glass", label: "Glass Electrode" }, { id: "nernst", label: "Nernst Eq" }] },
+                    { id: "cond", label: "Conductivity Cell" }
+                ]
+            }
+        ]
+    },
+    "V": {
+        id: "root",
+        label: "Smart Sensors & MEMS",
+        children: [
+            {
+                id: "smart",
+                label: "Smart Sensors",
+                children: [
+                    { id: "std", label: "IEEE 1451" },
+                    { id: "blocks", label: "Blocks", children: [{ id: "sens", label: "Sensor" }, { id: "adc", label: "ADC" }, { id: "dsp", label: "DSP" }, { id: "comm", label: "Comm" }] }
+                ]
+            },
+            {
+                id: "mems",
+                label: "MEMS",
+                children: [
+                    { id: "def", label: "Micro-Electro-Mechanical" },
+                    { id: "fab", label: "Fabrication", children: [{ id: "bulk", label: "Bulk Micromachining" }, { id: "surf", label: "Surface Micromachining" }] },
+                    { id: "apps", label: "Applications", children: [{ id: "accel", label: "Accelerometer" }, { id: "gyro", label: "Gyroscope" }] }
                 ]
             }
         ]
