@@ -1,5 +1,15 @@
 export const changelog = [
     {
+        version: '1.3.0',
+        date: '2025-12-02',
+        title: 'Electronic Sensors Content',
+        changes: [
+            'Added Full Model Paper 1 for Electronic Sensors.',
+            'Includes detailed answers for Part A and Part B.',
+            'Covered all 5 units with internal choices.'
+        ]
+    },
+    {
         version: '1.2.0',
         date: '2025-11-30',
         title: 'Update History & PWA Enhancements',
