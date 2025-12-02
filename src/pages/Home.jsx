@@ -2,11 +2,16 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { changelog } from '../data/changelog'
 import ReloadPrompt from '../ReloadPrompt'
+import { useGitHubCommits } from '../hooks/useGitHubCommits'
 
 function Home() {
     const navigate = useNavigate()
     const [showAbout, setShowAbout] = useState(false)
     const [showHistory, setShowHistory] = useState(false)
+    const [historyTab, setHistoryTab] = useState('major') // 'major' or 'commits'
+
+    // Fetch commits (only when history modal is open to save API calls)
+    const { commits, loading: commitsLoading, error: commitsError } = useGitHubCommits('BTKcreations', 'mobile-computing-prep')
 
     const handleSubjectClick = (subjectId) => {
         navigate(`/subject/${subjectId}`)
@@ -66,21 +71,58 @@ function Home() {
                     <div className="modal-content" style={{ maxWidth: '600px', maxHeight: '80vh', display: 'flex', flexDirection: 'column' }}>
                         <button className="close-btn" onClick={() => setShowHistory(false)}>&times;</button>
                         <h2 style={{ color: 'var(--primary-color)', marginBottom: '1rem', textAlign: 'center' }}>📅 Update History</h2>
-                        <div style={{ overflowY: 'auto', paddingRight: '0.5rem' }}>
-                            {changelog.map((log, index) => (
-                                <div key={index} style={{ marginBottom: '1.5rem', borderLeft: '3px solid var(--primary-color)', paddingLeft: '1rem' }}>
-                                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: '0.5rem' }}>
-                                        <h3 style={{ fontSize: '1.1rem', margin: 0 }}>{log.title}</h3>
-                                        <span style={{ fontSize: '0.8rem', color: '#64748b', background: '#f1f5f9', padding: '2px 8px', borderRadius: '12px' }}>v{log.version}</span>
+
+                        <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem', marginBottom: '1.5rem' }}>
+                            <button
+                                className={`btn ${historyTab === 'major' ? 'btn-primary' : 'btn-outline'}`}
+                                onClick={() => setHistoryTab('major')}
+                                style={{ padding: '0.5rem 1rem', fontSize: '0.9rem' }}
+                            >
+                                Major Releases
+                            </button>
+                            <button
+                                className={`btn ${historyTab === 'commits' ? 'btn-primary' : 'btn-outline'}`}
+                                onClick={() => setHistoryTab('commits')}
+                                style={{ padding: '0.5rem 1rem', fontSize: '0.9rem' }}
+                            >
+                                Live Commit Log
+                            </button>
+                        </div>
+
+                        <div style={{ overflowY: 'auto', paddingRight: '0.5rem', flex: 1 }}>
+                            {historyTab === 'major' ? (
+                                changelog.map((log, index) => (
+                                    <div key={index} style={{ marginBottom: '1.5rem', borderLeft: '3px solid var(--primary-color)', paddingLeft: '1rem' }}>
+                                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: '0.5rem' }}>
+                                            <h3 style={{ fontSize: '1.1rem', margin: 0 }}>{log.title}</h3>
+                                            <span style={{ fontSize: '0.8rem', color: '#64748b', background: '#f1f5f9', padding: '2px 8px', borderRadius: '12px' }}>v{log.version}</span>
+                                        </div>
+                                        <p style={{ fontSize: '0.85rem', color: '#94a3b8', marginBottom: '0.5rem' }}>{log.date}</p>
+                                        <ul style={{ paddingLeft: '1.2rem', margin: 0 }}>
+                                            {log.changes.map((change, i) => (
+                                                <li key={i} style={{ fontSize: '0.95rem', color: '#334155', marginBottom: '0.25rem' }}>{change}</li>
+                                            ))}
+                                        </ul>
                                     </div>
-                                    <p style={{ fontSize: '0.85rem', color: '#94a3b8', marginBottom: '0.5rem' }}>{log.date}</p>
-                                    <ul style={{ paddingLeft: '1.2rem', margin: 0 }}>
-                                        {log.changes.map((change, i) => (
-                                            <li key={i} style={{ fontSize: '0.95rem', color: '#334155', marginBottom: '0.25rem' }}>{change}</li>
-                                        ))}
-                                    </ul>
+                                ))
+                            ) : (
+                                <div>
+                                    {commitsLoading && <p style={{ textAlign: 'center', color: '#666' }}>Loading latest commits...</p>}
+                                    {commitsError && <p style={{ textAlign: 'center', color: 'red' }}>Unable to load commits. (API Limit or Network Error)</p>}
+                                    {!commitsLoading && !commitsError && commits.map((commit) => (
+                                        <div key={commit.sha} style={{ marginBottom: '1rem', borderBottom: '1px solid #eee', paddingBottom: '1rem' }}>
+                                            <p style={{ fontWeight: 'bold', marginBottom: '0.25rem', fontSize: '0.95rem' }}>{commit.commit.message}</p>
+                                            <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.8rem', color: '#64748b' }}>
+                                                <span>👤 {commit.commit.author.name}</span>
+                                                <span>🕒 {new Date(commit.commit.author.date).toLocaleDateString()}</span>
+                                            </div>
+                                            <a href={commit.html_url} target="_blank" rel="noopener noreferrer" style={{ fontSize: '0.8rem', color: 'var(--primary-color)', textDecoration: 'none', display: 'inline-block', marginTop: '0.25rem' }}>
+                                                View on GitHub &rarr;
+                                            </a>
+                                        </div>
+                                    ))}
                                 </div>
-                            ))}
+                            )}
                         </div>
                         <button className="btn btn-primary" onClick={() => setShowHistory(false)} style={{ alignSelf: 'center', marginTop: '1rem' }}>Close</button>
                     </div>
