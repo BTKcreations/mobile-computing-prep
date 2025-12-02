@@ -12,6 +12,7 @@ import { electronicSensorsSyllabus } from './data/electronicSensorsSyllabus'
 import { electronicSensorsQuiz } from './data/electronicSensorsQuiz'
 import { electronicSensorsModelPaper } from './data/electronicSensorsModelPaper'
 import { electronicSensorsModelPaper2 } from './data/electronicSensorsModelPaper2'
+import { electronicSensorsModelPaper3 } from './data/electronicSensorsModelPaper3'
 import { electronicSensorsTips } from './data/electronicSensorsTips'
 import { electronicSensorsFlashcards } from './data/electronicSensorsFlashcards'
 
@@ -52,7 +53,7 @@ function App() {
         title: "Electronic Sensors",
         syllabus: electronicSensorsSyllabus,
         quizzes: electronicSensorsQuiz,
-        papers: [electronicSensorsModelPaper, electronicSensorsModelPaper2],
+        papers: [electronicSensorsModelPaper, electronicSensorsModelPaper2, electronicSensorsModelPaper3],
         tips: electronicSensorsTips,
         flashcards: electronicSensorsFlashcards,
         mindmaps: electronicSensorsMindmaps,
