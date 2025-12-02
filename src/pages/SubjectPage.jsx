@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { useParams, useNavigate, useLocation } from 'react-router-dom'
+import { useParams, useNavigate, useLocation, useSearchParams } from 'react-router-dom'
 import { getSubjectData } from '../utils/subjectUtils'
 import MindMapNode from '../components/MindMapNode'
 import ReloadPrompt from '../ReloadPrompt'
@@ -8,9 +8,10 @@ import '../quiz.css'
 import '../mindmap.css'
 
 function SubjectPage() {
-    const { subjectId, viewMode: paramViewMode, topicId } = useParams()
+    const { subjectId, viewMode: paramViewMode, topicId, unitId } = useParams()
     const navigate = useNavigate()
     const location = useLocation()
+    const [searchParams, setSearchParams] = useSearchParams()
 
     const subjectData = getSubjectData(subjectId)
 
@@ -40,9 +41,31 @@ function SubjectPage() {
             setViewMode(paramViewMode)
         } else {
             // If no viewMode param, default to study but don't force URL update yet unless needed
-            if (!topicId) setViewMode('study')
+            if (!topicId && !unitId) setViewMode('study')
         }
-    }, [paramViewMode, topicId])
+    }, [paramViewMode, topicId, unitId])
+
+    // Quiz URL Sync
+    useEffect(() => {
+        if (unitId) {
+            setQuizMode(unitId)
+            const q = parseInt(searchParams.get('q') || '1')
+            setCurrentQuestion(q - 1)
+
+            // Initialize Final Exam questions if needed
+            if (unitId === 'FINAL' && finalExamQuestions.length === 0) {
+                let allQuestions = []
+                Object.values(subjectData.quizzes).forEach(unitQuestions => {
+                    allQuestions = [...allQuestions, ...unitQuestions]
+                })
+                const shuffled = allQuestions.sort(() => 0.5 - Math.random())
+                const selected = shuffled.slice(0, 10)
+                setFinalExamQuestions(selected)
+            }
+        } else {
+            setQuizMode(null)
+        }
+    }, [unitId, searchParams, subjectData])
 
     useEffect(() => {
         if (subjectData) {
@@ -105,10 +128,9 @@ function SubjectPage() {
         navigate(`/subject/${subjectId}`)
     }
 
-    const startQuiz = (unitId) => {
-        if (subjectData.quizzes[unitId]) {
-            setQuizMode(unitId)
-            setCurrentQuestion(0)
+    const startQuiz = (uId) => {
+        if (subjectData.quizzes[uId]) {
+            navigate(`/subject/${subjectId}/quiz/${uId}?q=1`)
             setScore(0)
             setShowScore(false)
         } else {
@@ -117,15 +139,7 @@ function SubjectPage() {
     }
 
     const startFinalExam = () => {
-        let allQuestions = []
-        Object.values(subjectData.quizzes).forEach(unitQuestions => {
-            allQuestions = [...allQuestions, ...unitQuestions]
-        })
-        const shuffled = allQuestions.sort(() => 0.5 - Math.random())
-        const selected = shuffled.slice(0, 10)
-        setFinalExamQuestions(selected)
-        setQuizMode('FINAL')
-        setCurrentQuestion(0)
+        navigate(`/subject/${subjectId}/quiz/FINAL?q=1`)
         setScore(0)
         setShowScore(false)
     }
@@ -142,7 +156,8 @@ function SubjectPage() {
 
         const nextQuestion = currentQuestion + 1
         if (nextQuestion < questions.length) {
-            setCurrentQuestion(nextQuestion)
+            // Update URL to next question
+            setSearchParams({ q: nextQuestion + 1 })
         } else {
             setShowScore(true)
             saveProgress(quizMode, isCorrect ? score + 1 : score, questions.length)
@@ -150,8 +165,7 @@ function SubjectPage() {
     }
 
     const closeQuiz = () => {
-        setQuizMode(null)
-        setCurrentQuestion(0)
+        navigate(`/subject/${subjectId}`)
         setScore(0)
         setShowScore(false)
         setFinalExamQuestions([])

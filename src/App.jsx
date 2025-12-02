@@ -9,6 +9,7 @@ function App() {
       <Route path="/subject/:subjectId" element={<SubjectPage />} />
       <Route path="/subject/:subjectId/:viewMode" element={<SubjectPage />} />
       <Route path="/subject/:subjectId/topic/:topicId" element={<SubjectPage />} />
+      <Route path="/subject/:subjectId/quiz/:unitId" element={<SubjectPage />} />
     </Routes>
   )
 }
