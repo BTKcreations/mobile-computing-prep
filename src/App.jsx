@@ -360,6 +360,19 @@ function App() {
         <h1>{subjectData.title} Prep</h1>
         <p className="subtitle">Comprehensive B.Tech Exam Preparation</p>
 
+        {/* Breadcrumbs */}
+        <div className="breadcrumbs" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.9rem', color: '#64748b', margin: '1rem 0', justifyContent: 'center' }}>
+          <span style={{ cursor: 'pointer' }} onClick={() => setCurrentSubject(null)}>Home</span>
+          <span>&gt;</span>
+          <span style={{ fontWeight: 'bold', color: 'var(--primary-color)' }}>{subjectData.title}</span>
+          {viewMode !== 'study' && (
+            <>
+              <span>&gt;</span>
+              <span>{viewMode === 'paper' ? 'Model Papers' : viewMode === 'tips' ? 'Exam Tips' : 'Flashcards'}</span>
+            </>
+          )}
+        </div>
+
         <div style={{ display: 'flex', gap: '10px', justifyContent: 'center', marginTop: '1rem', flexWrap: 'wrap' }}>
           <button className={`btn ${viewMode === 'study' ? 'btn-primary' : ''}`} onClick={() => setViewMode('study')}>Study Mode</button>
           <button className={`btn ${viewMode === 'paper' ? 'btn-primary' : ''}`} onClick={() => setViewMode('paper')}>Model Papers</button>

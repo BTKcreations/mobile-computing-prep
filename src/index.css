@@ -1008,7 +1008,29 @@ h1 {
   }
 
   .grid {
+    grid-template-columns: repeat(2, 1fr);
+    /* 2 columns for tablet */
+  }
+}
+
+@media (max-width: 480px) {
+  .grid {
     grid-template-columns: 1fr;
+    /* 1 column for mobile */
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  .btn {
+    font-size: 0.9rem;
+    padding: 0.4rem;
+  }
+
+  .breadcrumbs {
+    font-size: 0.8rem;
+    flex-wrap: wrap;
   }
 
   .flashcard-container {
