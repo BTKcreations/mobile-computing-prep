@@ -132,19 +132,62 @@ function Home() {
             {/* About Modal */}
             {showAbout && (
                 <div className="modal-overlay">
-                    <div className="modal-content" style={{ maxWidth: '500px', textAlign: 'center' }}>
+                    <div className="modal-content" style={{ maxWidth: '600px', maxHeight: '85vh', display: 'flex', flexDirection: 'column' }}>
                         <button className="close-btn" onClick={() => setShowAbout(false)}>&times;</button>
-                        <h2 style={{ color: 'var(--primary-color)', marginBottom: '1rem' }}>About B.Tech Exam Prep</h2>
-                        <p style={{ marginBottom: '1.5rem', lineHeight: '1.6' }}>
-                            This application is designed to help B.Tech students prepare for their exams effectively.
-                            It features comprehensive notes, interactive quizzes, model papers, and visual mind maps.
-                        </p>
-                        <div style={{ background: '#f8fafc', padding: '1.5rem', borderRadius: '12px', marginBottom: '1.5rem' }}>
-                            <h3 style={{ fontSize: '1.1rem', marginBottom: '0.5rem' }}>👨‍💻 Developer</h3>
-                            <p style={{ fontWeight: 'bold', fontSize: '1.2rem', color: 'var(--primary-color)' }}>BTK Creations</p>
-                            <p style={{ fontSize: '0.9rem', color: '#64748b' }}>Passionate about Education & Technology</p>
+                        <h2 style={{ color: 'var(--primary-color)', marginBottom: '1rem', textAlign: 'center' }}>About B.Tech Exam Prep</h2>
+
+                        <div style={{ overflowY: 'auto', paddingRight: '0.5rem', textAlign: 'left' }}>
+                            <p style={{ marginBottom: '1.5rem', lineHeight: '1.6', fontSize: '1.05rem' }}>
+                                <strong>B.Tech Exam Prep</strong> is an advanced study companion designed to bridge the gap between heavy textbooks and last-minute exam preparation. We believe that smart work beats hard work when you have the right tools.
+                            </p>
+
+                            <div style={{ marginBottom: '2rem' }}>
+                                <h3 style={{ color: '#334155', borderBottom: '2px solid #e2e8f0', paddingBottom: '0.5rem', marginBottom: '1rem' }}>🚀 Our Methodology</h3>
+                                <div style={{ display: 'grid', gap: '1rem' }}>
+                                    <div style={{ background: '#f8fafc', padding: '1rem', borderRadius: '8px' }}>
+                                        <h4 style={{ margin: '0 0 0.5rem 0', color: 'var(--primary-color)' }}>🧠 Active Recall</h4>
+                                        <p style={{ margin: 0, fontSize: '0.9rem', color: '#64748b' }}>
+                                            We use <strong>Interactive Flashcards</strong> to force your brain to retrieve information, strengthening neural pathways better than passive reading.
+                                        </p>
+                                    </div>
+                                    <div style={{ background: '#f8fafc', padding: '1rem', borderRadius: '8px' }}>
+                                        <h4 style={{ margin: '0 0 0.5rem 0', color: 'var(--primary-color)' }}>👁️ Visual Learning</h4>
+                                        <p style={{ margin: 0, fontSize: '0.9rem', color: '#64748b' }}>
+                                            Our <strong>Mind Maps</strong> and <strong>SVG Diagrams</strong> break down complex systems into digestible visual components, making them easier to remember.
+                                        </p>
+                                    </div>
+                                    <div style={{ background: '#f8fafc', padding: '1rem', borderRadius: '8px' }}>
+                                        <h4 style={{ margin: '0 0 0.5rem 0', color: 'var(--primary-color)' }}>🎯 Exam Simulation</h4>
+                                        <p style={{ margin: 0, fontSize: '0.9rem', color: '#64748b' }}>
+                                            <strong>Model Papers</strong> are structured exactly like final exams (Part A & Part B) to build familiarity and confidence before the big day.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div style={{ marginBottom: '2rem' }}>
+                                <h3 style={{ color: '#334155', borderBottom: '2px solid #e2e8f0', paddingBottom: '0.5rem', marginBottom: '1rem' }}>💡 The Vision</h3>
+                                <p style={{ lineHeight: '1.6', color: '#475569' }}>
+                                    This project started with a simple idea: <em>"What if exam prep wasn't stressful?"</em>
+                                </p>
+                                <p style={{ lineHeight: '1.6', color: '#475569', marginTop: '0.5rem' }}>
+                                    We aim to democratize high-quality education by providing a free, accessible, and offline-capable Progressive Web App (PWA). Whether you're on a bus or in a library, your study materials are always with you.
+                                </p>
+                            </div>
+
+                            <div style={{ background: '#f0f9ff', padding: '1.5rem', borderRadius: '12px', marginBottom: '1rem', textAlign: 'center', border: '1px solid #bae6fd' }}>
+                                <h3 style={{ fontSize: '1.1rem', marginBottom: '0.5rem', color: '#0369a1' }}>👨‍💻 Developer</h3>
+                                <p style={{ fontWeight: 'bold', fontSize: '1.3rem', color: '#0ea5e9', margin: '0.5rem 0' }}>BTK Creations</p>
+                                <p style={{ fontSize: '0.9rem', color: '#0c4a6e' }}>Passionate about EdTech & Open Source</p>
+                                <div style={{ marginTop: '1rem', display: 'flex', justifyContent: 'center', gap: '1rem' }}>
+                                    <a href="https://github.com/BTKcreations" target="_blank" rel="noopener noreferrer" style={{ color: '#0284c7', textDecoration: 'none', fontWeight: 'bold' }}>GitHub</a>
+                                    <span>•</span>
+                                    <a href="mailto:contact@btkcreations.com" style={{ color: '#0284c7', textDecoration: 'none', fontWeight: 'bold' }}>Contact</a>
+                                </div>
+                            </div>
                         </div>
-                        <button className="btn btn-primary" onClick={() => setShowAbout(false)}>Close</button>
+
+                        <button className="btn btn-primary" onClick={() => setShowAbout(false)} style={{ alignSelf: 'center', marginTop: '1rem' }}>Close</button>
                     </div>
                 </div>
             )}
